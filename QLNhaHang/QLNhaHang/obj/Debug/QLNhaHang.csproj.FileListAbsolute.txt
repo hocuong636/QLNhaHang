@@ -16,3 +16,8 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.csproj.GenerateResource.cac
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.csproj.CoreCompileInputs.cache
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.exe
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.pdb
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_login.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_login.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_Forgotpassword.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_Forgotpassword.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_SignUp.g.cs
