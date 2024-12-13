@@ -21,3 +21,14 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_login.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_Forgotpassword.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_Forgotpassword.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_SignUp.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.csproj.AssemblyReference.cache
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_Forgotpassword.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_login.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Form_SignUp.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MainWindow.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\App.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang_Content.g.cs
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang_MarkupCompile.cache
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang_MarkupCompile.lref
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.exe
+D:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.pdb

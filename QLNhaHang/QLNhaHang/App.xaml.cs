@@ -13,5 +13,6 @@ namespace QLNhaHang
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

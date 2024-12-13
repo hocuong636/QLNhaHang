@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
-        Title="Sign Up" Height="500" Width="710">
+        Title="Sign Up" Height="585" Width="710">
     <Grid Margin="0,0,0,-95">
         <Grid.Background>
             <ImageBrush ImageSource="/pngtree-restaurant-interior-cartoon-png-image_12018924.png"/>

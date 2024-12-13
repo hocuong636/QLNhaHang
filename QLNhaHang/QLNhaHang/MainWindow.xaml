@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="4" Margin="217,24,0,0" VerticalAlignment="Top" Width="15"/>
+        <Label Content="Label" HorizontalAlignment="Left" Height="33" Margin="33,142,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="72" Margin="250,77,0,0" VerticalAlignment="Top" Width="126"/>
+        <TabControl HorizontalAlignment="Left" Height="21" Margin="217,175,0,0" VerticalAlignment="Top" Width="61">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </Window>
