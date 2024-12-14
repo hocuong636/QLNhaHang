@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\QLNhaHang\QLNhaHang\QLNhaHang\App.xaml
-4-1289379061
-2-694505218
-91888698393
+3-1736877848
+2-581527234
+81701348148
 13-1310406943
-Form_Forgotpassword.xaml;Form_login.xaml;Form_SignUp.xaml;MainWindow.xaml;
+AdminWindow.xaml;EmployeeWindow.xaml;MainWindow.xaml;
 
 True
 

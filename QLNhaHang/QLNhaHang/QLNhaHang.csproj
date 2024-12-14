@@ -72,15 +72,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Form_Forgotpassword.xaml">
+    <Page Include="AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Form_login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Form_SignUp.xaml">
+    <Page Include="EmployeeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,18 +84,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Form_Forgotpassword.xaml.cs">
-      <DependentUpon>Form_Forgotpassword.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Form_login.xaml.cs">
-      <DependentUpon>Form_login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Form_SignUp.xaml.cs">
-      <DependentUpon>Form_SignUp.xaml</DependentUpon>
+    <Compile Include="EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -145,14 +138,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DatabaseQLNhaHang.mdf">
+    <Content Include="DatabaseQLnhahang.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DatabaseQLNhaHang_log.ldf">
+    <Content Include="DatabaseQLnhahang_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DatabaseQLNhaHang.mdf</DependentUpon>
+      <DependentUpon>DatabaseQLnhahang.mdf</DependentUpon>
     </Content>
-    <Resource Include="pngtree-restaurant-interior-cartoon-png-image_12018924.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

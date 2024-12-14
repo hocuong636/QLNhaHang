@@ -5,19 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Height="4" Margin="217,24,0,0" VerticalAlignment="Top" Width="15"/>
-        <Label Content="Label" HorizontalAlignment="Left" Height="33" Margin="33,142,0,0" VerticalAlignment="Top" Width="98"/>
-        <Button Content="Button" HorizontalAlignment="Left" Height="72" Margin="250,77,0,0" VerticalAlignment="Top" Width="126"/>
-        <TabControl HorizontalAlignment="Left" Height="21" Margin="217,175,0,0" VerticalAlignment="Top" Width="61">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+        Title="Đăng Nhập" Height="450" Width="710">
+    <Grid RenderTransformOrigin="0.5,1" Height="440" VerticalAlignment="Top">
+        <Border Width="318"
+            Background="White"
+            CornerRadius="6" Margin="0,10,0,0" HorizontalAlignment="Center" RenderTransformOrigin="0.65,0.518" Height="402" VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15"
+                              Direction ="-90" 
+                              RenderingBias ="Quality" 
+                              ShadowDepth ="2" 
+                              Color ="Gray" />
+            </Border.Effect>
+            <StackPanel Orientation="Vertical"
+                    Margin="20">
+                <TextBlock Text="Login" 
+                       FontSize="25"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontWeight="Bold"
+                       Padding="10"
+                       />
+                <Grid Width="462">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Tên đăng nhập" 
+                   Grid.Row="0"
+                   Margin="0,15"
+                   HorizontalAlignment="Left"/>
+                    <TextBox x:Name="UsernameTextBox"
+                  Padding="0,5"
+                  Width="255"
+                  BorderThickness="0,0,0,1"
+                  HorizontalAlignment="Left"
+                  Margin="0,36,0,10" Grid.RowSpan="2"/>
+                    <TextBlock Text="Mật khẩu" 
+                   Grid.Row="2"
+                   Margin="0,15"
+                   HorizontalAlignment="Left"/>
+                    <PasswordBox x:Name="PasswordBox" Grid.Row="2"
+                      Padding="0,5"                           
+                      Width="255"
+                      BorderThickness="0,0,0,1"
+                      HorizontalAlignment="Left" Margin="0,36,0,62" Grid.RowSpan="2"/>
 
+                </Grid>
+
+                <Button x:Name="LoginBtn" 
+                    Content="Login" 
+                    Foreground="White"
+                    Background="Black"
+                    Margin="0,25"
+                    Height="35"
+                    Width="250" RenderTransformOrigin="0.504,0.97" Click="LoginBtn_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border x:Name="LoginBorder" Background="{TemplateBinding Background}"
+                                            CornerRadius="16">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="AliceBlue" TargetName="LoginBorder"  />
+                                                <Setter Property="TextBlock.Foreground" Value="Black"  TargetName="LoginBorder" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
