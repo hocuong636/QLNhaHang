@@ -1,8 +1,27 @@
 ﻿<Window x:Class="QLNhaHang.AdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Admin Page" Height="450" Width="800">
+        Title="Admin Page" Height="600" Width="800">
     <Grid>
-        <TextBlock Text="Welcome Admin!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Vertical Navigation Menu -->
+        <StackPanel Grid.Column="0" Background="LightGray" HorizontalAlignment="Right" Width="200">
+            <Button x:Name="DashboardButton" Content="Dashboard" Click="DashboardButton_Click" Margin="20"/>
+            <Button x:Name="EmployeeManagementButton" Content="Quản lý nhân viên" Click="EmployeeManagementButton_Click" Margin="20"/>
+            <Button x:Name="TableStatusButton" Content="Quản lý tình trạng bàn" Click="TableStatusButton_Click" Margin="20"/>
+            <Button x:Name="KitchenManagementButton" Content="Quản lý bếp" Click="KitchenManagementButton_Click" Margin="20"/>
+            <Button x:Name="WarehouseManagementButton" Content="Quản lý kho" Click="WarehouseManagementButton_Click" Margin="20"/>
+            <Button x:Name="CustomerManagementButton" Content="Quản lý khách hàng" Click="CustomerManagementButton_Click" Margin="20"/>
+            <Button x:Name="FoodManagementButton" Content="Quản lý món ăn" Click="FoodManagementButton_Click" Margin="20"/>
+            <Button x:Name="InvoiceManagementButton" Content="Quản lý hóa đơn" Click="InvoiceManagementButton_Click" Margin="20"/>
+            <Button x:Name="ReportButton" Content="Báo cáo thống kê" Click="ReportButton_Click" Margin="20" Height="23" RenderTransformOrigin="0.496,3.337"/>
+        </StackPanel>
+
+        <!-- Content Area -->
+        <ContentControl x:Name="ContentArea" Grid.Column="1"/>
     </Grid>
 </Window>
