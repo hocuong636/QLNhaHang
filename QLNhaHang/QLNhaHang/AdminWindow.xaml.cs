@@ -1,27 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace QLNhaHang
 {
-    /// <summary>
-    /// Interaction logic for AdminWindow.xaml
-    /// </summary>
     public partial class AdminWindow : Window
     {
         public AdminWindow()
         {
             InitializeComponent();
         }
+
+        private void DashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new DashboardPage(); // Thay bằng trang thực tế
+        }
+
+        private void EmployeeManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new EmployeeManagementPage(); // Thay bằng trang thực tế
+        }
+
+        private void TableStatusButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new TableStatusPage();
+        }
+
+        private void KitchenManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new KitchenManagementPage();
+        }
+
+        private void WarehouseManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new WarehouseManagementPage();
+        }
+
+        private void CustomerManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new CustomerManagementPage();
+        }
+
+        private void FoodManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new FoodManagementPage();
+        }
+
+        private void InvoiceManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new InvoiceManagementPage();
+        }
+
+        private void ReportButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new ReportPage();
+        }
+
     }
 }
