@@ -7,7 +7,7 @@ namespace QLNhaHang
         public DashboardPage()
         {
             InitializeComponent();
-            this.DataContext = new DashboardViewModel(); // Gán ViewModel làm DataContext
         }
+
     }
 }

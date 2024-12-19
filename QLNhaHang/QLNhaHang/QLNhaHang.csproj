@@ -92,7 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DashboardViewModel.cs" />
     <Compile Include="MenuPage\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
@@ -111,7 +110,6 @@
     <Compile Include="MenuPage\ReportPage.xaml.cs">
       <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPage\RevenueDataAccess.cs" />
     <Compile Include="MenuPage\TableStatusPage.xaml.cs">
       <DependentUpon>TableStatusPage.xaml</DependentUpon>
     </Compile>

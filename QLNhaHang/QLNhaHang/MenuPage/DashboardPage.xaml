@@ -1,74 +1,104 @@
 ﻿<UserControl x:Class="QLNhaHang.DashboardPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="641" d:DesignWidth="1300">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="66.6" />
+            <RowDefinition />
+            <RowDefinition Height="2*" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <materialDesign:Card Background="#FFFEC007" VerticalAlignment="Center" 
-                             Width="320" Height="150" Margin="60 0 0 0" >
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Doanh thu" HorizontalAlignment="Left"
-                       Margin="20,20,0,0" TextWrapping="Wrap" Grid.Row="0"
-                       VerticalAlignment="Top" FontSize="25" Foreground="White"/>
-                    <TextBlock x:Name="txbRevenueThisMonth" Text="{Binding RevenueThisMonth}" Grid.Row="1" HorizontalAlignment="Left"
-           Margin="20,0.8,0,4.8" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24"
-           FontWeight="Bold" Foreground="White" />
 
+        <!-- Title -->
+        <TextBlock Text="KẾT QUẢ BÁN HÀNG HÔM NAY"
+                   HorizontalAlignment="Center" FontSize="20"
+                   FontWeight="Bold" Margin="0,20,0,20" Width="298"/>
 
-
-                    <Grid Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="/MenuPage/IncomeIcon.png"/>
-                            </Ellipse.Fill>
-
-                        </Ellipse>
+        <!-- Cards Section -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="196,-103,0,20" Grid.Row="1" Width="960">
+            <!-- First Card -->
+            <materialDesign:Card Width="300" Height="150" Margin="10" Background="#FFFDE7E7">
+                <Grid Height="150" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Width="50" Height="50" Margin="10">
+                        <Ellipse Fill="#F44336"/>
+                        <TextBlock Text="$" Foreground="White" FontSize="24" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                        <TextBlock Text="0 đơn đã xong" FontSize="16" Foreground="Gray"/>
+                        <TextBlock Text="0" FontSize="30" FontWeight="Bold" Foreground="#F44336"/>
+                        <TextBlock Text="↓ 100%" FontSize="12" Foreground="Green"/>
+
+                    </StackPanel>
                 </Grid>
             </materialDesign:Card>
-            <materialDesign:Card Background="#FFF34336" VerticalAlignment="Center"
-                             Width="320" Height="150" Margin="90 0 0 0">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Số lượng bàn đang hoạt động" HorizontalAlignment="Left"
-                       Margin="20,20,0,0" TextWrapping="Wrap" Grid.Row="0"
-                       VerticalAlignment="Top" FontSize="25" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Text="40 Bàn" HorizontalAlignment="Left"
-                       Margin="20,0.8,0,4.8" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" 
-                       FontWeight="Bold" Foreground="White"  />
-                    <Grid Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
 
+            <!-- Second Card -->
+            <materialDesign:Card Width="300" Height="150" Margin="10" Background="#E8F5E9">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Width="50" Height="50" Margin="10">
+                        <Ellipse Fill="#4CAF50"/>
+                        <TextBlock Text="✎" Foreground="White" FontSize="24" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                        <TextBlock Text="0 đơn đang phục vụ" FontSize="16" Foreground="Gray"/>
+                        <TextBlock Text="0" FontSize="30" FontWeight="Bold" Foreground="#4CAF50"/>
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <!-- Third Card -->
+            <materialDesign:Card Width="300" Height="150" Margin="10" Background="#FFFDE7E7">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Width="50" Height="50" Margin="10">
+                        <Ellipse Fill="#F44336"/>
+                        <TextBlock Text="👤" Foreground="White" FontSize="24" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                        <TextBlock Text="Khách hàng" FontSize="16" Foreground="Gray"/>
+                        <TextBlock Text="0" FontSize="30" FontWeight="Bold" Foreground="#F44336"/>
+                        <TextBlock Text="↓ 100%" FontSize="12" Foreground="Green"/>
+
+                    </StackPanel>
                 </Grid>
             </materialDesign:Card>
         </StackPanel>
-        <Grid Grid.Row="1">
-            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right">
 
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Doanh Thu" LabelFormatter="{Binding Formatter}" />
-                </lvc:CartesianChart.AxisX>
-            </lvc:CartesianChart>
+        <!-- Chart Section -->
+        <lvc:CartesianChart Grid.Row="1" Margin="10,176,87,55" Zoom="X" Pan="X" LegendLocation="Top" Grid.RowSpan="2">
+            <lvc:CartesianChart.Series>
+                <lvc:ColumnSeries Title="Chi nhánh trung tâm" Values="{Binding SalesData}" Fill="#2196F3"/>
+            </lvc:CartesianChart.Series>
 
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Giờ" 
+                  Labels="08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00"/>
+            </lvc:CartesianChart.AxisX>
 
-        </Grid>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Doanh số (triệu)" LabelFormatter="{Binding SalesFormatter}"/>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+
 
     </Grid>
 </UserControl>

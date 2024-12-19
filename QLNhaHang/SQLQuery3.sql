@@ -1,3 +1,0 @@
-﻿SELECT ISNULL(SUM(TongTien), 0) AS TotalRevenue
-FROM HoaDon
-WHERE MONTH(NgayLap) = MONTH(GETDATE()) AND YEAR(NgayLap) = YEAR(GETDATE());
