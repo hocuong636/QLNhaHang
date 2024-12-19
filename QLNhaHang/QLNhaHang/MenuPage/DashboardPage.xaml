@@ -34,7 +34,7 @@
                                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Grid>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
-                        <TextBlock Text="0 đơn đã xong" FontSize="16" Foreground="Gray"/>
+                        <TextBlock Text="Doanh Thu" FontSize="20" Foreground="Gray"/>
                         <TextBlock Text="0" FontSize="30" FontWeight="Bold" Foreground="#F44336"/>
                         <TextBlock Text="↓ 100%" FontSize="12" Foreground="Green"/>
 

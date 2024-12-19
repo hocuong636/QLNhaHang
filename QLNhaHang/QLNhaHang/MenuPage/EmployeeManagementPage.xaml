@@ -49,7 +49,7 @@
                 <!--ô tìm kiếm-->
                 <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="85,0,0,0"
                                           VerticalAlignment="Center"  Width="250">
-                    <Grid>
+                    <Grid Background="#FFF7DFDF">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
@@ -65,7 +65,7 @@
                                 MinWidth="200"
                                 FlowDirection="LeftToRight"
                                 TextChanged="TimKiem_TextChanged"   
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center" Visibility="Collapsed" />
 
                     </Grid>
                 </materialDesign:ColorZone>
@@ -108,36 +108,22 @@
                                     <Setter Property="FontWeight" Value="Bold" />
                                 </Style>
                             </GridView.ColumnHeaderContainerStyle>
-
-
-                            <GridViewColumn  Header="Mã NV"  Width="60" DisplayMemberBinding="{Binding MaNV}"/>
+                            <GridViewColumn  Header="Mã NV"  Width="60" DisplayMemberBinding="{Binding MaNhanVien}"/>
                             <GridViewColumn Header="Tên Nhân Viên" Width="150" DisplayMemberBinding="{Binding HoTen}" />
+                            <GridViewColumn Header="SĐT" Width="110" DisplayMemberBinding="{Binding DienThoai }" />
+                            <GridViewColumn Header="Dịa chỉ" Width="230" DisplayMemberBinding="{Binding DiaChi}" />
+                            <GridViewColumn Header="Mã Quyền" Width="70" DisplayMemberBinding="{Binding MaQuyen}" />
                             <GridViewColumn Header="NTNS" Width="100" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= MM/dd/yyyy }" />
                             <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}" />
                             <GridViewColumn Header="Giới tính" Width="70" DisplayMemberBinding="{Binding GioiTinh}" />
-                            <GridViewColumn Header="Dịa chỉ" Width="240" DisplayMemberBinding="{Binding DiaChi}" />
-                            <GridViewColumn Header="SĐT" Width="110" DisplayMemberBinding="{Binding SDT }" />
                             <GridViewColumn Header="CCCD" Width="100" DisplayMemberBinding="{Binding CCCD}" />
                             <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong , StringFormat={}{0:N0} VND}" />
+                            
 
-                            <GridViewColumn Width="60" Header="Sửa">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Width="25" Height="25" BorderThickness="0" Click="click_SuaNV">
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
-                                            </Button.Background>
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
                             <GridViewColumn Width="60" Header="Xóa">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Width="25" Height="25" BorderThickness="0" Click="click_XoaNV" >
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
-                                            </Button.Background>
                                         </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
