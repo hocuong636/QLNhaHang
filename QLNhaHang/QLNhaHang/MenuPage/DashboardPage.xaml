@@ -16,11 +16,11 @@
 
         <!-- Title -->
         <TextBlock Text="KẾT QUẢ BÁN HÀNG HÔM NAY"
-                   HorizontalAlignment="Center" FontSize="20"
-                   FontWeight="Bold" Margin="0,20,0,20" Width="298"/>
+                   HorizontalAlignment="Left" FontSize="20"
+                   FontWeight="Bold" Margin="516,88,0,76" Width="298" Grid.Row="1"/>
 
         <!-- Cards Section -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="196,-103,0,20" Grid.Row="1" Width="960">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="213,88,0,211" Grid.Row="1" Width="960" Grid.RowSpan="2">
             <!-- First Card -->
             <materialDesign:Card Width="300" Height="150" Margin="10" Background="#FFFDE7E7">
                 <Grid Height="150" VerticalAlignment="Bottom">
@@ -83,21 +83,67 @@
             </materialDesign:Card>
         </StackPanel>
 
-        <!-- Chart Section -->
-        <lvc:CartesianChart Grid.Row="1" Margin="10,176,87,55" Zoom="X" Pan="X" LegendLocation="Top" Grid.RowSpan="2">
-            <lvc:CartesianChart.Series>
-                <lvc:ColumnSeries Title="Chi nhánh trung tâm" Values="{Binding SalesData}" Fill="#2196F3"/>
-            </lvc:CartesianChart.Series>
+        <!-- Add this after your Grid.RowDefinitions -->
+        <!-- Add this at the top of your Grid -->
+        <Grid Grid.Row="0" Background="White" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Giờ" 
-                  Labels="08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00,20:00,21:00,22:00"/>
-            </lvc:CartesianChart.AxisX>
+            <!-- Menu Admin Text -->
+            <TextBlock Text="Menu Admin" 
+              VerticalAlignment="Center" 
+              FontSize="20" 
+              FontWeight="SemiBold" 
+              Margin="20,0,0,0"/>
 
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Doanh số (triệu)" LabelFormatter="{Binding SalesFormatter}"/>
-            </lvc:CartesianChart.AxisY>
-        </lvc:CartesianChart>
+            <!-- Right Side Items -->
+            <StackPanel Grid.Column="2" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,20,0">
+
+                <!-- Notification Bell -->
+                <Grid Margin="0,0,20,0">
+                    <materialDesign:PackIcon Kind="Bell" 
+                                   Width="24" 
+                                   Height="24" 
+                                   VerticalAlignment="Center"/>
+                    <Border Background="Red" 
+                    CornerRadius="10" 
+                    Width="20" 
+                    Height="20" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,-5,-5,0">
+                        <TextBlock Text="1" 
+                         Foreground="White" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center" 
+                         FontSize="12"/>
+                    </Border>
+                </Grid>
+
+                <!-- User Profile -->
+                <Border Width="40" 
+                Height="40" 
+                CornerRadius="20" 
+                Margin="0,0,10,0">
+
+                </Border>
+
+                <!-- Username -->
+                <!-- Username -->
+                <TextBlock Text="{Binding TenDangNhap}" 
+                 VerticalAlignment="Center" 
+                 FontSize="16" 
+                 Margin="0,0,20,0"/>
+
+              
+            </StackPanel>
+        </Grid>
 
 
     </Grid>

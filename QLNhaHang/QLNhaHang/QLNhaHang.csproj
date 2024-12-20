@@ -98,6 +98,7 @@
     <Compile Include="MenuPage\CustomerManagementPage.xaml.cs">
       <DependentUpon>CustomerManagementPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MenuPage\DatabaseConnection.cs" />
     <Compile Include="MenuPage\FoodManagementPage.xaml.cs">
       <DependentUpon>FoodManagementPage.xaml</DependentUpon>
     </Compile>
