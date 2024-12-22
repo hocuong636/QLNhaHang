@@ -11,6 +11,7 @@ namespace QLNhaHang
         {
             InitializeComponent();
             TotalRevenueTextBlock_DataContextChanged();
+            ActiveOrdersTextBlock_DataContextChanged();
         }
 
         private void LookupRevenue_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,7 @@ namespace QLNhaHang
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT SUM(TongTien) FROM HoaDon";
+                string query = "SELECT SUM(TongTien) FROM LichSuHoaDon";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     object result = cmd.ExecuteScalar();
@@ -73,6 +74,25 @@ namespace QLNhaHang
                     {
                         revenue = Convert.ToDecimal(result);
                         TotalRevenueTextBlock.Text = $"{revenue:N0} VNĐ";
+                    }
+                }
+            }
+        }
+
+        private void ActiveOrdersTextBlock_DataContextChanged()
+        {
+            int activeOrders = 0;
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Ban WHERE TrangThai LIKE N'Đang phục vụ'";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        activeOrders = Convert.ToInt32(result);
+                        ActiveOrdersTextBlock.Text = activeOrders.ToString();
                     }
                 }
             }
