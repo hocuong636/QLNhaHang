@@ -71,3 +71,9 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeMenu\TableStatusemployee.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeMenu\Kitchen.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeMenu\Menu.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeMenu\TableStatusemployee.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Employee\KitchenUserControl.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Employee\MenuUserControl.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\Employee\TableStatusUserControl.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.g.cs

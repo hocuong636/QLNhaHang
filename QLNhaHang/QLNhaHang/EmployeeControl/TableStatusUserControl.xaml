@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="QLNhaHang.EmployeeControl.TableStatusUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QLNhaHang.EmployeeControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+
+        <ScrollViewer Grid.Column="0" Margin="10">
+            <WrapPanel>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn1">
+                    <TextBlock Text="Bàn 1" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn2">
+                    <TextBlock Text="Bàn 2" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn3">
+                    <TextBlock Text="Bàn 3" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn4">
+                    <TextBlock Text="Bàn 4" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn5">
+                    <TextBlock Text="Bàn 5" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn6">
+                    <TextBlock Text="Bàn 6" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn7">
+                    <TextBlock Text="Bàn 7" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn8">
+                    <TextBlock Text="Bàn 8" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn9">
+                    <TextBlock Text="Bàn 9" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn10">
+                    <TextBlock Text="Bàn 10" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn11">
+                    <TextBlock Text="Bàn 11" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn12">
+                    <TextBlock Text="Bàn 12" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn13">
+                    <TextBlock Text="Bàn 13" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn14">
+                    <TextBlock Text="Bàn 14" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn15">
+                    <TextBlock Text="Bàn 15" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn16">
+                    <TextBlock Text="Bàn 16" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn17">
+                    <TextBlock Text="Bàn 17" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn18">
+                    <TextBlock Text="Bàn 18" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn19">
+                    <TextBlock Text="Bàn 19" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn20">
+                    <TextBlock Text="Bàn 20" FontSize="18" Foreground="White"/>
+                </Button>
+                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn21">
+                    <TextBlock Text="Bàn 21" FontSize="18" Foreground="White"/>
+                </Button>
+            </WrapPanel>
+        </ScrollViewer>
+       
+        <!-- Order Details Panel -->
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Selected Table Header -->
+            <TextBlock x:Name="SelectedTableText" 
+                 Grid.Row="0" 
+                 FontSize="24" 
+                 FontWeight="Bold" 
+                 Margin="0,0,0,10"/>
+
+            <!-- Order Details -->
+            <DataGrid x:Name="OrderDetailsGrid" 
+                 Grid.Row="1" 
+                 AutoGenerateColumns="False" 
+                 IsReadOnly="True"
+                 Margin="0,0,0,10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tên món" Binding="{Binding ItemName}" Width="100" />
+                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="80"/>
+                    <DataGridTextColumn Header="Thành tiền" Binding="{Binding Total}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Total and Buttons -->
+            <StackPanel Grid.Row="2">
+                <DockPanel Margin="0,0,0,10">
+                    <TextBlock Text="Tổng:" 
+              FontSize="18" 
+              FontWeight="Bold"/>
+                    <TextBlock x:Name="TotalAmount" 
+              FontSize="18" 
+              FontWeight="Bold" 
+              HorizontalAlignment="Right"/>
+                </DockPanel>
+
+                <Button x:Name="PaymentButton" 
+        Content="THANH TOÁN" 
+        Height="40" 
+        Background="Red" 
+        Foreground="White"
+        Margin="0,0,0,10"
+        Click="PaymentButton_Click"/>
+
+                <Button x:Name="TransferButton" 
+        Content="CHUYỂN BÀN" 
+        Height="40" 
+        Background="Blue" 
+        Foreground="White"
+        Margin="0,0,0,10"
+        Click="TransferButton_Click"/>
+
+                <ComboBox x:Name="AvailableTablesCombo" 
+          Height="40" 
+          Visibility="Collapsed"
+          SelectionChanged="AvailableTablesCombo_SelectionChanged"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>

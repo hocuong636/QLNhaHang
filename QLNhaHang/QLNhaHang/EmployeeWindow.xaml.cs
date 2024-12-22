@@ -1,41 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QLNhaHang
 {
-    /// <summary>
-    /// Interaction logic for EmployeeWindow.xaml
-    /// </summary>
     public partial class EmployeeWindow : Window
     {
         public EmployeeWindow()
         {
             InitializeComponent();
         }
+
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = new EmployeeMenu.Menu();
-        }
-
-        private void KitchenButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new EmployeeMenu.Kitchen();
+            ContentArea.Content = new Employee.MenuUserControl();
         }
 
         private void TableStatusemployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = new EmployeeMenu.TableStatusemployee();
+            ContentArea.Content = new EmployeeControl.TableStatusUserControl();
+        }
+
+        private void KitchenButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new EmployeeControl.KitchenUserControl();
         }
     }
 }

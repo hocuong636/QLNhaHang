@@ -1,8 +1,8 @@
 ﻿
 FC:\QLNhaHang\QLNhaHang\QLNhaHang\App.xaml;;
-FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeMenu\Kitchen.xaml;;
-FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeMenu\Menu.xaml;;
-FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeMenu\TableStatusemployee.xaml;;
+FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeControl\KitchenUserControl.xaml;;
+FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeControl\MenuUserControl.xaml;;
+FC:\QLNhaHang\QLNhaHang\QLNhaHang\EmployeeControl\TableStatusUserControl.xaml;;
 FC:\QLNhaHang\QLNhaHang\QLNhaHang\MenuPage\CustomerManagementPage.xaml;;
 FC:\QLNhaHang\QLNhaHang\QLNhaHang\MenuPage\EmployeeManagementPage.xaml;;
 FC:\QLNhaHang\QLNhaHang\QLNhaHang\MenuPage\FoodManagementPage.xaml;;

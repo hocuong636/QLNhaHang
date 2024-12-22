@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\QLNhaHang\QLNhaHang\QLNhaHang\App.xaml
-15-1133100051
+15-543596659
 2-581527234
-20-1645884322
+20-791945306
 18-669115620
-AdminWindow.xaml;EmployeeMenu\Kitchen.xaml;EmployeeMenu\Menu.xaml;EmployeeMenu\TableStatusemployee.xaml;MenuPage\DashboardPage.xaml;MenuPage\CustomerManagementPage.xaml;MenuPage\EmployeeManagementPage.xaml;EmployeeWindow.xaml;MenuPage\FoodManagementPage.xaml;MenuPage\InvoiceManagementPage.xaml;MenuPage\KitchenManagementPage.xaml;MainWindow.xaml;MenuPage\ReportPage.xaml;MenuPage\TableStatusPage.xaml;MenuPage\WarehouseManagementPage.xaml;
+AdminWindow.xaml;EmployeeControl\KitchenUserControl.xaml;EmployeeControl\MenuUserControl.xaml;EmployeeControl\TableStatusUserControl.xaml;MenuPage\DashboardPage.xaml;MenuPage\CustomerManagementPage.xaml;MenuPage\EmployeeManagementPage.xaml;EmployeeWindow.xaml;MenuPage\FoodManagementPage.xaml;MenuPage\InvoiceManagementPage.xaml;MenuPage\KitchenManagementPage.xaml;MainWindow.xaml;MenuPage\ReportPage.xaml;MenuPage\TableStatusPage.xaml;MenuPage\WarehouseManagementPage.xaml;
 
-False
+True
 

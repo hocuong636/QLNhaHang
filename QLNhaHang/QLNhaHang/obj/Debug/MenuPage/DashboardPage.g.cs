@@ -120,6 +120,7 @@ namespace QLNhaHang {
             this.ActiveOrdersTextBlock = ((System.Windows.Controls.TextBlock)(target));
             
             #line 62 "..\..\..\MenuPage\DashboardPage.xaml"
+            this.ActiveOrdersTextBlock.DataContextChanged += new System.Windows.DependencyPropertyChangedEventHandler(this.ActiveOrdersTextBlock_DataContextChanged);
             
             #line default
             #line hidden
