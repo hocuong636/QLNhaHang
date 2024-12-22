@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,198 +7,150 @@ using System.Windows.Controls;
 namespace QLNhaHang
 {
     public partial class WarehouseManagementPage : UserControl
-
     {
         public ObservableCollection<NguyenLieu> Ingredients { get; set; }
-        public ObservableCollection<MonAn> Dishes { get; set; }
 
         public WarehouseManagementPage()
         {
             InitializeComponent();
             Ingredients = new ObservableCollection<NguyenLieu>();
-            Dishes = new ObservableCollection<MonAn>();
             LoadIngredients();
-            IngredientsDataGrid.ItemsSource = Ingredients;
+            InventoryDataGrid.ItemsSource = Ingredients;
         }
 
         private void LoadIngredients()
         {
             Ingredients.Clear();
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            try
             {
-                conn.Open();
-                string query = "SELECT * FROM NguyenLieu";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    conn.Open();
+                    string query = "SELECT MaNguyenLieu, TenNguyenLieu, Soluong, DonVi, DonGia FROM NguyenLieu";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        while (reader.Read())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            Ingredients.Add(new NguyenLieu
+                            while (reader.Read())
                             {
-                                MaNguyenLieu = reader.GetInt32(0),
-                                TenNguyenLieu = reader.GetString(1),
-                                SoLuong = reader.GetInt32(2),
-                                DonVi = reader.GetString(3)
-                            });
+                                Ingredients.Add(new NguyenLieu
+                                {
+                                    MaNguyenlieu = reader.GetInt32(0),   // First column: MaNguyenLieu (int)
+                                    TenNguyenLieu = reader.GetString(1),  // Second column: TenNguyenLieu (string)
+                                    SoLuong = reader.GetInt32(2),         // Third column: SoLuong (int)
+                                    DonVi = reader.GetString(3),          // Fourth column: DonVi (string)
+                                    DonGia = reader.GetDecimal(4)         // Fifth column: DonGia (decimal)
+                                });
+                            }
                         }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading ingredients: " + ex.Message);
+            }
         }
 
-        private void AddIngredient_Click(object sender, RoutedEventArgs e)
-        {
-            NguyenLieu newIngredient = new NguyenLieu
-            {
-                TenNguyenLieu = IngredientNameTextBox.Text,
-                SoLuong = int.Parse(IngredientQuantityTextBox.Text),
-                DonVi = IngredientUnitTextBox.Text
-            };
+       
 
+
+        private void NhapKho_Click(object sender, RoutedEventArgs e)
+        {
+            // Lấy dữ liệu từ giao diện
+            string maNhap = InputCodeTextBox.Text;
+            string tenSanPham = ProductNameTextBox.Text;
+            int soLuong;
+            decimal giaNhap;
+            string donVi = (UnitComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
+            string nguoiNhap = PersonTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(maNhap) || string.IsNullOrWhiteSpace(tenSanPham) ||
+                !int.TryParse(QuantityTextBox.Text, out soLuong) ||
+                !decimal.TryParse(PriceTextBox.Text, out giaNhap) ||
+                string.IsNullOrWhiteSpace(donVi) || string.IsNullOrWhiteSpace(nguoiNhap))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            // Thực hiện lưu dữ liệu vào cơ sở dữ liệu
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
-                string query = "INSERT INTO NguyenLieu (TenNguyenLieu, SoLuong, DonVi) VALUES (@TenNguyenLieu, @SoLuong, @DonVi)";
+                string query = @"INSERT INTO NguyenLieu (MaNguyenLieu, TenNguyenLieu, SoLuong, DonGia, DonVi, NguoiNhap) 
+                                 VALUES (@MaNhap, @TenSanPham, @SoLuong, @DonGia, @DonVi, @NguoiNhap)";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@TenNguyenLieu", newIngredient.TenNguyenLieu);
-                    cmd.Parameters.AddWithValue("@SoLuong", newIngredient.SoLuong);
-                    cmd.Parameters.AddWithValue("@DonVi", newIngredient.DonVi);
+                    cmd.Parameters.AddWithValue("@MaNhap", maNhap);
+                    cmd.Parameters.AddWithValue("@TenSanPham", tenSanPham);
+                    cmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                    cmd.Parameters.AddWithValue("@DonGia", giaNhap);
+                    cmd.Parameters.AddWithValue("@DonVi", donVi);
+                    cmd.Parameters.AddWithValue("@NguoiNhap", nguoiNhap);
                     cmd.ExecuteNonQuery();
                 }
             }
 
+            MessageBox.Show("Nhập kho thành công!");
             LoadIngredients();
-            ClearIngredientForm();
+            ClearInputForm();
         }
 
-        private void EditIngredient_Click(object sender, RoutedEventArgs e)
+        private void XoaKho_Click(object sender, RoutedEventArgs e)
         {
-            NguyenLieu selectedIngredient = IngredientsDataGrid.SelectedItem as NguyenLieu;
-            if (selectedIngredient != null)
+            var selectedIngredient = InventoryDataGrid.SelectedItem as NguyenLieu;
+            if (selectedIngredient == null)
             {
-                IngredientNameTextBox.Text = selectedIngredient.TenNguyenLieu;
-                IngredientQuantityTextBox.Text = selectedIngredient.SoLuong.ToString();
-                IngredientUnitTextBox.Text = selectedIngredient.DonVi;
+                MessageBox.Show("Vui lòng chọn sản phẩm để xóa.");
+                return;
             }
-        }
 
-        private void DeleteIngredient_Click(object sender, RoutedEventArgs e)
-        {
-            NguyenLieu selectedIngredient = IngredientsDataGrid.SelectedItem as NguyenLieu;
-            if (selectedIngredient != null)
-            {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    conn.Open();
-                    string query = "DELETE FROM NguyenLieu WHERE MaNguyenLieu = @MaNguyenLieu";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaNguyenLieu", selectedIngredient.MaNguyenLieu);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                LoadIngredients();
-                ClearIngredientForm();
-            }
-        }
-
-        private void SaveIngredient_Click(object sender, RoutedEventArgs e)
-        {
-            NguyenLieu selectedIngredient = IngredientsDataGrid.SelectedItem as NguyenLieu;
-            if (selectedIngredient != null)
-            {
-                selectedIngredient.TenNguyenLieu = IngredientNameTextBox.Text;
-                selectedIngredient.SoLuong = int.Parse(IngredientQuantityTextBox.Text);
-                selectedIngredient.DonVi = IngredientUnitTextBox.Text;
-
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    conn.Open();
-                    string query = "UPDATE NguyenLieu SET TenNguyenLieu = @TenNguyenLieu, SoLuong = @SoLuong, DonVi = @DonVi WHERE MaNguyenLieu = @MaNguyenLieu";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@TenNguyenLieu", selectedIngredient.TenNguyenLieu);
-                        cmd.Parameters.AddWithValue("@SoLuong", selectedIngredient.SoLuong);
-                        cmd.Parameters.AddWithValue("@DonVi", selectedIngredient.DonVi);
-                        cmd.Parameters.AddWithValue("@MaNguyenLieu", selectedIngredient.MaNguyenLieu);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                LoadIngredients();
-                ClearIngredientForm();
-            }
-        }
-
-        private void CancelEdit_Click(object sender, RoutedEventArgs e)
-        {
-            ClearIngredientForm();
-        }
-
-        private void ClearIngredientForm()
-        {
-            IngredientNameTextBox.Text = string.Empty;
-            IngredientQuantityTextBox.Text = string.Empty;
-            IngredientUnitTextBox.Text = string.Empty;
-            IngredientsDataGrid.SelectedItem = null;
-        }
-
-        private void IngredientsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            NguyenLieu selectedIngredient = IngredientsDataGrid.SelectedItem as NguyenLieu;
-            if (selectedIngredient != null)
-            {
-                LoadRelatedDishes(selectedIngredient.MaNguyenLieu);
-            }
-        }
-
-        private void LoadRelatedDishes(int maNguyenLieu)
-        {
-            Dishes.Clear();
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
-                string query = @"
-                    SELECT m.MaMonAn, m.TenMonAn, ctnl.SoLuongCan
-                    FROM MonAn m
-                    INNER JOIN ChiTietNguyenLieu ctnl ON m.MaMonAn = ctnl.MaMonAn
-                    WHERE ctnl.MaNguyenLieu = @MaNguyenLieu";
+                string query = "DELETE FROM NguyenLieu WHERE TenNguyenLieu = @TenNguyenLieu";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@MaNguyenLieu", maNguyenLieu);
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Dishes.Add(new MonAn
-                            {
-                                MaMonAn = reader.GetInt32(0),
-                                TenMonAn = reader.GetString(1),
-                                SoLuongCan = reader.GetInt32(2)
-                            });
-                        }
-                    }
+                    cmd.Parameters.AddWithValue("@TenNguyenLieu", selectedIngredient.TenNguyenLieu);
+                    cmd.ExecuteNonQuery();
                 }
             }
-            DishesDataGrid.ItemsSource = Dishes;
+
+            MessageBox.Show("Xóa sản phẩm thành công!");
+            LoadIngredients();
+        }
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Kiểm tra nếu TextBox rỗng thì hiển thị placeholder, nếu không thì ẩn placeholder
+            if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
+            {
+                SearchPlaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SearchPlaceholder.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ClearInputForm()
+        {
+            InputCodeTextBox.Text = string.Empty;
+            ProductNameTextBox.Text = string.Empty;
+            QuantityTextBox.Text = string.Empty;
+            PriceTextBox.Text = string.Empty;
+            UnitComboBox.SelectedIndex = -1;
+            PersonTextBox.Text = string.Empty;
         }
     }
 
     public class NguyenLieu
     {
-        public int MaNguyenLieu { get; set; }
+
+        public int MaNguyenlieu { get; set; }
         public string TenNguyenLieu { get; set; }
         public int SoLuong { get; set; }
         public string DonVi { get; set; }
-    }
-
-    public class MonAn
-    {
-        public int MaMonAn { get; set; }
-        public string TenMonAn { get; set; }
-        public int SoLuongCan { get; set; }
+        public decimal DonGia { get; set; }
     }
 }

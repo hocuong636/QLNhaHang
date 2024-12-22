@@ -10,22 +10,29 @@
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5"/>
             <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
         <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
         </Style>
         <Style TargetType="Label">
             <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="14"/>
         </Style>
     </UserControl.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Ingredients Management -->
+        <!-- Left Panel: Inventory Management -->
         <Grid Grid.Column="0" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -33,35 +40,39 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Quản lý Nguyên liệu" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="Tồn kho" FontSize="24" FontWeight="Bold" Foreground="#333333" Margin="0,0,0,10"/>
 
-            <DataGrid x:Name="IngredientsDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="0,0,0,10">
+            <DataGrid x:Name="InventoryDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="0,0,0,10"
+                      HeadersVisibility="Column" VerticalAlignment="Stretch">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã" Binding="{Binding MaNguyenLieu}" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Tên Nguyên liệu" Binding="{Binding TenNguyenLieu}"/>
-                    <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}"/>
-                    <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}"/>
+                    <DataGridTextColumn Header="Mã Nguyên Liệu" Binding="{Binding MaNguyenLieu}" Width="*"/>
+                    <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="*"/>
+                    <DataGridTextColumn Header="Số Lượng" Binding="{Binding SoLuong}" Width="*"/>
+                    <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}" Width="*"/>
+                    <DataGridTextColumn Header="Đơn giá (VND)" Binding="{Binding DonGia}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <Button Content="Thêm" Click="AddIngredient_Click"/>
-                <Button Content="Sửa" Click="EditIngredient_Click"/>
-                <Button Content="Xóa" Click="DeleteIngredient_Click"/>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Kiểm tra"/>
+                <Button Content="Xóa"/>
             </StackPanel>
         </Grid>
 
-        <!-- Ingredient Details and Dish Association -->
-        <Grid Grid.Column="1" Margin="10">
+        <!-- Splitter -->
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="#CCCCCC" />
+
+        <!-- Right Panel: Input Details -->
+        <Grid Grid.Column="2" Margin="1,-10,19,30">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Chi tiết Nguyên liệu" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="Nhập kho" FontSize="24" FontWeight="Bold" Foreground="#333333" Margin="9,15,-9,473" Grid.RowSpan="2"/>
 
-            <Grid Grid.Row="1" Margin="0,0,0,10">
+            <Grid Grid.Row="1" Margin="5,53,-5,7" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
@@ -71,39 +82,61 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Label Content="Tên Nguyên liệu:"/>
-                <TextBox Grid.Column="1" x:Name="IngredientNameTextBox"/>
+                <Label Content="Mã nhập:"/>
+                <TextBox Grid.Column="1" x:Name="InputCodeTextBox"/>
 
-                <Label Grid.Row="1" Content="Số lượng:"/>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="IngredientQuantityTextBox"/>
+                <Label Grid.Row="1" Content="Tên sản phẩm:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="ProductNameTextBox"/>
 
-                <Label Grid.Row="2" Content="Đơn vị:"/>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="IngredientUnitTextBox"/>
+                <Label Grid.Row="2" Content="Số lượng:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="QuantityTextBox"/>
 
-                <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Lưu" Click="SaveIngredient_Click"/>
-                    <Button Content="Hủy" Click="CancelEdit_Click"/>
+                <Label Grid.Row="3" Content="Giá nhập (VND):"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="PriceTextBox"/>
+
+                <Label Grid.Row="4" Content="Đơn vị:"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" x:Name="UnitComboBox" Margin="5,0,5,38" Grid.RowSpan="2">
+                    <ComboBoxItem Content="Kg"/>
+                    <ComboBoxItem Content="Chai"/>
+                    <ComboBoxItem Content="Hộp"/>
+                </ComboBox>
+
+                <Label Grid.Row="5" Content="Người nhập:"/>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="PersonTextBox"/>
+
+                <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+                    <Button Content="Nhập kho" Width="120"/>
+                    <Button Content="Hủy bỏ" Width="120"/>
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+            <!-- Search Section -->
+            <Grid Grid.Row="2" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Món ăn sử dụng nguyên liệu này" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                <!-- Placeholder Effect -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="191*"/>
+                        <ColumnDefinition Width="105*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="SearchTextBox" Grid.Column="0" Height="30" VerticalAlignment="Top" Margin="6,-230,3,0"
+                 TextChanged="SearchTextBox_TextChanged" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="SearchPlaceholder" Text="Nhập mã hoặc tên nguyên liệu" Foreground="Gray" 
+                   VerticalAlignment="Top" Margin="21,-225,-14,0" IsHitTestVisible="False" Grid.ColumnSpan="2" Height="20" RenderTransformOrigin="0.827,1.75" />
+                </Grid>
 
-                <DataGrid Grid.Row="1" x:Name="DishesDataGrid" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Mã Món" Binding="{Binding MaMonAn}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Tên Món" Binding="{Binding TenMonAn}" IsReadOnly="True"/>
-                        <DataGridTextColumn Header="Số lượng cần" Binding="{Binding SoLuongCan}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <Button Content="Tìm kiếm" Grid.Column="1" Width="100" Height="30" Margin="5,-230,5,0" RenderTransformOrigin="0.5,-5.5" VerticalAlignment="Top"/>
             </Grid>
+
         </Grid>
     </Grid>
 </UserControl>
