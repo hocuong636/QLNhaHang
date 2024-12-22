@@ -36,14 +36,15 @@
         <Grid Grid.Column="0" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="38*"/>
+                <RowDefinition Height="459*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Tồn kho" FontSize="24" FontWeight="Bold" Foreground="#333333" Margin="0,0,0,10"/>
 
             <DataGrid x:Name="InventoryDataGrid" Grid.Row="1" AutoGenerateColumns="False" Margin="0,0,0,10"
-                      HeadersVisibility="Column" VerticalAlignment="Stretch">
+                      HeadersVisibility="Column" Grid.RowSpan="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã Nguyên Liệu" Binding="{Binding MaNguyenLieu}" Width="*"/>
                     <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="*"/>
@@ -53,7 +54,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="410,459,0,0" Grid.RowSpan="2">
                 <Button Content="Kiểm tra"/>
                 <Button Content="Xóa"/>
             </StackPanel>
