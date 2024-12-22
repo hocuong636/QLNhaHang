@@ -1,8 +1,27 @@
 ﻿<Window x:Class="QLNhaHang.EmployeeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Employee Page" Height="450" Width="800">
+        Title="Employee Page"         
+        WindowState="Maximized" 
+        ResizeMode="CanResize"
+        Background="#ECF0F1">
     <Grid>
-        <TextBlock Text="Welcome Employee!" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <!-- Sidebar -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#2C3E50" HorizontalAlignment="Stretch">
+            <TextBlock Text="Employee Panel" Foreground="White" FontSize="18" FontWeight="Bold" 
+                       Margin="10" HorizontalAlignment="Center"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
+            <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />
+            <Button Style="{StaticResource NavButtonStyle}" Content="Bếp" Click="KitchenButton_Click" />
+            
+        </StackPanel>
+        <Border Grid.Column="1" Background="White" CornerRadius="10">
+            <ContentControl x:Name="ContentArea" Grid.Column="1" Background="White"/>
+
+        </Border>
     </Grid>
 </Window>

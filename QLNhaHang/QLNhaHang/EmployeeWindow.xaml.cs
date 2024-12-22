@@ -23,5 +23,19 @@ namespace QLNhaHang
         {
             InitializeComponent();
         }
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new EmployeeMenu.Menu();
+        }
+
+        private void KitchenButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new EmployeeMenu.Kitchen();
+        }
+
+        private void TableStatusemployeeButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new EmployeeMenu.TableStatusemployee();
+        }
     }
 }
