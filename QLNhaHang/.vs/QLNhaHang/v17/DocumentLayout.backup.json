@@ -53,15 +53,8 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdminWindow.xaml",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\AdminWindow.xaml",
-              "RelativeDocumentMoniker": "QLNhaHang\\AdminWindow.xaml",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\AdminWindow.xaml",
-              "RelativeToolTip": "QLNhaHang\\AdminWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:51:17.349Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
@@ -120,8 +113,15 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminWindow.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\AdminWindow.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\AdminWindow.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\AdminWindow.xaml",
+              "RelativeToolTip": "QLNhaHang\\AdminWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-22T07:51:17.349Z"
             },
             {
               "$type": "Document",
@@ -155,7 +155,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAuwE0AAAANAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAICSURBVDhP7ZRPiBJRHMe/M46DPZqhMVHpDwvbKCwahFuCJLXQYSGWEDzlpWNIp\u002B4R0TnongSe6mQIsoiHpfGk3QqSgfYkuIO6uPgv9fnn2WmGUVgQ2kOHPvAO3/f9vi/8Ho/Hwcbbw18HLoEv7HgJHBx78vjOjYLd3wTeLnY8BP7LIj5\u002Ba6HWmrwq/jh5avc3gcOLozemCPlJIOQnqaPjHh5sy3i07dK26HE5m81aBwRBgKqqSCQSA0rph3g8PrBMAAI4btcUreHM5\u002BpMMJkznA5nEB2X9hRF2QuFQtaBTqeD0WiEer1\u002B5vP5TiuVSikWi7VMn7OSAA6/Nw4GdFl499VAateD/aAEL\u002BEwnU6tTLFYRKlUgizLSCaTkCTpmaIoX8Lh8BDrd/izOcJJf4qXD69hPyjjqguYzWb2CACAMYZ\u002Bv49cLgfDMN6Px\u002BPnprdSGPUAUS9D9KYLV0SGJVtguVzaIxZmabVadefzecncd9hD9\u002B/eDv4\u002Ba6VubV2H4ODBGLPbAACO4\u002BB2uxEIBKCqKgzDQKPRKNdqNQ3rhZIkBdvtdioSiUAURbtlYZaZS9d1NJvNsq7rGtZHppSCUnrumJuwUngR/C/8e/79QsEuCCHgeR6app37sNfp9XoghFh65bdJp9P35vP56263i8ViYbfORZZlOJ3Oz5lM5tO6dyH8AT44umB0ILjzAAAAAElFTkSuQmCC",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIGSURBVDhP7ZRPaNpQHMe/iTGkYQnTiZb9odCpUHQw7FqQyVbYYTDKEDzNy45Ddtp9jLLzYPfKwNN2cghSxENpPGlvG0yE9SRYMRaL/6bGaLIYnqwpdAjrYYd\u002B4Mfv8fv\u002B3jfvvTwehTO83/u5zTF0ds3Nw0Zpz5/dv50l0sLQJJusuXgsX2Px6VBGWR69zX0/fkGkhaHwen\u002BHjBFY5n1GxPePOni0KuLJKietKEeFVCpFOgCGYeD1ehGNRnuKouxGIpEekUwYUNQ6GUPuqx6uNcJoouGkr4K1LW05HI6tQCBAOoBWq4XBYIBqtXrq8XhOisViPhwOy0Q2VniGvW\u002B17Z6iZz8c1BFfd\u002BGpX4CbpzAej0kHkMvlkM/nIYoiYrEYBEF4aXz0azAY7M90yxn\u002BaAxw3B3jzeObhpmIGxygqipR/6BpGrrdLtLpNOr1\u002BsfhcPiKSFbDTZcRbg2bdzhcZzXo2hS6rhPVyty0VCo5M5mMQMqwkWzy8ME9/69TOX535RYYG21OOg9FUXA6nfD5fObPMVaIWq1WKJfL0ky3GBrn4W82m/FQKASWZUnVytxsHpVKBY1Go2Bk09CyZeMamHHRNhfBYngZXBn\u002BO/\u002B/IUOyCc/zoGkakiRdeLHP0\u002Bl0zHlzLK9NIpHYmEwm79rtNqbTKan\u002BndmrY7fbvySTyc\u002BkdJkAvwE\u002BOLpgLlA3ZAAAAABJRU5ErkJggg==",
               "WhenOpened": "2024-12-22T06:55:31.716Z"
             },
             {
