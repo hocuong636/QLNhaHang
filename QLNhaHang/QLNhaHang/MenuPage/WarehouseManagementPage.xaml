@@ -87,10 +87,10 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Label Content="Mã nhập:"/>
+                <Label Content="Mã Nguyên liệu:"/>
                 <TextBox Grid.Column="1" x:Name="InputCodeTextBox"/>
 
-                <Label Grid.Row="1" Content="Tên sản phẩm:"/>
+                <Label Grid.Row="1" Content="Tên Nguyên liệu:"/>
                 <TextBox Grid.Row="1" Grid.Column="1" x:Name="ProductNameTextBox"/>
 
                 <Label Grid.Row="2" Content="Số lượng:"/>

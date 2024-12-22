@@ -8,6 +8,8 @@ namespace QLNhaHang
 {
     public partial class WarehouseManagementPage : UserControl
     {
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\QLNhaHang\QLNhaHang\QLNhaHang\DatabaseQLNhaHang.mdf;Integrated Security=True";
+
         public ObservableCollection<NguyenLieu> Ingredients { get; set; }
 
         public WarehouseManagementPage()
@@ -20,13 +22,13 @@ namespace QLNhaHang
 
         private void LoadIngredients()
         {
-            Ingredients.Clear();
+            Ingredients.Clear(); // Xóa danh sách cũ
             try
             {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT MaNguyenLieu, TenNguyenLieu, Soluong, DonVi, DonGia FROM NguyenLieu";
+                    string query = "SELECT * FROM NguyenLieu";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -35,11 +37,11 @@ namespace QLNhaHang
                             {
                                 Ingredients.Add(new NguyenLieu
                                 {
-                                    MaNguyenlieu = reader.GetInt32(0),   // First column: MaNguyenLieu (int)
-                                    TenNguyenLieu = reader.GetString(1),  // Second column: TenNguyenLieu (string)
-                                    SoLuong = reader.GetInt32(2),         // Third column: SoLuong (int)
-                                    DonVi = reader.GetString(3),          // Fourth column: DonVi (string)
-                                    DonGia = reader.GetDecimal(4)         // Fifth column: DonGia (decimal)
+                                    MaNguyenlieu = reader.GetInt32(0),
+                                    TenNguyenLieu = reader.GetString(1),
+                                    SoLuong = reader.GetInt32(2),
+                                    DonVi = !reader.IsDBNull(3) ? reader.GetString(3) : string.Empty,
+                                    DonGia = !reader.IsDBNull(4) ? (decimal)reader.GetDouble(4) : 0m
                                 });
                             }
                         }
@@ -52,20 +54,16 @@ namespace QLNhaHang
             }
         }
 
-       
-
 
         private void NhapKho_Click(object sender, RoutedEventArgs e)
         {
-            // Lấy dữ liệu từ giao diện
-            string maNhap = InputCodeTextBox.Text;
             string tenSanPham = ProductNameTextBox.Text;
             int soLuong;
             decimal giaNhap;
             string donVi = (UnitComboBox.SelectedItem as ComboBoxItem)?.Content.ToString();
             string nguoiNhap = PersonTextBox.Text;
 
-            if (string.IsNullOrWhiteSpace(maNhap) || string.IsNullOrWhiteSpace(tenSanPham) ||
+            if (string.IsNullOrWhiteSpace(tenSanPham) ||
                 !int.TryParse(QuantityTextBox.Text, out soLuong) ||
                 !decimal.TryParse(PriceTextBox.Text, out giaNhap) ||
                 string.IsNullOrWhiteSpace(donVi) || string.IsNullOrWhiteSpace(nguoiNhap))
@@ -74,28 +72,71 @@ namespace QLNhaHang
                 return;
             }
 
-            // Thực hiện lưu dữ liệu vào cơ sở dữ liệu
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            try
             {
-                conn.Open();
-                string query = @"INSERT INTO NguyenLieu (MaNguyenLieu, TenNguyenLieu, SoLuong, DonGia, DonVi, NguoiNhap) 
-                                 VALUES (@MaNhap, @TenSanPham, @SoLuong, @DonGia, @DonVi, @NguoiNhap)";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@MaNhap", maNhap);
-                    cmd.Parameters.AddWithValue("@TenSanPham", tenSanPham);
-                    cmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                    cmd.Parameters.AddWithValue("@DonGia", giaNhap);
-                    cmd.Parameters.AddWithValue("@DonVi", donVi);
-                    cmd.Parameters.AddWithValue("@NguoiNhap", nguoiNhap);
-                    cmd.ExecuteNonQuery();
-                }
-            }
+                    conn.Open();
 
-            MessageBox.Show("Nhập kho thành công!");
-            LoadIngredients();
-            ClearInputForm();
+                    // Kiểm tra xem nguyên liệu đã tồn tại chưa
+                    string checkQuery = "SELECT MaNguyenLieu FROM NguyenLieu WHERE TenNguyenLieu = @TenNguyenLieu";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@TenNguyenLieu", tenSanPham);
+                        var result = checkCmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            int maNguyenLieu = (int)result;
+
+                            // Cập nhật số lượng trong bảng NguyenLieu
+                            string updateQuery = @"UPDATE NguyenLieu 
+                                           SET SoLuong = SoLuong + @SoLuong, 
+                                               DonGia = @DonGia, 
+                                               DonVi = @DonVi
+                                           WHERE MaNguyenLieu = @MaNguyenLieu";
+                            using (SqlCommand updateCmd = new SqlCommand(updateQuery, conn))
+                            {
+                                updateCmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                                updateCmd.Parameters.AddWithValue("@DonGia", giaNhap);
+                                updateCmd.Parameters.AddWithValue("@DonVi", donVi);
+                                updateCmd.Parameters.AddWithValue("@MaNguyenLieu", maNguyenLieu);
+                                updateCmd.ExecuteNonQuery();
+                            }
+
+                            // Thêm vào bảng NhapKho
+                            string insertNhapKhoQuery = @"INSERT INTO NhapKho (MaNguyenLieu, TenNguyenLieu, SoLuong, DonGia, DonVi, NguoiNhap) 
+                                                 VALUES (@MaNguyenLieu, @TenNguyenLieu, @SoLuong, @DonGia, @DonVi, @NguoiNhap)";
+                            using (SqlCommand insertCmd = new SqlCommand(insertNhapKhoQuery, conn))
+                            {
+                                insertCmd.Parameters.AddWithValue("@MaNguyenLieu", maNguyenLieu);
+                                insertCmd.Parameters.AddWithValue("@TenNguyenLieu", tenSanPham);
+                                insertCmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                                insertCmd.Parameters.AddWithValue("@DonGia", giaNhap);
+                                insertCmd.Parameters.AddWithValue("@DonVi", donVi);
+                                insertCmd.Parameters.AddWithValue("@NguoiNhap", nguoiNhap);
+                                insertCmd.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nguyên liệu không tồn tại trong kho.");
+                            return;
+                        }
+                    }
+                }
+
+                MessageBox.Show("Nhập kho thành công!");
+                LoadIngredients(); // Cập nhật danh sách hiển thị
+                ClearInputForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi nhập kho: " + ex.Message);
+            }
         }
+
+
 
         private void XoaKho_Click(object sender, RoutedEventArgs e)
         {
@@ -106,32 +147,39 @@ namespace QLNhaHang
                 return;
             }
 
-            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            try
             {
-                conn.Open();
-                string query = "DELETE FROM NguyenLieu WHERE TenNguyenLieu = @TenNguyenLieu";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@TenNguyenLieu", selectedIngredient.TenNguyenLieu);
-                    cmd.ExecuteNonQuery();
+                    conn.Open();
+                    string query = "DELETE FROM NguyenLieu WHERE TenNguyenLieu = @TenNguyenLieu";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TenNguyenLieu", selectedIngredient.TenNguyenLieu);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
 
-            MessageBox.Show("Xóa sản phẩm thành công!");
-            LoadIngredients();
+                MessageBox.Show("Xóa sản phẩm thành công!");
+                LoadIngredients();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message);
+            }
         }
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Kiểm tra nếu TextBox rỗng thì hiển thị placeholder, nếu không thì ẩn placeholder
-            if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
-            {
-                SearchPlaceholder.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                SearchPlaceholder.Visibility = Visibility.Collapsed;
-            }
-        }
+{
+    // Kiểm tra nếu TextBox rỗng thì hiển thị placeholder, nếu không thì ẩn placeholder
+    if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
+    {
+        SearchPlaceholder.Visibility = Visibility.Visible;
+    }
+    else
+    {
+        SearchPlaceholder.Visibility = Visibility.Collapsed;
+    }
+}
 
         private void ClearInputForm()
         {
@@ -146,7 +194,6 @@ namespace QLNhaHang
 
     public class NguyenLieu
     {
-
         public int MaNguyenlieu { get; set; }
         public string TenNguyenLieu { get; set; }
         public int SoLuong { get; set; }
