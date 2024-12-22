@@ -10,7 +10,7 @@ namespace QLNhaHang
         public DashboardPage()
         {
             InitializeComponent();
-            // Initialize other bindings or data contexts if needed
+            TotalRevenueTextBlock_DataContextChanged();
         }
 
         private void LookupRevenue_Click(object sender, RoutedEventArgs e)
@@ -43,7 +43,7 @@ namespace QLNhaHang
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT SUM(TongTien) FROM HoaDon WHERE CAST(NgayTao AS DATE) = @SelectedDate";
+                string query = "SELECT SUM(TongTien) FROM HoaDon WHERE CAST(NgayLap AS DATE) = @SelectedDate";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@SelectedDate", date.Date);
@@ -57,6 +57,25 @@ namespace QLNhaHang
             }
 
             return revenue;
+        }
+
+        private void TotalRevenueTextBlock_DataContextChanged()
+        {
+            decimal revenue = 0;
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT SUM(TongTien) FROM HoaDon";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        revenue = Convert.ToDecimal(result);
+                        TotalRevenueTextBlock.Text = $"{revenue:N0} VNĐ";
+                    }
+                }
+            }
         }
     }
 }
