@@ -3,59 +3,59 @@
   "WorkspaceRootPath": "C:\\QLNhaHang\\QLNhaHang\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeecontrol\\kitchenusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\kitchenusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeecontrol\\kitchenusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\kitchenusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\tablestatususercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\tablestatususercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\menupage\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\menuusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\kitchenusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\kitchenusercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\kitchenusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\kitchenusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\employeewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\adminwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\adminwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\adminwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\customermanagementpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\menupage\\customermanagementpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\customermanagementpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\customermanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\menupage\\customermanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\customermanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -98,11 +98,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "TableStatusUserControl.xaml",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml",
               "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml",
@@ -114,32 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EmployeeWindow.xaml.cs",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeWindow.xaml.cs",
-              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeWindow.xaml.cs",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeWindow.xaml.cs",
-              "RelativeToolTip": "QLNhaHang\\EmployeeWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T08:49:39.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DashboardPage.xaml",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T06:55:27.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "KitchenUserControl.xaml.cs",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\KitchenUserControl.xaml.cs",
               "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\KitchenUserControl.xaml.cs",
@@ -152,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "KitchenUserControl.xaml",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\KitchenUserControl.xaml",
               "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\KitchenUserControl.xaml",
@@ -164,33 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TableStatusUserControl.xaml.cs",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
-              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
-              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T09:19:04.837Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MenuUserControl.xaml.cs",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
-              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
-              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T09:19:08.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "MenuUserControl.xaml",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
               "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
@@ -202,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
               "Title": "EmployeeWindow.xaml",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeWindow.xaml",
               "RelativeDocumentMoniker": "QLNhaHang\\EmployeeWindow.xaml",
@@ -214,6 +163,54 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TableStatusUserControl.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\TableStatusUserControl.xaml.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T09:19:04.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MenuUserControl.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T09:19:08.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashboardPage.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-22T06:55:27.946Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmployeeWindow.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeWindow.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeWindow.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeWindow.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\EmployeeWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T08:49:39.746Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "App.config",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\App.config",
@@ -222,8 +219,7 @@
               "RelativeToolTip": "QLNhaHang\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-12-22T08:59:39.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T08:59:39.715Z"
             },
             {
               "$type": "Document",
@@ -234,8 +230,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MainWindow.xaml",
               "RelativeToolTip": "QLNhaHang\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T08:50:17.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T08:50:17.815Z"
             },
             {
               "$type": "Document",
@@ -247,8 +242,7 @@
               "RelativeToolTip": "QLNhaHang\\AdminWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T08:58:31.422Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T08:58:31.422Z"
             },
             {
               "$type": "Document",
@@ -260,8 +254,7 @@
               "RelativeToolTip": "QLNhaHang\\MenuPage\\CustomerManagementPage.xaml.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T08:51:50.343Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T08:51:50.343Z"
             },
             {
               "$type": "Document",
@@ -272,8 +265,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T08:51:46.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T08:51:46.425Z"
             },
             {
               "$type": "Document",
@@ -284,8 +276,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\WarehouseManagementPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\WarehouseManagementPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:49:22.127Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:49:22.127Z"
             },
             {
               "$type": "Document",
@@ -296,8 +287,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\KitchenManagementPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\KitchenManagementPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:48:53.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:48:53.545Z"
             },
             {
               "$type": "Document",
@@ -308,8 +298,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\ReportPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\ReportPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:48:52.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:48:52.73Z"
             },
             {
               "$type": "Document",
@@ -320,8 +309,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\TableStatusPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\TableStatusPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:48:51.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:48:51.725Z"
             },
             {
               "$type": "Document",
@@ -332,8 +320,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\AdminWindow.xaml",
               "RelativeToolTip": "QLNhaHang\\AdminWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:51:17.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:51:17.349Z"
             },
             {
               "$type": "Document",
@@ -345,8 +332,7 @@
               "RelativeToolTip": "QLNhaHang\\obj\\Debug\\MenuPage\\DashboardPage.g.cs",
               "ViewState": "AgIAAHQAAAAAAAAAAAAhwH8AAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T07:05:38.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:05:38.826Z"
             },
             {
               "$type": "Document",
@@ -357,8 +343,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-22T07:47:28.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T07:47:28.093Z"
             },
             {
               "$type": "Document",
@@ -370,8 +355,7 @@
               "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAuwE0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T06:55:31.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-22T06:55:31.716Z"
             }
           ]
         }
