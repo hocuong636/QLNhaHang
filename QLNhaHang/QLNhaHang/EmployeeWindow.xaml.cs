@@ -12,7 +12,7 @@ namespace QLNhaHang
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = new Employee.MenuUserControl();
+            ContentArea.Content = new EmployeeControl.MenuUserControl();
         }
 
         private void TableStatusemployeeButton_Click(object sender, RoutedEventArgs e)

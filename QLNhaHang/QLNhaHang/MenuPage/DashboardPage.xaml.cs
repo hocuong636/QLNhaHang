@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,6 +8,9 @@ namespace QLNhaHang
 {
     public partial class DashboardPage : UserControl
     {
+        public List<decimal> RevenueValues { get; set; }
+        public List<string> RevenueLabels { get; set; }
+        public Func<decimal, string> Formatter { get; set; }
         public DashboardPage()
         {
             InitializeComponent();
@@ -94,6 +98,41 @@ namespace QLNhaHang
                         activeOrders = Convert.ToInt32(result);
                         ActiveOrdersTextBlock.Text = activeOrders.ToString();
                     }
+                }
+            }
+        }
+
+        private void RevenueChart_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadRevenueData();
+        }
+        private void LoadRevenueData()
+        {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\QLNhaHang\QLNhaHang\QLNhaHang\DatabaseQLnhahang.mdf;Integrated Security=True";
+            string query = @"
+            SELECT TOP 7 
+                CONVERT(date, NgayLap) AS Ngay, 
+                SUM(TongTien) AS DoanhThu
+            FROM HoaDon
+            GROUP BY CONVERT(date, NgayLap)
+            ORDER BY Ngay DESC";
+
+            RevenueValues = new List<decimal>();
+            RevenueLabels = new List<string>();
+
+            using(SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                SqlCommand command = new SqlCommand(query, conn);
+                conn.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    DateTime date = reader.GetDateTime(0);
+                    decimal revenue = reader.GetDecimal(1);
+
+                    RevenueLabels.Insert(0, date.ToString("dd/MM"));
+                    RevenueValues.Insert(0, revenue);
                 }
             }
         }

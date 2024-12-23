@@ -111,23 +111,13 @@
                             <GridViewColumn  Header="Mã NV"  Width="60" DisplayMemberBinding="{Binding MaNhanVien}"/>
                             <GridViewColumn Header="Tên Nhân Viên" Width="150" DisplayMemberBinding="{Binding HoTen}" />
                             <GridViewColumn Header="SĐT" Width="110" DisplayMemberBinding="{Binding DienThoai }" />
-                            <GridViewColumn Header="Dịa chỉ" Width="230" DisplayMemberBinding="{Binding DiaChi}" />
+                            <GridViewColumn Header="Dịa chỉ" Width="270" DisplayMemberBinding="{Binding DiaChi}" />
                             <GridViewColumn Header="Mã Quyền" Width="70" DisplayMemberBinding="{Binding MaQuyen}" />
                             <GridViewColumn Header="NTNS" Width="100" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= MM/dd/yyyy }" />
                             <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}" />
-                            <GridViewColumn Header="Giới tính" Width="70" DisplayMemberBinding="{Binding GioiTinh}" />
+                            <GridViewColumn Header="Giới tính" Width="80" DisplayMemberBinding="{Binding GioiTinh}" />
                             <GridViewColumn Header="CCCD" Width="100" DisplayMemberBinding="{Binding CCCD}" />
                             <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong , StringFormat={}{0:N0} VND}" />
-                            
-
-                            <GridViewColumn Width="60" Header="Xóa">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Width="25" Height="25" BorderThickness="0" Click="click_XoaNV" >
-                                        </Button>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

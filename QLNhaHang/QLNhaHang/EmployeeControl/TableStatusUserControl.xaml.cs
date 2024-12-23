@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -43,6 +44,23 @@ namespace QLNhaHang.EmployeeControl
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public void Table_Click(object sender, EventArgs e)
+        {
+            // Thực hiện logic tại đây
+        }
+        public void PaymentButton_Click(object sender, EventArgs e)
+        {
+            // Logic xử lý sự kiện PaymentButton_Click
+        }
+        public void TransferButton_Click(object sender, EventArgs e)
+        {
+            // Logic xử lý sự kiện khi nhấn nút Transfer
+        }
+        public void AvailableTablesCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Logic xử lý sự kiện SelectionChanged
+        }
+
     }
 
     public class TableInfo : INotifyPropertyChanged
