@@ -19,9 +19,9 @@
         <GroupBox Header="Danh sách món cần thực hiện:" FontWeight="Bold" Margin="5" Grid.Column="0">
             <DataGrid Name="dgDishesToPrepare" AutoGenerateColumns="False" CanUserAddRows="False" Margin="5">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tên món" Binding="{Binding DishName}" Width="*" />
-                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="Auto" />
-                    <DataGridTextColumn Header="Số bàn" Binding="{Binding TableNumber}" Width="Auto" />
+                    <DataGridTextColumn Header="Tên món" Binding="{Binding DishName}" Width="170" />
+                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="100" />
+                    <DataGridTextColumn Header="Số bàn" Binding="{Binding TableNumber}" Width="100" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
@@ -30,9 +30,9 @@
         <GroupBox Header="Danh sách món cần phục vụ:" FontWeight="Bold" Margin="5" Grid.Column="1">
             <DataGrid Name="dgDishesToServe" AutoGenerateColumns="False" CanUserAddRows="False" Margin="5">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tên món" Binding="{Binding DishName}" Width="*" />
-                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="Auto" />
-                    <DataGridTextColumn Header="Số bàn" Binding="{Binding TableNumber}" Width="Auto" />
+                    <DataGridTextColumn Header="Tên món" Binding="{Binding DishName}" Width="170" />
+                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="100" />
+                    <DataGridTextColumn Header="Số bàn" Binding="{Binding TableNumber}" Width="100" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

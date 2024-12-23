@@ -24,5 +24,16 @@ namespace QLNhaHang.EmployeeControl
         {
             InitializeComponent();
         }
+        private void OnProcessButtonClick(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement the logic for processing the order
+            MessageBox.Show("Order is being processed!");
+        }
+
+        private void OnDeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement the logic for deleting the selected item(s) from the order
+            MessageBox.Show("Selected item(s) deleted from the order!");
+        }
     }
 }

@@ -15,67 +15,67 @@
 
         <ScrollViewer Grid.Column="0" Margin="10">
             <WrapPanel>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn1">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn1">
                     <TextBlock Text="Bàn 1" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn2">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn2">
                     <TextBlock Text="Bàn 2" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn3">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn3">
                     <TextBlock Text="Bàn 3" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn4">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn4">
                     <TextBlock Text="Bàn 4" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn5">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn5">
                     <TextBlock Text="Bàn 5" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn6">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn6">
                     <TextBlock Text="Bàn 6" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn7">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn7">
                     <TextBlock Text="Bàn 7" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn8">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn8">
                     <TextBlock Text="Bàn 8" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn9">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn9">
                     <TextBlock Text="Bàn 9" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn10">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn10">
                     <TextBlock Text="Bàn 10" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn11">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn11">
                     <TextBlock Text="Bàn 11" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn12">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn12">
                     <TextBlock Text="Bàn 12" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn13">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn13">
                     <TextBlock Text="Bàn 13" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn14">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn14">
                     <TextBlock Text="Bàn 14" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn15">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn15">
                     <TextBlock Text="Bàn 15" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn16">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn16">
                     <TextBlock Text="Bàn 16" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn17">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn17">
                     <TextBlock Text="Bàn 17" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn18">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn18">
                     <TextBlock Text="Bàn 18" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn19">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn19">
                     <TextBlock Text="Bàn 19" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn20">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn20">
                     <TextBlock Text="Bàn 20" FontSize="18" Foreground="White"/>
                 </Button>
-                <Button Width="150" Height="80" Margin="5" Background="Green" Click="Table_Click" Name="btn21">
+                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn21">
                     <TextBlock Text="Bàn 21" FontSize="18" Foreground="White"/>
                 </Button>
             </WrapPanel>
