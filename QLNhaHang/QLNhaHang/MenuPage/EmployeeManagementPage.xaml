@@ -70,7 +70,8 @@
                     </Grid>
                 </materialDesign:ColorZone>
 
-                <Button Margin="100 0 0 0"
+                <Button 
+                    Margin="100 0 0 0"
                     Width="60" Height="50"
                     Background="Transparent"
                     BorderThickness="0">

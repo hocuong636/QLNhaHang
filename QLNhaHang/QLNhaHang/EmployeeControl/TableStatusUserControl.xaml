@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         
 
-        <ScrollViewer Grid.Column="0" Margin="10">
+        <ScrollViewer x:Name="scrollViewer" Grid.Column="0" Margin="10">
             <WrapPanel>
                 <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn1">
                     <TextBlock Text="Bàn 1" FontSize="18" Foreground="White"/>
@@ -103,9 +103,10 @@
                  IsReadOnly="True"
                  Margin="0,0,0,10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tên món" Binding="{Binding ItemName}" Width="100" />
-                    <DataGridTextColumn Header="Số lượng" Binding="{Binding Quantity}" Width="80"/>
-                    <DataGridTextColumn Header="Thành tiền" Binding="{Binding Total}" Width="120"/>
+                    <DataGridTextColumn Header="Mã hóa đơn" Binding="{Binding MaHoaDon}" Width="50"/>
+                    <DataGridTextColumn Header="Tên món" Binding="{Binding TenMonAn}" Width="150"/>
+                    <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="75"/>
+                    <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -139,8 +140,7 @@
 
                 <ComboBox x:Name="AvailableTablesCombo" 
           Height="40" 
-          Visibility="Collapsed"
-          SelectionChanged="AvailableTablesCombo_SelectionChanged"/>
+          Visibility="Collapsed"/>
             </StackPanel>
         </Grid>
 
