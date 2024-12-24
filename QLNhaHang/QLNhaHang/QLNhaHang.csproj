@@ -92,6 +92,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="EmployeeControl\KitchenUserControl.xaml.cs">
       <DependentUpon>KitchenUserControl.xaml</DependentUpon>
     </Compile>
@@ -101,6 +102,7 @@
     <Compile Include="EmployeeControl\TableStatusUserControl.xaml.cs">
       <DependentUpon>TableStatusUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FoodViewModel.cs\FoodViewModel.cs" />
     <Compile Include="MenuPage\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>

@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\QLNhaHang\\QLNhaHang\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\tablestatususercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,6 +19,14 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.Ban.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+=======
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\customermanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\customermanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\foodmanagementpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\foodmanagementpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+>>>>>>> Stashed changes
     }
   ],
   "DocumentGroupContainers": [
@@ -27,6 +36,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 342,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 5,
           "Children": [
             {
@@ -50,10 +60,26 @@
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.Ban.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2024-12-23T20:17:37.777Z"
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomerManagementPage.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\CustomerManagementPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-24T08:20:00.192Z",
+              "EditorCaption": ""
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< Updated upstream
               "Title": "dbo.HoaDon.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.HoaDon.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.HoaDon.sql",
@@ -82,7 +108,27 @@
               "ViewState": "AgIAACUAAAAAAAAAAAAkwDYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-23T19:11:50.898Z",
+=======
+              "Title": "FoodManagementPage.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAgwD0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-23T17:12:12.122Z",
+>>>>>>> Stashed changes
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 321,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

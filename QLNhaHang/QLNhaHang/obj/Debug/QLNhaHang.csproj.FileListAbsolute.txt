@@ -71,3 +71,4 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserContro
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\GeneratedInternalTypeHelper.g.cs
