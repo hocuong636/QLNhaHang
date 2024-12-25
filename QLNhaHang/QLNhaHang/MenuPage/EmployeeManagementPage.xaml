@@ -54,7 +54,7 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
+                        <Button Grid.Column="0">
                             <materialDesign:PackIcon Kind="Search" Opacity="0.56" />
                         </Button>
                         <TextBox Grid.Column="1" x:Name="txbTimKiem"

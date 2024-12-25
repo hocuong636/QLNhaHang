@@ -7,6 +7,63 @@
         mc:Ignorable="d"
         d:Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header Section -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10" Background="LightGray">
+            <TextBlock Text="Quản lý Hóa Đơn" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Main Content Section -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Invoice List Section -->
+            <StackPanel Grid.Column="0" Margin="5">
+                <TextBlock Text="Danh Sách Hóa Đơn" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"/>
+                <ListView Name="InvoiceListView">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã Hóa Đơn" DisplayMemberBinding="{Binding MaHoaDon}" Width="80"/>
+                            <GridViewColumn Header="Mã Người Dùng" DisplayMemberBinding="{Binding MaNguoiDung}" Width="100"/>
+                            <GridViewColumn Header="Ngày Lập" DisplayMemberBinding="{Binding NgayLap}" Width="120"/>
+                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien}" Width="100"/>
+                            <GridViewColumn Header="Số Bàn" DisplayMemberBinding="{Binding SoBan}" Width="80"/>
+                            <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+
+            <!-- Invoice Details Section -->
+            <StackPanel Grid.Column="1" Margin="5">
+                <TextBlock Text="Chi Tiết Hóa Đơn" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"/>
+                <ListView Name="InvoiceDetailsListView" Width="443">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Mã Món Ăn" DisplayMemberBinding="{Binding MaMonAn}" Width="80"/>
+                            <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}" Width="80"/>
+                            <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia}" Width="100"/>
+                            <GridViewColumn Header="Giảm Giá" DisplayMemberBinding="{Binding GiamGia}" Width="80"/>
+                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding Total}" Width="100"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </Grid>
+
+        <!-- Footer Section -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Thêm Hóa Đơn" Width="100" Margin="5"/>
+            <Button Content="Chỉnh Sửa Hóa Đơn" Width="115" Margin="5"/>
+            <Button Content="Xóa Hóa Đơn" Width="100" Margin="5"/>
+        </StackPanel>
     </Grid>
 </UserControl>

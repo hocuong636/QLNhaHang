@@ -5,8 +5,119 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.MenuPage"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <Style x:Key="PlaceholderTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}, 
+                                     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     x:Name="textSource" 
+                                     Background="Transparent" 
+                                     Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Quản Lý Chấm Công" FontSize="24" FontWeight="Bold" Margin="20,10,20,20" HorizontalAlignment="Center"/>
+
+        <!-- Left side: Time entries list and search -->
+        <Grid Grid.Row="1" Grid.Column="0" Margin="20,0,10,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Search bar -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox Width="200" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="5"
+                         Style="{StaticResource PlaceholderTextBox}"
+                         Tag="Tìm kiếm nhân viên..."/>
+                <Button Content="Tìm Kiếm" Padding="10,5"/>
+            </StackPanel>
+
+            <!-- Time entries list -->
+            <DataGrid Grid.Row="1" AutoGenerateColumns="False" Name="dgChamCong" IsReadOnly="True" Margin="0,0,-20,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNhanVien}" Width="70"/>
+                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" Width="200"/>
+                    <DataGridTextColumn Header="Ngày" Binding="{Binding Ngay, StringFormat=dd/MM/yyyy}" Width="100"/>
+                    <DataGridTextColumn Header="Giờ Vào" Binding="{Binding ThoiGianVao, StringFormat=HH:mm}" Width="120"/>
+                    <DataGridTextColumn Header="Giờ Ra" Binding="{Binding ThoiGianRa, StringFormat=HH:mm}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <!-- Right side: Clock in/out and employee details -->
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10,0,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Clock in/out section -->
+            <GroupBox Grid.Row="0" Header="Chấm Công" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Mã Nhân Viên:" Margin="0,0,0,5"/>
+                    <TextBox Name="txtMaNhanVien" Margin="0,0,0,10"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Vào Ca" Margin="0,0,5,0" Padding="10,5"/>
+                        <Button Grid.Column="1" Content="Kết Thúc Ca" Margin="5,0,0,0" Padding="10,5"/>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Current date and time -->
+            <TextBlock Grid.Row="1" Name="txtCurrentDateTime" FontSize="16" FontWeight="Bold" Margin="0,10" HorizontalAlignment="Center"/>
+
+            <!-- Employee details -->
+            <GroupBox Grid.Row="2" Header="Thông Tin Nhân Viên" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Họ Tên:"/>
+                    <TextBlock Name="txtHoTen" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Chức Vụ:"/>
+                    <TextBlock Name="txtChucVu" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Email:"/>
+                    <TextBlock Name="txtEmail" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Số Điện Thoại:"/>
+                    <TextBlock Name="txtDienThoai" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Tổng Giờ Làm Tháng Này:"/>
+                    <TextBlock Name="txtTongGioLam" FontWeight="Bold" Margin="0,0,0,10"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
     </Grid>
 </UserControl>
