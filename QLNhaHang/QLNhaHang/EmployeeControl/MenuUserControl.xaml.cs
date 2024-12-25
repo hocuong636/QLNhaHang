@@ -35,5 +35,15 @@ namespace QLNhaHang.EmployeeControl
             // TODO: Implement the logic for deleting the selected item(s) from the order
             MessageBox.Show("Selected item(s) deleted from the order!");
         }
+        private void OnSearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            // Example: Get the search text
+            string searchText = SearchTextBox.Text;
+
+            // Logic for searching items can be added here
+            MessageBox.Show($"Searching for: {searchText}", "Search", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            // You can replace the above MessageBox with actual search functionality.
+        }
     }
 }

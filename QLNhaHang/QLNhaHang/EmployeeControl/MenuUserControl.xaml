@@ -12,6 +12,35 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2">
+            <Grid>
+                <!-- TextBox for Search -->
+                <TextBox Name="SearchTextBox" Width="200" Height="30" Margin="5" VerticalContentAlignment="Center" />
+
+                <!-- Placeholder Text -->
+                <TextBlock Text="Tìm kiếm món ăn..." Foreground="Gray" IsHitTestVisible="False"
+                   VerticalAlignment="Center" Margin="10,0,0,0" Opacity="0.7">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <!-- Hide placeholder when TextBox has text -->
+                                <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+
+            <!-- Search Button -->
+            <Button Content="Tìm" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White" Click="OnSearchButtonClick" />
+        </StackPanel>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-55,60,375,10" Grid.ColumnSpan="2">
             <Grid Margin="10" Width="650">
                 <UniformGrid Columns="5" Rows="8" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F0F0F0" Width="638">
