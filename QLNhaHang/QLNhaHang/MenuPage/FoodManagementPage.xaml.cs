@@ -1,4 +1,4 @@
-﻿using QLNhaHang.ViewModels;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace QLNhaHang
         public FoodManagementPage()
         {
             InitializeComponent();
-            this.DataContext = new FoodViewModel(); // Thay bằng ViewModel của bạn
+            
         }
     }
 }

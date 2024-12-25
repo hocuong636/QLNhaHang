@@ -72,3 +72,7 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.ba
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\Account_management.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\ChamCong.g.cs
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\Account_management.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\ChamCong.baml

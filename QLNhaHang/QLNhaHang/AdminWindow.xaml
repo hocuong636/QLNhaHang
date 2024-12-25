@@ -22,14 +22,16 @@
 
             <!-- Navigation Buttons -->
             <Button Style="{StaticResource NavButtonStyle}" Content="Dashboard" Click="DashboardButton_Click" />
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý nhân viên" Click="EmployeeManagementButton_Click"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý món ăn" Click="FoodManagementButton_Click"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý tình trạng bàn" Click="TableStatusButton_Click"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý hóa đơn" Click="InvoiceManagementButton_Click"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý bếp" Click="KitchenManagementButton_Click"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý kho" Click="WarehouseManagementButton_Click"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý khách hàng" Click="CustomerManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý món ăn" Click="FoodManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý hóa đơn" Click="InvoiceManagementButton_Click"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý nhân viên" Click="EmployeeManagementButton_Click"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Chấm công Nhân Viên" Click="ChamCongButton_Click"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Báo cáo thống kê" Click="ReportButton_Click"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Quản Lý tài khoản" Click="account_managementButton_Click"/>
         </StackPanel>
 
         <!-- Content Area -->

@@ -54,5 +54,14 @@ namespace QLNhaHang
             ContentArea.Content = new ReportPage();
         }
 
+        private void ChamCongButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new MenuPage.ChamCong();
+        }
+
+        private void account_managementButton_Click(object sender, RoutedEventArgs e)
+        {
+            ContentArea.Content = new MenuPage.Account_management();
+        }
     }
 }

@@ -102,7 +102,12 @@
     <Compile Include="EmployeeControl\TableStatusUserControl.xaml.cs">
       <DependentUpon>TableStatusUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FoodViewModel.cs\FoodViewModel.cs" />
+    <Compile Include="MenuPage\Account_management.xaml.cs">
+      <DependentUpon>Account_management.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPage\ChamCong.xaml.cs">
+      <DependentUpon>ChamCong.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MenuPage\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
@@ -141,6 +146,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EmployeeControl\TableStatusUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuPage\Account_management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuPage\ChamCong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
