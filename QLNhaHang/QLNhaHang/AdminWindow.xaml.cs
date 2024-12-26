@@ -34,11 +34,6 @@ namespace QLNhaHang
             ContentArea.Content = new WarehouseManagementPage();
         }
 
-        private void CustomerManagementButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new CustomerManagementPage();
-        }
-
         private void FoodManagementButton_Click(object sender, RoutedEventArgs e)
         {
             ContentArea.Content = new FoodManagementPage();
@@ -47,11 +42,6 @@ namespace QLNhaHang
         private void InvoiceManagementButton_Click(object sender, RoutedEventArgs e)
         {
             ContentArea.Content = new InvoiceManagementPage();
-        }
-
-        private void ReportButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new ReportPage();
         }
 
         private void ChamCongButton_Click(object sender, RoutedEventArgs e)

@@ -44,7 +44,7 @@
             <TextBlock Text="Tồn kho" FontSize="24" FontWeight="Bold" Foreground="#333333" Margin="0,0,0,10"/>
 
             <DataGrid x:Name="InventoryDataGrid" Grid.Row="1" AutoGenerateColumns="False"
-                      HeadersVisibility="Column" Grid.RowSpan="2" Height="498" VerticalAlignment="Top">
+                      HeadersVisibility="Column" Grid.RowSpan="3" Height="568" VerticalAlignment="Top">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Mã Nguyên Liệu" Binding="{Binding MaNguyenLieu}" Width="*"/>
                     <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="*"/>

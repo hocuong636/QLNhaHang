@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNhaHang"
-        xmlns:converters="clr-namespace:QLNhaHang.Converters"
+        xmlns:converters="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
         d:Height="600" Width="1000">
 
     <UserControl.Resources>
-        <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+
         <Style x:Key="ActionButtonStyle" TargetType="Button">
             <Setter Property="Margin" Value="0,0,10,0"/>
             <Setter Property="Padding" Value="15,5"/>
@@ -28,13 +28,17 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!-- Main Content Area -->
-        <Grid Grid.Column="0">
+        <Grid Grid.Column="0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -42,12 +46,12 @@
             </Grid.RowDefinitions>
 
             <!-- Header -->
-            <Border Background="#2D4B73" Grid.Row="0">
+            <Border Background="#2D4B73" Grid.Row="0" Margin="-160,0,0,100" Grid.RowSpan="2">
                 <TextBlock Text="Quản Lý Món Ăn" FontSize="24" FontWeight="Bold" Foreground="White" Margin="20,10"/>
             </Border>
 
             <!-- Control Panel -->
-            <Grid Grid.Row="1" Margin="20,10">
+            <Grid Grid.Row="1" Margin="20,64,20,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -179,7 +183,7 @@
         </Grid>
 
         <!-- Add/Edit Form -->
-        <Grid Grid.Column="1" Width="300" Background="White" Margin="0,0,0,20">
+        <Grid Grid.Column="1" Background="White" Margin="0,0,0,20" Grid.RowSpan="2">
             <Border BorderBrush="#E0E0E0" BorderThickness="1,0,0,0" Margin="0,0,0,15">
                 <StackPanel Margin="20">
                     <TextBlock Text="Thêm Món Ăn Mới" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>

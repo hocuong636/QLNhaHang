@@ -92,7 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="EmployeeControl\KitchenUserControl.xaml.cs">
       <DependentUpon>KitchenUserControl.xaml</DependentUpon>
     </Compile>
@@ -111,9 +110,6 @@
     <Compile Include="MenuPage\DashboardPage.xaml.cs">
       <DependentUpon>DashboardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPage\CustomerManagementPage.xaml.cs">
-      <DependentUpon>CustomerManagementPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MenuPage\DatabaseConnection.cs" />
     <Compile Include="MenuPage\FoodManagementPage.xaml.cs">
       <DependentUpon>FoodManagementPage.xaml</DependentUpon>
@@ -123,9 +119,6 @@
     </Compile>
     <Compile Include="MenuPage\KitchenManagementPage.xaml.cs">
       <DependentUpon>KitchenManagementPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MenuPage\ReportPage.xaml.cs">
-      <DependentUpon>ReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MenuPage\TableStatusPage.xaml.cs">
       <DependentUpon>TableStatusPage.xaml</DependentUpon>
@@ -158,10 +151,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuPage\DashboardPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MenuPage\CustomerManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,10 +195,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuPage\ReportPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MenuPage\TableStatusPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
