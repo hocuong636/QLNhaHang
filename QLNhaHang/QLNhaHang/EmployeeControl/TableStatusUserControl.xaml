@@ -130,13 +130,7 @@
         Margin="0,0,0,10"
         Click="PaymentButton_Click"/>
 
-                <Button x:Name="TransferButton" 
-        Content="CHUYỂN BÀN" 
-        Height="40" 
-        Background="Blue" 
-        Foreground="White"
-        Margin="0,0,0,10"
-        Click="TransferButton_Click"/>
+                
 
                 <ComboBox x:Name="AvailableTablesCombo" 
           Height="40" 

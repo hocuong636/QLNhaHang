@@ -67,8 +67,11 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserContro
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.baml
-C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\Account_management.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\ChamCong.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\Account_management.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\ChamCong.baml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\BouncyCastle.Cryptography.dll
+C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\itextsharp.dll
+C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\BouncyCastle.Cryptography.xml
+C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\itextsharp.xml
