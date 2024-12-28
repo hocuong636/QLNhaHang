@@ -36,14 +36,14 @@ namespace QLNhaHang
                             MessageBox.Show("Đăng nhập thành công! Bạn là Quản trị viên.");
                             AdminWindow adminWindow = new AdminWindow();
                             adminWindow.Show();
-                            this.Close();
+                            this.Hide();
                         }
                         else if (role == 2) // Employee
                         {
                             MessageBox.Show("Đăng nhập thành công! Bạn là Nhân viên.");
                             EmployeeWindow employeeWindow = new EmployeeWindow();
                             employeeWindow.Show();
-                            this.Close();
+                            this.Hide();
                         }
                     }
                     else
@@ -56,6 +56,7 @@ namespace QLNhaHang
             {
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
             }
+
         }
     }
 }

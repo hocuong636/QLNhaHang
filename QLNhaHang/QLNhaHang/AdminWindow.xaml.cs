@@ -53,5 +53,14 @@ namespace QLNhaHang
         {
             ContentArea.Content = new MenuPage.Account_management();
         }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Bạn đã đăng xuất thành công!");
+            this.Close(); // Đóng AdminWindow
+
+            // Hiện lại MainWindow
+            Application.Current.MainWindow.Show();
+        }
+
     }
 }

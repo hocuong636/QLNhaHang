@@ -24,5 +24,12 @@ namespace QLNhaHang
         {
             ContentArea.Content = new EmployeeControl.KitchenUserControl();
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Bạn đã đăng xuất thành công!");
+            this.Close();
+            Application.Current.MainWindow.Show();
+        }
     }
 }

@@ -17,6 +17,7 @@
             <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Bếp" Click="KitchenButton_Click" RenderTransformOrigin="0.5,0.877" Height="40" />
+            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" Click="LogoutButton_Click" Margin="50,50,50,200" VerticalAlignment="Bottom"/>
 
         </StackPanel>
         <Border Grid.Column="1" Background="White" CornerRadius="10">
