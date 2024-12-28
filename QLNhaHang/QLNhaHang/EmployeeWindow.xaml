@@ -4,7 +4,7 @@
         Title="Employee Page"         
         WindowState="Maximized" 
         ResizeMode="CanResize"
-        Background="#ECF0F1">
+        Background="#ECF0F1" Height="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
@@ -16,8 +16,8 @@
                        Margin="10" HorizontalAlignment="Center"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />
-            <Button Style="{StaticResource NavButtonStyle}" Content="Bếp" Click="KitchenButton_Click" />
-            
+            <Button Style="{StaticResource NavButtonStyle}" Content="Bếp" Click="KitchenButton_Click" RenderTransformOrigin="0.5,0.877" Height="40" />
+
         </StackPanel>
         <Border Grid.Column="1" Background="White" CornerRadius="10">
             <ContentControl x:Name="ContentArea" Grid.Column="1" Background="White"/>

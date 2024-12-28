@@ -250,6 +250,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="8ed4ae5f7aa646bc06bfec9ff44c932e.jpg" />
     <Content Include="DatabaseQLnhahang.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

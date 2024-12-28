@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
-        Title="Đăng Nhập" Height="450" Width="710">
-    <Grid RenderTransformOrigin="0.5,1" Height="440" VerticalAlignment="Top">
-        <Border Width="318"
+        Title="Đăng Nhập" Height="455" Width="710">
+    <Grid RenderTransformOrigin="0.5,1" Height="445" VerticalAlignment="Top">
+        <Grid.Background>
+            <ImageBrush ImageSource="/8ed4ae5f7aa646bc06bfec9ff44c932e.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Border Width="295"
             Background="White"
-            CornerRadius="6" Margin="0,10,0,0" HorizontalAlignment="Center" RenderTransformOrigin="0.65,0.518" Height="402" VerticalAlignment="Top">
+            CornerRadius="6" Margin="205,0,0,49" HorizontalAlignment="Left" RenderTransformOrigin="0.65,0.518" Height="372" VerticalAlignment="Bottom">
+            <Border.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFAF9B9B" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.OpacityMask>
             <Border.Effect>
                 <DropShadowEffect BlurRadius="15"
                               Direction ="-90" 
