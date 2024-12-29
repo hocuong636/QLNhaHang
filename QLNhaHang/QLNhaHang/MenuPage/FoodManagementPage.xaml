@@ -59,7 +59,7 @@
 
                 <!-- Search Bar -->
                 <DockPanel Grid.Row="0" Margin="0,0,0,10">
-                    <TextBox Width="420" Height="35" DockPanel.Dock="Left">
+                    <TextBox x:Name="searchTextBox" Width="420" Height="35" DockPanel.Dock="Left">
                         <TextBox.Style>
                             <Style TargetType="TextBox">
                                 <Setter Property="Template">
@@ -90,8 +90,14 @@
                             </Style>
                         </TextBox.Style>
                     </TextBox>
-                    <Button Content="Tìm Kiếm" Style="{StaticResource ActionButtonStyle}" 
-                            Background="#2D4B73" Foreground="White" Margin="10,0,0,0" Height="27" Width="225"/>
+                    <Button Content="Tìm Kiếm" 
+                            Style="{StaticResource ActionButtonStyle}" 
+                            Background="#2D4B73" 
+                            Foreground="White" 
+                            Margin="10,0,0,0" 
+                            Height="27" 
+                            Width="225"
+                            Click="SearchButton_Click"/>
                 </DockPanel>
 
                 <!-- Action Buttons -->
@@ -108,8 +114,11 @@
                             <DropShadowEffect ShadowDepth="1" BlurRadius="5" Opacity="0.3"/>
                         </Button.Effect>
                     </Button>
-                    <Button Content="Làm Mới" Style="{StaticResource ActionButtonStyle}" 
-                            Background="#757575" Foreground="White">
+                    <Button Content="Làm Mới" 
+                            Style="{StaticResource ActionButtonStyle}" 
+                            Background="#757575" 
+                            Foreground="White"
+                            Click="RefreshButton_Click">
                         <Button.Effect>
                             <DropShadowEffect ShadowDepth="1" BlurRadius="5" Opacity="0.3"/>
                         </Button.Effect>

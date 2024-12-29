@@ -170,14 +170,37 @@ namespace QLNhaHang.EmployeeControl
                                 }
                             }
 
-                            // Thêm chi tiết hóa đơn
+                            // Thêm chi tiết hóa đơn và cập nhật số lượng MonAn
                             foreach (var item in orderItems)
                             {
-                                // Kiểm tra xem món này đã có trong hóa đơn chưa
+                                // Kiểm tra số lượng tồn trước khi đặt
+                                string checkSoLuongQuery = @"
+                                    SELECT SoLuong 
+                                    FROM MonAn 
+                                    WHERE MaMonAn = @MaMonAn";
+
+                                int soLuongTon = 0;
+                                using (SqlCommand cmdCheck = new SqlCommand(checkSoLuongQuery, conn, transaction))
+                                {
+                                    cmdCheck.Parameters.AddWithValue("@MaMonAn", item.MaMonAn);
+                                    var result = cmdCheck.ExecuteScalar();
+                                    if (result != DBNull.Value)
+                                    {
+                                        soLuongTon = Convert.ToInt32(result);
+                                    }
+                                }
+
+                                if (soLuongTon < item.SoLuong)
+                                {
+                                    throw new Exception($"Món {item.TenMonAn} chỉ còn {soLuongTon} phần!");
+                                }
+
+                                // Kiểm tra và cập nhật ChiTietHoaDon
                                 string checkExistingItem = @"
                                     SELECT SoLuong 
                                     FROM ChiTietHoaDon 
-                                    WHERE MaHoaDon = @MaHoaDon AND MaMonAn = @MaMonAn";
+                                    WHERE MaHoaDon = @MaHoaDon 
+                                    AND MaMonAn = @MaMonAn";
 
                                 using (SqlCommand cmdCheck = new SqlCommand(checkExistingItem, conn, transaction))
                                 {
@@ -217,6 +240,19 @@ namespace QLNhaHang.EmployeeControl
                                             cmdInsert.Parameters.AddWithValue("@DonGia", item.Gia);
                                             cmdInsert.ExecuteNonQuery();
                                         }
+                                    }
+
+                                    // Cập nhật số lượng trong bảng MonAn
+                                    string updateMonAnQuery = @"
+                                        UPDATE MonAn 
+                                        SET SoLuong = SoLuong - @SoLuong 
+                                        WHERE MaMonAn = @MaMonAn";
+
+                                    using (SqlCommand cmdUpdateMonAn = new SqlCommand(updateMonAnQuery, conn, transaction))
+                                    {
+                                        cmdUpdateMonAn.Parameters.AddWithValue("@MaMonAn", item.MaMonAn);
+                                        cmdUpdateMonAn.Parameters.AddWithValue("@SoLuong", item.SoLuong);
+                                        cmdUpdateMonAn.ExecuteNonQuery();
                                     }
                                 }
                             }
