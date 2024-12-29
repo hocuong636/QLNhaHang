@@ -122,29 +122,25 @@
             <StackPanel Grid.Row="3">
                 <DockPanel Margin="0,0,0,10">
                     <TextBlock Text="Tổng:" 
-              FontSize="18" 
-              FontWeight="Bold"/>
+                      FontSize="18" 
+                      FontWeight="Bold"/>
                     <TextBlock x:Name="TotalAmount" 
-              FontSize="18" 
-              FontWeight="Bold" 
-              HorizontalAlignment="Right"/>
+                      FontSize="18" 
+                      FontWeight="Bold" 
+                      HorizontalAlignment="Right"/>
                 </DockPanel>
 
                 <Button x:Name="PaymentButton" 
-        Content="THANH TOÁN" 
-        Height="40" 
-        Background="Red" 
-        Foreground="White"
-        Margin="0,0,0,10"
-        Click="PaymentButton_Click"/>
-
-                
-
+                    Content="THANH TOÁN" 
+                    Height="40" 
+                    Background="Red" 
+                    Foreground="White"
+                    Margin="0,0,0,10"
+                    Click="PaymentButton_Click"/>
                 <ComboBox x:Name="AvailableTablesCombo" 
-          Height="40" 
-          Visibility="Collapsed"/>
+                      Height="40" 
+                      Visibility="Collapsed"/>
             </StackPanel>
         </Grid>
-
     </Grid>
 </UserControl>

@@ -85,25 +85,33 @@
         <Grid Grid.Column="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- Selected Table Header -->
             <TextBlock x:Name="SelectedTableText" 
-                 Grid.Row="0" 
-                 FontSize="24" 
-                 FontWeight="Bold" 
-                 Margin="0,0,0,10"/>
+             Grid.Row="0" 
+             FontSize="24" 
+             FontWeight="Bold" 
+             Margin="0,0,0,10"/>
+
+            <!-- Thêm TextBlock hiển thị số bàn -->
+            <TextBlock x:Name="CurrentTableText"
+             Grid.Row="1"
+             FontSize="18"
+             Margin="0,0,0,10"
+             Text="Bàn: Chưa chọn"
+             FontWeight="Bold"/>
 
             <!-- Order Details -->
             <DataGrid x:Name="OrderDetailsGrid" 
-                 Grid.Row="1" 
-                 AutoGenerateColumns="False" 
-                 IsReadOnly="True"
-                 Margin="0,0,0,10">
+             Grid.Row="2" 
+             AutoGenerateColumns="False" 
+             IsReadOnly="True"
+             Margin="0,0,0,10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã hóa đơn" Binding="{Binding MaHoaDon}" Width="50"/>
                     <DataGridTextColumn Header="Tên món" Binding="{Binding TenMonAn}" Width="150"/>
                     <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="75"/>
                     <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" Width="*"/>
@@ -111,31 +119,29 @@
             </DataGrid>
 
             <!-- Total and Buttons -->
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="3">
                 <DockPanel Margin="0,0,0,10">
                     <TextBlock Text="Tổng:" 
-              FontSize="18" 
-              FontWeight="Bold"/>
+                  FontSize="18" 
+                  FontWeight="Bold"/>
                     <TextBlock x:Name="TotalAmount" 
-              FontSize="18" 
-              FontWeight="Bold" 
-              HorizontalAlignment="Right"/>
+                  FontSize="18" 
+                  FontWeight="Bold" 
+                  HorizontalAlignment="Right"/>
                 </DockPanel>
 
                 <Button x:Name="PaymentButton" 
-        Content="THANH TOÁN" 
-        Height="40" 
-        Background="Red" 
-        Foreground="White"
-        Margin="0,0,0,10"
-        Click="PaymentButton_Click"/>
-
+                Content="THANH TOÁN" 
+                Height="40" 
+                Background="Red" 
+                Foreground="White"
+                Margin="0,0,0,10"
+                Click="PaymentButton_Click"/>
                 <ComboBox x:Name="AvailableTablesCombo" 
-          Height="40" 
-          Visibility="Collapsed"/>
+                  Height="40" 
+                  Visibility="Collapsed"/>
             </StackPanel>
         </Grid>
-
     </Grid>
 </UserControl>
 
