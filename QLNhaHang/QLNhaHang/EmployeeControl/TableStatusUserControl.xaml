@@ -85,6 +85,7 @@
         <Grid Grid.Column="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -96,9 +97,17 @@
                  FontWeight="Bold" 
                  Margin="0,0,0,10"/>
 
+            <!-- Thêm TextBlock hiển thị số bàn -->
+            <TextBlock x:Name="CurrentTableText"
+                 Grid.Row="1"
+                 FontSize="18"
+                 Margin="0,0,0,10"
+                 Text="Bàn: Chưa chọn"
+                 FontWeight="Bold"/>
+
             <!-- Order Details -->
             <DataGrid x:Name="OrderDetailsGrid" 
-                 Grid.Row="1" 
+                 Grid.Row="2" 
                  AutoGenerateColumns="False" 
                  IsReadOnly="True"
                  Margin="0,0,0,10">
@@ -110,7 +119,7 @@
             </DataGrid>
 
             <!-- Total and Buttons -->
-            <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="3">
                 <DockPanel Margin="0,0,0,10">
                     <TextBlock Text="Tổng:" 
               FontSize="18" 

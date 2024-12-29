@@ -37,6 +37,7 @@ namespace QLNhaHang.EmployeeControl
             InitializeComponent();
             SetupTableButtons();
             UpdateTableStatus();
+            CurrentTableText.Text = "Bàn: Chưa chọn";
         }
 
         private void UpdateTableStatus()
@@ -120,6 +121,10 @@ namespace QLNhaHang.EmployeeControl
                 if (sender is Button btn && btn.Tag != null)
                 {
                     int maBan = Convert.ToInt32(btn.Tag);
+                    
+                    // Cập nhật TextBlock hiển thị số bàn
+                    CurrentTableText.Text = $"Bàn: {maBan}";
+
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
@@ -189,8 +194,14 @@ namespace QLNhaHang.EmployeeControl
 
                 int maBan = Convert.ToInt32(selectedButton.Tag);
 
-                // Tạo đường dẫn file PDF
-                string pdfPath = $"HoaDon_Ban{maBan}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                // Tạo thư mục HoaDon nếu chưa tồn tại
+                string folderPath = @"C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\HoaDon";
+                
+
+                // Tạo tên file và đường dẫn đầy đủ
+                string fileName = $"HoaDon_Ban{maBan}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                string pdfPath = Path.Combine(folderPath, fileName);
+
                 decimal tongTienTatCa = 0;
                 HashSet<int> danhSachHoaDon = new HashSet<int>();
                 DataTable dataForPDF = new DataTable();
@@ -308,6 +319,7 @@ namespace QLNhaHang.EmployeeControl
                             // 4. Cập nhật UI và hiển thị thông báo
                             OrderDetailsGrid.ItemsSource = null;
                             TotalAmount.Text = "0 VNĐ";
+                            CurrentTableText.Text = "Bàn: Chưa chọn";  // Reset text về trạng thái ban đầu
                             UpdateTableStatus();
 
                             // Tìm và làm mới MenuUserControl nếu đang mở
@@ -319,8 +331,20 @@ namespace QLNhaHang.EmployeeControl
 
                             MessageBox.Show("Thanh toán thành công!", "Thông báo");
 
-                            // 5. Mở file PDF
-                            Process.Start(new ProcessStartInfo(pdfPath) { UseShellExecute = true });
+                            // Mở file PDF
+                            try
+                            {
+                                ProcessStartInfo psi = new ProcessStartInfo
+                                {
+                                    FileName = pdfPath,
+                                    UseShellExecute = true
+                                };
+                                Process.Start(psi);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show($"Không thể mở file PDF: {ex.Message}\nFile được lưu tại: {pdfPath}", "Thông báo");
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -338,53 +362,60 @@ namespace QLNhaHang.EmployeeControl
 
         private void CreatePDFFile(string pdfPath, int maBan, DataTable data, decimal tongTienTatCa)
         {
-            using (FileStream fs = new FileStream(pdfPath, FileMode.Create))
+            try
             {
-                Document document = new Document(PageSize.A4, 25, 25, 30, 30);
-                PdfWriter writer = PdfWriter.GetInstance(document, fs);
-                document.Open();
-
-                string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
-                BaseFont baseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                Font font = new Font(baseFont, 12);
-                Font titleFont = new Font(baseFont, 18, Font.BOLD);
-
-                Paragraph title = new Paragraph("HÓA ĐƠN THANH TOÁN", titleFont);
-                title.Alignment = Element.ALIGN_CENTER;
-                document.Add(title);
-                document.Add(new Paragraph($"Bàn số: {maBan}", font));
-                document.Add(new Paragraph($"Ngày: {DateTime.Now:dd/MM/yyyy HH:mm}", font));
-                document.Add(new Paragraph("-----------------------------------", font));
-
-                PdfPTable table = new PdfPTable(4);
-                table.WidthPercentage = 100;
-                table.SpacingBefore = 20f;
-
-                // Header của bảng
-                table.AddCell(new PdfPCell(new Phrase("Tên món", font)));
-                table.AddCell(new PdfPCell(new Phrase("Số lượng", font)));
-                table.AddCell(new PdfPCell(new Phrase("Đơn giá", font)));
-                table.AddCell(new PdfPCell(new Phrase("Thành tiền", font)));
-
-                foreach (DataRow row in data.Rows)
+                using (FileStream fs = new FileStream(pdfPath, FileMode.Create))
                 {
-                    table.AddCell(new PdfPCell(new Phrase(row["TenMonAn"].ToString(), font)));
-                    table.AddCell(new PdfPCell(new Phrase(row["TongSoLuong"].ToString(), font)) 
-                        { HorizontalAlignment = Element.ALIGN_CENTER });
-                    table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(row["DonGia"]).ToString("N0"), font)) 
-                        { HorizontalAlignment = Element.ALIGN_RIGHT });
-                    table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(row["ThanhTien"]).ToString("N0"), font)) 
-                        { HorizontalAlignment = Element.ALIGN_RIGHT });
+                    Document document = new Document(PageSize.A4, 25, 25, 30, 30);
+                    PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                    document.Open();
+
+                    string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+                    BaseFont baseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                    Font font = new Font(baseFont, 12);
+                    Font titleFont = new Font(baseFont, 18, Font.BOLD);
+
+                    Paragraph title = new Paragraph("HÓA ĐƠN THANH TOÁN", titleFont);
+                    title.Alignment = Element.ALIGN_CENTER;
+                    document.Add(title);
+                    document.Add(new Paragraph($"Bàn số: {maBan}", font));
+                    document.Add(new Paragraph($"Ngày: {DateTime.Now:dd/MM/yyyy HH:mm}", font));
+                    document.Add(new Paragraph("-----------------------------------", font));
+
+                    PdfPTable table = new PdfPTable(4);
+                    table.WidthPercentage = 100;
+                    table.SpacingBefore = 20f;
+
+                    // Header của bảng
+                    table.AddCell(new PdfPCell(new Phrase("Tên món", font)));
+                    table.AddCell(new PdfPCell(new Phrase("Số lượng", font)));
+                    table.AddCell(new PdfPCell(new Phrase("Đơn giá", font)));
+                    table.AddCell(new PdfPCell(new Phrase("Thành tiền", font)));
+
+                    foreach (DataRow row in data.Rows)
+                    {
+                        table.AddCell(new PdfPCell(new Phrase(row["TenMonAn"].ToString(), font)));
+                        table.AddCell(new PdfPCell(new Phrase(row["TongSoLuong"].ToString(), font)) 
+                            { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(row["DonGia"]).ToString("N0"), font)) 
+                            { HorizontalAlignment = Element.ALIGN_RIGHT });
+                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(row["ThanhTien"]).ToString("N0"), font)) 
+                            { HorizontalAlignment = Element.ALIGN_RIGHT });
+                    }
+
+                    document.Add(table);
+                    document.Add(new Paragraph("\n"));
+                    Paragraph total = new Paragraph($"Tổng tiền: {tongTienTatCa.ToString("N0")} VNĐ", 
+                        new Font(baseFont, 12, Font.BOLD));
+                    total.Alignment = Element.ALIGN_RIGHT;
+                    document.Add(total);
+
+                    document.Close();
                 }
-
-                document.Add(table);
-                document.Add(new Paragraph("\n"));
-                Paragraph total = new Paragraph($"Tổng tiền: {tongTienTatCa.ToString("N0")} VNĐ", 
-                    new Font(baseFont, 12, Font.BOLD));
-                total.Alignment = Element.ALIGN_RIGHT;
-                document.Add(total);
-
-                document.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Lỗi khi tạo file PDF: {ex.Message}");
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
+using System.Data;
 
 namespace QLNhaHang.EmployeeControl
 {
@@ -247,9 +250,16 @@ namespace QLNhaHang.EmployeeControl
                             }
 
                             transaction.Commit();
-                            orderItems.Clear();
-                            UpdateTotal();
                             MessageBox.Show("Đã gửi yêu cầu chế biến thành công!", "Thông báo");
+                            // Tạo phiếu order PDF
+                            CreateOrderPDF(maHoaDon, soBan, orderItems.ToList());
+
+                            // Xóa dữ liệu trong OrderListView và làm mới giao diện
+                            orderItems.Clear();
+                            OrderListView.ItemsSource = null;
+                            OrderListView.ItemsSource = orderItems;
+                            UpdateTotal();
+                            TableComboBox.SelectedItem = null;
                         }
                         catch (Exception ex)
                         {
@@ -265,20 +275,6 @@ namespace QLNhaHang.EmployeeControl
             }
         }
 
-        private int GenerateNewMaHoaDon()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "SELECT ISNULL(MAX(MaHoaDon), 0) FROM HoaDon";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    int lastId = (int)cmd.ExecuteScalar();
-                    return lastId + 1;
-                }
-            }
-        }
-
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
         {
             string searchText = SearchTextBox.Text.ToLower();
@@ -291,6 +287,95 @@ namespace QLNhaHang.EmployeeControl
         {
             decimal total = orderItems.Sum(x => x.ThanhTien);
             TotalTextBlock.Text = $"Tổng tiền: {total:N0} VNĐ";
+        }
+
+        public void ClearOrderList()
+        {
+            orderItems.Clear();
+            OrderListView.ItemsSource = null;
+            OrderListView.ItemsSource = orderItems;
+            UpdateTotal();
+            TableComboBox.SelectedItem = null;
+        }
+
+        private void CreateOrderPDF(int maHoaDon, int soBan, List<OrderItem> items)
+        {
+            try
+            {
+                string folderPath = @"C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\PhieuOrder";
+                string fileName = $"PhieuOrder_Ban{soBan}_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                string pdfPath = Path.Combine(folderPath, fileName);
+
+                using (System.IO.FileStream fs = new System.IO.FileStream(pdfPath, System.IO.FileMode.Create))
+                {
+                    Document document = new Document(PageSize.A5, 25, 25, 30, 30);
+                    PdfWriter writer = PdfWriter.GetInstance(document, fs);
+                    document.Open();
+
+                    // Thêm font chữ Unicode
+                    string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+                    BaseFont baseFont = BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                    Font font = new Font(baseFont, 12);
+                    Font titleFont = new Font(baseFont, 16, Font.BOLD);
+
+                    // Tiêu đề
+                    iTextSharp.text.Paragraph title = new iTextSharp.text.Paragraph("PHIẾU ORDER", titleFont);
+                    title.Alignment = Element.ALIGN_CENTER;
+                    document.Add(title);
+
+                    // Thông tin cơ bản
+                    document.Add(new iTextSharp.text.Paragraph($"Mã hóa đơn: {maHoaDon}", font));
+                    document.Add(new iTextSharp.text.Paragraph($"Bàn số: {soBan}", font));
+                    document.Add(new iTextSharp.text.Paragraph($"Thời gian: {DateTime.Now:dd/MM/yyyy HH:mm}", font));
+                    document.Add(new iTextSharp.text.Paragraph("----------------------------------------", font));
+
+                    // Tạo bảng
+                    PdfPTable table = new PdfPTable(3);
+                    table.WidthPercentage = 100;
+                    table.SetWidths(new float[] { 2, 1, 1 });
+                    table.SpacingBefore = 20f;
+
+                    // Header của bảng
+                    table.AddCell(new PdfPCell(new Phrase("Tên món", font)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                    table.AddCell(new PdfPCell(new Phrase("Số lượng", font)) { HorizontalAlignment = Element.ALIGN_CENTER });
+                    table.AddCell(new PdfPCell(new Phrase("Ghi chú", font)) { HorizontalAlignment = Element.ALIGN_CENTER });
+
+                    // Thêm dữ liệu vào bảng
+                    foreach (var item in items)
+                    {
+                        table.AddCell(new PdfPCell(new Phrase(item.TenMonAn, font)));
+                        table.AddCell(new PdfPCell(new Phrase(item.SoLuong.ToString(), font))
+                        { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase("", font))); // Cột ghi chú để trống
+                    }
+
+                    document.Add(table);
+                    document.Add(new Paragraph("\n"));
+                    document.Add(new Paragraph("Ghi chú: ", font));
+                    document.Add(new Paragraph("----------------------------------------", font));
+
+                    document.Close();
+                }
+
+                // Mở file PDF sau khi tạo
+                try
+                {
+                    ProcessStartInfo psi = new ProcessStartInfo
+                    {
+                        FileName = pdfPath,
+                        UseShellExecute = true
+                    };
+                    Process.Start(psi);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Không thể mở file PDF: {ex.Message}\nFile được lưu tại: {pdfPath}", "Thông báo");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tạo file PDF: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 
