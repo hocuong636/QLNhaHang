@@ -103,7 +103,6 @@
                  IsReadOnly="True"
                  Margin="0,0,0,10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã hóa đơn" Binding="{Binding MaHoaDon}" Width="50"/>
                     <DataGridTextColumn Header="Tên món" Binding="{Binding TenMonAn}" Width="150"/>
                     <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="75"/>
                     <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" Width="*"/>

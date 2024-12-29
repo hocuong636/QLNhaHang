@@ -98,9 +98,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EmployeeControl\KitchenUserControl.xaml.cs">
-      <DependentUpon>KitchenUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EmployeeControl\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
@@ -133,10 +130,6 @@
       <DependentUpon>WarehouseManagementPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="EmployeeControl\KitchenUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

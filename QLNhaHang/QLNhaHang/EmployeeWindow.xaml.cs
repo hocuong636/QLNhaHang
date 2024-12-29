@@ -5,24 +5,22 @@ namespace QLNhaHang
 {
     public partial class EmployeeWindow : Window
     {
-        public EmployeeWindow()
+        private string _maNguoiDung;
+
+        public EmployeeWindow(string maNguoiDung)
         {
             InitializeComponent();
+            _maNguoiDung = maNguoiDung;
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            ContentArea.Content = new EmployeeControl.MenuUserControl();
+            ContentArea.Content = new EmployeeControl.MenuUserControl(_maNguoiDung);
         }
 
         private void TableStatusemployeeButton_Click(object sender, RoutedEventArgs e)
         {
             ContentArea.Content = new EmployeeControl.TableStatusUserControl();
-        }
-
-        private void KitchenButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new EmployeeControl.KitchenUserControl();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)

@@ -61,10 +61,8 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\Microsoft.Xaml.Behaviors.pdb
 C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\Microsoft.Xaml.Behaviors.xml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\QLNhaHang.csproj.Up2Date
-C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.g.cs
-C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\KitchenUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\MenuUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\EmployeeControl\TableStatusUserControl.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\Account_management.g.cs

@@ -3,389 +3,89 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:QLNhaHang.EmployeeControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" Width="1000">
-
-    <Grid Margin="0,0,-95,0">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2">
-            <Grid>
-                <!-- TextBox for Search -->
-                <TextBox Name="SearchTextBox" Width="200" Height="30" Margin="5" VerticalContentAlignment="Center" />
 
-                <!-- Placeholder Text -->
-                <TextBlock Text="Tìm kiếm món ăn..." Foreground="Gray" IsHitTestVisible="False"
-                   VerticalAlignment="Center" Margin="10,0,0,0" Opacity="0.7">
-                    <TextBlock.Style>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Visibility" Value="Visible"/>
-                            <Style.Triggers>
-                                <!-- Hide placeholder when TextBox has text -->
-                                <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
-                </TextBlock>
-            </Grid>
+        <!-- Phần Menu bên trái -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <!-- Search Button -->
-            <Button Content="Tìm" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White" Click="OnSearchButtonClick" />
-        </StackPanel>
+            <!-- Thanh tìm kiếm -->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                <TextBox x:Name="SearchTextBox" Width="200" Height="30" Margin="5"/>
+                <Button Content="Tìm" Width="80" Height="30" Click="OnSearchButtonClick"/>
+            </StackPanel>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-55,60,375,10" Grid.ColumnSpan="2">
-            <Grid Margin="10" Width="650">
-                <UniformGrid Columns="5" Rows="8" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#F0F0F0" Width="638">
-                    <!-- 40 ô chức năng -->
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Null}" Height="100" Width="100" Stretch="Uniform" Margin="5"/>
-                            <TextBlock Text="Tên món" FontWeight="Bold" FontSize="14" Foreground="#333" TextAlignment="Center" Margin="5"/>
-                            <Button Content="Đặt" Width="80" Height="30" Margin="5" Background="#0078D7" Foreground="White"/>
-                        </StackPanel>
-                    </Border>
-                    <!-- Copy đoạn trên thêm 39 lần -->
-                </UniformGrid>
-            </Grid>
+            <!-- Menu món ăn -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <ItemsControl x:Name="MenuItemsControl" Margin="10">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="#ccc" Margin="5" CornerRadius="5" Background="#ffffff">
+                                <StackPanel Width="150" Height="200">
+                                    <Image Source="{Binding HinhAnh}" Height="100" Width="100" Margin="5"/>
+                                    <TextBlock Text="{Binding TenMonAn}" FontWeight="Bold" 
+                                             TextAlignment="Center" Margin="5"/>
+                                    <TextBlock Text="{Binding Gia, StringFormat='{}{0:N0} VNĐ'}" 
+                                             TextAlignment="Center" Margin="5"/>
+                                    <Button Content="Đặt" Width="80" Height="30" Margin="5" 
+                                            Background="#0078D7" Foreground="White"
+                                            Click="OnOrderButtonClick"
+                                            Tag="{Binding}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
 
-        </ScrollViewer>
-        <Grid Margin="750,10,10,10" Background="#F7F7F7" Grid.Column="1" >
+        <!-- Phần giỏ hàng bên phải -->
+        <Grid Grid.Column="1" Background="#F7F7F7" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <!-- Danh sách món đã đặt -->
-            <ListView Name="OrderListView" Grid.Row="0" Margin="0,5,5,5" BorderBrush="#ccc" BorderThickness="1">
+            <ListView Name="OrderListView" Grid.Row="0" Margin="5">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Tên món" Width="150" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Số lượng" Width="80" DisplayMemberBinding="{Binding Quantity}"/>
-                        <GridViewColumn Header="Giá" Width="100" DisplayMemberBinding="{Binding Price}"/>
+                        <GridViewColumn Header="Tên món"  Width="120"  DisplayMemberBinding="{Binding TenMonAn}"/>
+                        <GridViewColumn Header="SL" Width="50" DisplayMemberBinding="{Binding SoLuong}"/>
+                        <GridViewColumn Header="Giá" Width="100" DisplayMemberBinding="{Binding ThanhTien}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
 
-            <!-- Khu vực hiển thị tổng tiền và nút hành động -->
-            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
-                    <TextBlock Text="Chọn bàn:" FontSize="14" VerticalAlignment="Center" Margin="5"/>
-                    <ComboBox Name="QuantityComboBox" Width="60" Margin="5">
-                        <!-- Các số từ 1 đến 21 -->
-                        <ComboBoxItem>1</ComboBoxItem>
-                        <ComboBoxItem>2</ComboBoxItem>
-                        <ComboBoxItem>3</ComboBoxItem>
-                        <ComboBoxItem>4</ComboBoxItem>
-                        <ComboBoxItem>5</ComboBoxItem>
-                        <ComboBoxItem>6</ComboBoxItem>
-                        <ComboBoxItem>7</ComboBoxItem>
-                        <ComboBoxItem>8</ComboBoxItem>
-                        <ComboBoxItem>9</ComboBoxItem>
-                        <ComboBoxItem>10</ComboBoxItem>
-                        <ComboBoxItem>11</ComboBoxItem>
-                        <ComboBoxItem>12</ComboBoxItem>
-                        <ComboBoxItem>13</ComboBoxItem>
-                        <ComboBoxItem>14</ComboBoxItem>
-                        <ComboBoxItem>15</ComboBoxItem>
-                        <ComboBoxItem>16</ComboBoxItem>
-                        <ComboBoxItem>17</ComboBoxItem>
-                        <ComboBoxItem>18</ComboBoxItem>
-                        <ComboBoxItem>19</ComboBoxItem>
-                        <ComboBoxItem>20</ComboBoxItem>
-                        <ComboBoxItem>21</ComboBoxItem>
-
-                    </ComboBox>
+            <StackPanel Grid.Row="1" Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Chọn bàn:" VerticalAlignment="Center"/>
+                    <ComboBox Name="TableComboBox" Width="60" Margin="5"/>
                 </StackPanel>
-
-                <TextBlock Name="TotalTextBlock" Text="Tổng tiền: 0 VND" FontSize="14" FontWeight="Bold" Margin="5" Foreground="#0078D7"/>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                    <Button Content="Xóa" Width="80" Height="30" Margin="5" Background="#D9534F" Foreground="White" Click="OnDeleteButtonClick"/>
-                    <Button Content="Báo chế biến" Width="120" Height="30" Margin="5" Background="#5CB85C" Foreground="White" Click="OnProcessButtonClick"/>
+                <TextBlock Name="TotalTextBlock" Text="Tổng tiền: 0 VNĐ" 
+                          FontWeight="Bold" Margin="5"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Xóa" Width="80" Height="30" Margin="5" 
+                            Background="#D9534F" Foreground="White"
+                            Click="OnDeleteButtonClick"/>
+                    <Button Content="Báo chế biến" Width="120" Height="30" Margin="5" 
+                            Background="#5CB85C" Foreground="White"
+                            Click="OnProcessButtonClick"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
-
     </Grid>
 </UserControl>

@@ -22,33 +22,37 @@ namespace QLNhaHang
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT MaQuyen FROM NguoiDung WHERE TenDangNhap=@Username AND MatKhau=@Password";
+                    string query = "SELECT MaQuyen, MaNguoiDung FROM NguoiDung WHERE TenDangNhap=@Username AND MatKhau=@Password";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", username);
                     command.Parameters.AddWithValue("@Password", password);
 
-                    object result = command.ExecuteScalar();
-                    if (result != null)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        int role = Convert.ToInt32(result);
-                        if (role == 1) // Admin
+                        if (reader.Read())
                         {
-                            MessageBox.Show("Đăng nhập thành công! Bạn là Quản trị viên.");
-                            AdminWindow adminWindow = new AdminWindow();
-                            adminWindow.Show();
-                            this.Hide();
+                            int role = Convert.ToInt32(reader["MaQuyen"]);
+                            string maNguoiDung = reader["MaNguoiDung"].ToString();
+
+                            if (role == 1) // Admin
+                            {
+                                MessageBox.Show("Đăng nhập thành công! Bạn là Quản trị viên.");
+                                AdminWindow adminWindow = new AdminWindow();
+                                adminWindow.Show();
+                                this.Hide();
+                            }
+                            else if (role == 2) // Employee
+                            {
+                                MessageBox.Show("Đăng nhập thành công! Bạn là Nhân viên.");
+                                EmployeeWindow employeeWindow = new EmployeeWindow(maNguoiDung);
+                                employeeWindow.Show();
+                                this.Hide();
+                            }
                         }
-                        else if (role == 2) // Employee
+                        else
                         {
-                            MessageBox.Show("Đăng nhập thành công! Bạn là Nhân viên.");
-                            EmployeeWindow employeeWindow = new EmployeeWindow();
-                            employeeWindow.Show();
-                            this.Hide();
+                            MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
                     }
                 }
             }
@@ -56,7 +60,6 @@ namespace QLNhaHang
             {
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
             }
-
         }
     }
 }
