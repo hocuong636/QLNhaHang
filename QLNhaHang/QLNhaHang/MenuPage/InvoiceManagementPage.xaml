@@ -49,7 +49,7 @@
                             <GridViewColumn Header="Mã Hóa Đơn" DisplayMemberBinding="{Binding MaHoaDon}" Width="90"/>
                             <GridViewColumn Header="Mã Người Dùng" DisplayMemberBinding="{Binding MaNguoiDung}" Width="110"/>
                             <GridViewColumn Header="Ngày Lập" DisplayMemberBinding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="130"/>
-                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien, StringFormat='{}{0:C}'}" Width="120"/>
+                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien, StringFormat='{}{0:C}'}" Width="115"/>
                             <GridViewColumn Header="Số Bàn" DisplayMemberBinding="{Binding SoBan}" Width="68"/>
                             <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
                         </GridView>
