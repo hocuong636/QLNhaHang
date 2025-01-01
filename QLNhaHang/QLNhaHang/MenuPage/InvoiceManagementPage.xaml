@@ -17,21 +17,27 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" Background="LightGray">
             <TextBlock Text="Quản lý Hóa Đơn" FontSize="22" FontWeight="Bold" Margin="0,0,20,0"/>
             <Grid>
-                <TextBox x:Name="SearchTextBox" Width="200" VerticalAlignment="Center" Margin="0,0,20,0"/>
+                <TextBox x:Name="SearchTextBox" 
+                        Width="200" 
+                        VerticalAlignment="Center" 
+                        Margin="0,0,20,0"
+                        TextChanged="SearchTextBox_TextChanged"/>
                 <TextBlock Text="Tìm kiếm theo mã hóa đơn..." 
                            IsHitTestVisible="False" 
                            Foreground="Gray" 
                            VerticalAlignment="Center" 
-                           Margin="5,0,0,0" 
-                           />
+                           Margin="5,0,0,0"/>
             </Grid>
-            <ComboBox Width="150" VerticalAlignment="Center" Margin="0,0,20,0">
+            <ComboBox x:Name="StatusComboBox" 
+                      Width="150" 
+                      VerticalAlignment="Center" 
+                      Margin="0,0,20,0"
+                      SelectionChanged="StatusComboBox_SelectionChanged">
                 <ComboBoxItem Content="Tất cả trạng thái" IsSelected="True"/>
                 <ComboBoxItem Content="Chưa thanh toán"/>
                 <ComboBoxItem Content="Đã thanh toán"/>
-                <ComboBoxItem Content="Hủy"/>
             </ComboBox>
-            <Button Content="Lọc" Width="80" Margin="0,0,20,0"/>
+            <Button Content="Lọc" Width="80" Margin="0,0,20,0" Click="FilterButton_Click"/>
         </StackPanel>
 
         <!-- Main Content Section -->
@@ -52,7 +58,7 @@
                             <GridViewColumn Header="Mã Người Dùng" DisplayMemberBinding="{Binding MaNguoiDung}" Width="100"/>
                             <GridViewColumn Header="Ngày Lập" DisplayMemberBinding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="120"/>
                             <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien, StringFormat='{}{0:C}'}" Width="100"/>
-                            <GridViewColumn Header="Số Bàn" DisplayMemberBinding="{Binding SoBan}" Width="80"/>
+                            <GridViewColumn Header="Số Bàn" DisplayMemberBinding="{Binding SoBan}" Width="68"/>
                             <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
                         </GridView>
                     </ListView.View>
@@ -62,28 +68,45 @@
             <!-- Invoice Details Section -->
             <StackPanel Grid.Column="1" Margin="125,16,-105,120" Background="#F2F1F1">
                 <TextBlock Text="Chi Tiết Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Width="435"/>
-                <ListView Name="InvoiceDetailsListView" ItemsSource="{Binding SelectedInvoice.Details}">
+
+                <!-- ListView chiếm phần lớn không gian -->
+                <ListView Name="InvoiceDetailsListView" 
+                          Margin="0,10,0,0" 
+                          Height="300">
+                    <!-- Thêm chiều cao cố định -->
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã Món Ăn" DisplayMemberBinding="{Binding MaMonAn}" Width="80"/>
-                            <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}" Width="80"/>
-                            <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia, StringFormat='{}{0:C}'}" Width="100"/>
-                            <GridViewColumn Header="Giảm Giá" DisplayMemberBinding="{Binding GiamGia}" Width="80"/>
-                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding Total, StringFormat='{}{0:C}'}" Width="100"/>
+                            <GridViewColumn Header="Tên Món" DisplayMemberBinding="{Binding TenMonAn}" Width="100"/>
+                            <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}" Width="95"/>
+                            <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia, StringFormat='{}{0:N0} VNĐ'}" Width="120"/>
+                            <GridViewColumn Header="Thành Tiền" DisplayMemberBinding="{Binding ThanhTien, StringFormat='{}{0:N0} VNĐ'}" Width="120"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <TextBlock Text="{Binding SelectedInvoice.TotalAmount, StringFormat='Tổng Tiền: {0:C}'}" 
-                           FontSize="16" FontWeight="Bold" Margin="0,10,0,0"/>
+
+                <!-- Khoảng trống giữa ListView và TextBlock -->
+                <Grid Height="20"/>
+                <!-- Thêm khoảng cách -->
+
+                <!-- TextBlock tổng tiền ở cuối -->
+                <Border BorderThickness="0,1,0,0" 
+                        BorderBrush="#CCCCCC" 
+                        Padding="0,10,0,0">
+                    <!-- Thêm đường kẻ phía trên -->
+                    <TextBlock x:Name="TotalAmountText" 
+                               Text="Tổng tiền: 0 VNĐ" 
+                               FontSize="16" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Right"
+                               Margin="10,0,10,10"/>
+                </Border>
             </StackPanel>
         </Grid>
-
         <!-- Footer Section -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Thêm Hóa Đơn" Width="120" Margin="5"/>
-            <Button Content="Chỉnh Sửa" Width="100" Margin="5"/>
-            <Button Content="Xóa" Width="80" Margin="5"/>
-            <Button Content="In Hóa Đơn" Width="100" Margin="5"/>
+            <Button Content="In Hóa Đơn" 
+                    Width="100"
+                    Click="PrintInvoiceButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

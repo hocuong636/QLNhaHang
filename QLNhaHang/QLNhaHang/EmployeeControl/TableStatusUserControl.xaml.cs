@@ -137,7 +137,7 @@ namespace QLNhaHang.EmployeeControl
                           FROM HoaDon hd
                           INNER JOIN ChiTietHoaDon cthd ON hd.MaHoaDon = cthd.MaHoaDon
                           INNER JOIN MonAn ma ON cthd.MaMonAn = ma.MaMonAn
-                          WHERE hd.SoBan = @MaBan
+                          WHERE hd.SoBan = @MaBan AND hd.TrangThai = N'Chưa thanh toán'
                           ORDER BY hd.MaHoaDon";
 
                         using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -287,17 +287,6 @@ namespace QLNhaHang.EmployeeControl
                                     WHERE MaHoaDon = @MaHoaDon";
 
                                 using (SqlCommand cmd = new SqlCommand(updateHoaDon, conn, transaction))
-                                {
-                                    cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
-                                    cmd.ExecuteNonQuery();
-                                }
-                                //3. 
-                                string xoaCTHD= @"
-                                    DELETE FROM ChiTietHoaDon
-                                    WHERE MaHoaDon = @MaHoaDon;
-                                    ";
-
-                                using (SqlCommand cmd = new SqlCommand(xoaCTHD, conn, transaction))
                                 {
                                     cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
                                     cmd.ExecuteNonQuery();
