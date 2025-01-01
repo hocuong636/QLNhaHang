@@ -43,8 +43,7 @@
                 </StackPanel>
             </TabItem>
 
-            <!-- Tab for password recovery -->
-            <TabItem Header="Lấy Lại Mật Khẩu">
+            <TabItem Header="Quản Lý Mật Khẩu">
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
@@ -52,11 +51,67 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <StackPanel Margin="20">
-                    <TextBlock Text="Email hoặc Tên Đăng Nhập:" FontSize="14"/>
-                    <TextBox Name="txtRecovery" Margin="0,5,0,15" Padding="5"/>
-                    <Button Content="Lấy Lại Mật Khẩu" Background="#0078D7" Foreground="White" Padding="10" FontSize="14" Width="200"/>
+                    <!-- Hướng dẫn -->
+                    <TextBlock Text="Nhập Email hoặc Tên Đăng Nhập để tìm thông tin:" 
+                   FontSize="16" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,10"/>
+
+                    <!-- TextBox nhập Email/User -->
+                    <TextBox Name="txtRecovery"
+                 Margin="0,5,0,15"
+                 Padding="5"
+                 Text="Email hoặc Tên Đăng Nhập"
+                 Foreground="Gray"
+                 GotFocus="TextBox_GotFocus"
+                 LostFocus="TextBox_LostFocus"/>
+
+                    <!-- Nút tìm kiếm -->
+                    <Button Content="Tìm Tài Khoản" 
+                Background="#0078D7" 
+                Foreground="White" 
+                Padding="10" 
+                FontSize="14" 
+                Width="200"
+                Margin="0,0,0,15"
+                Click="SearchUser_Click"/>
+
+                    <!-- Hiển thị thông tin -->
+                    <TextBlock Text="Mật khẩu hiện tại:" FontSize="14" Margin="0,15,0,5"/>
+                    <TextBox Name="txtCurrentPassword" 
+                 IsReadOnly="True"
+                 Margin="0,5,0,15" 
+                 Padding="5"/>
+
+                    <TextBlock Text="Mật khẩu mới:" FontSize="14" Margin="0,15,0,5"/>
+                    <PasswordBox Name="txtNewPassword" 
+                     Margin="0,5,0,15" 
+                     Padding="5"/>
+
+                    <TextBlock Text="Nhập lại mật khẩu mới:" FontSize="14" Margin="0,15,0,5"/>
+                    <PasswordBox Name="txtConfirmPassword" 
+                     Margin="0,5,0,15" 
+                     Padding="5"/>
+
+                    <!-- Nút cập nhật -->
+                    <Button Content="Cập Nhật Mật Khẩu" 
+                Background="#28A745" 
+                Foreground="White" 
+                Padding="10" 
+                FontSize="14" 
+                Width="200"
+                Margin="0,0,0,15"
+                Click="UpdatePassword_Click"/>
+
+                    <!-- Thông báo -->
+                    <TextBlock Name="txtNotification" 
+                   Text="Thông báo sẽ xuất hiện ở đây." 
+                   Foreground="Gray" 
+                   FontSize="12" 
+                   Visibility="Collapsed"/>
                 </StackPanel>
             </TabItem>
+
 
             <!-- Tab for viewing account information -->
             <TabItem Header="Thông Tin Tài Khoản">
