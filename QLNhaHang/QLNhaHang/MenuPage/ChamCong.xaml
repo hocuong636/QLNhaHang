@@ -5,34 +5,34 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.MenuPage"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="600" d:DesignWidth="1000"
+             Background="#F0F4F8">
     <UserControl.Resources>
-        <Style x:Key="PlaceholderTextBox" TargetType="{x:Type TextBox}">
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Grid>
-                            <TextBox Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}, 
-                                     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                     x:Name="textSource" 
-                                     Background="Transparent" 
-                                     Panel.ZIndex="2" />
-                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="Foreground" Value="Transparent"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
-                                                <Setter Property="Foreground" Value="Gray"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                        </Grid>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="22" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Padding" Value="15,10"/>
+        </Style>
+        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="5" BorderBrush="#E0E6ED" BorderThickness="1" Background="White">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="10,5"/>
         </Style>
     </UserControl.Resources>
 
@@ -41,83 +41,139 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
 
-        <!-- Header -->
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Quản Lý Chấm Công" FontSize="24" FontWeight="Bold" Margin="20,10,20,20" HorizontalAlignment="Center"/>
+        <!-- Main Header -->
+        <Border Background="#1976D2" 
+                Height="80" 
+                VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+            </Border.Effect>
+            <TextBlock Text="QUẢN LÝ CHẤM CÔNG"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#40000000" 
+                                      Direction="320" 
+                                      ShadowDepth="3" 
+                                      BlurRadius="4"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Border>
 
-        <!-- Left side: Time entries list and search -->
-        <Grid Grid.Row="1" Grid.Column="0" Margin="20,0,10,20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20,20,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-            <!-- Search bar -->
-            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBox Width="200" Margin="0,0,10,0" VerticalContentAlignment="Center" Padding="5"
-                         Style="{StaticResource PlaceholderTextBox}"
-                         Tag="Tìm kiếm nhân viên..."/>
-                <Button Content="Tìm Kiếm" Padding="10,5"/>
-            </StackPanel>
+            <!-- Left side: Time entries list and search -->
+            <Border Grid.Column="0" Background="White" CornerRadius="15" Margin="0,0,10,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Border.Effect>
+                <DockPanel Margin="20">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,20">
+                        <Border Background="White" CornerRadius="25" Width="290" RenderTransformOrigin="0.5,0.5" Height="40">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-1.432"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-0.375"/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                            <Border.Effect>
+                                <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="1"/>
+                            </Border.Effect>
+                        </Border>
+                        <Button Content="Tìm Kiếm"
+                                Margin="15,0"
+                                Width="120"
+                                Height="30"
+                                Background="#4CAF50"
+                                Style="{StaticResource RoundedButtonStyle}" RenderTransformOrigin="0.5,0.5">
+                            <Button.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="0.975"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0.383"/>
+                                </TransformGroup>
+                            </Button.RenderTransform>
+                            <Button.Effect>
+                                <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="2"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
 
-            <!-- Time entries list -->
-            <DataGrid Grid.Row="1" AutoGenerateColumns="False" Name="dgChamCong" IsReadOnly="True" Margin="0,0,-20,0">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNhanVien}" Width="70"/>
-                    <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" Width="200"/>
-                    <DataGridTextColumn Header="Ngày" Binding="{Binding Ngay, StringFormat=dd/MM/yyyy}" Width="100"/>
-                    <DataGridTextColumn Header="Giờ Vào" Binding="{Binding ThoiGianVao, StringFormat=HH:mm}" Width="120"/>
-                    <DataGridTextColumn Header="Giờ Ra" Binding="{Binding ThoiGianRa, StringFormat=HH:mm}" Width="120"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
+                    <DataGrid AutoGenerateColumns="False" Name="dgChamCong" IsReadOnly="True"
+                              Background="Transparent" BorderThickness="0"
+                              RowBackground="White" AlternatingRowBackground="#F5F7FA"
+                              CanUserAddRows="False" CanUserDeleteRows="False"
+                              CanUserReorderColumns="False" CanUserResizeRows="False"
+                              ColumnHeaderHeight="50" RowHeight="40"
+                              VerticalGridLinesBrush="Transparent" HorizontalGridLinesBrush="#E0E6ED">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#F5F7FA"/>
+                                <Setter Property="Foreground" Value="#2C3E50"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                                <Setter Property="BorderBrush" Value="#E0E6ED"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mã NV" Binding="{Binding MaNhanVien}" Width="70"/>
+                            <DataGridTextColumn Header="Họ Tên" Binding="{Binding HoTen}" Width="200"/>
+                            <DataGridTextColumn Header="Ngày" Binding="{Binding Ngay, StringFormat=dd/MM/yyyy}" Width="100"/>
+                            <DataGridTextColumn Header="Giờ Vào" Binding="{Binding ThoiGianVao, StringFormat=HH:mm}" Width="120"/>
+                            <DataGridTextColumn Header="Giờ Ra" Binding="{Binding ThoiGianRa, StringFormat=HH:mm}" Width="120"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Border>
 
-        <!-- Right side: Clock in/out and employee details -->
-        <Grid Grid.Row="1" Grid.Column="1" Margin="10,0,20,20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Clock in/out section -->
-            <GroupBox Grid.Row="0" Header="Chấm Công" Padding="10">
-                <StackPanel>
+            <!-- Right side: Clock in/out and employee details -->
+            <Border Grid.Column="1" Background="White" CornerRadius="15" Margin="10,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Border.Effect>
+                <StackPanel Margin="20">
+                    <TextBlock Text="Chấm Công" FontSize="20" FontWeight="SemiBold" Foreground="#1976D2" Margin="0,0,0,20"/>
                     <TextBlock Text="Mã Nhân Viên:" Margin="0,0,0,5"/>
-                    <TextBox Name="txtMaNhanVien" Margin="0,0,0,10"/>
-                    <Grid>
+                    <TextBox Name="txtMaNhanVien" Margin="0,0,0,15" Style="{StaticResource RoundedTextBoxStyle}"/>
+                    <Grid Margin="0,0,0,20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Content="Vào Ca" Margin="0,0,5,0" Padding="10,5"/>
-                        <Button Grid.Column="1" Content="Kết Thúc Ca" Margin="5,0,0,0" Padding="10,5"/>
+                        <Button Grid.Column="0" Content="Vào Ca" Margin="0,0,23,0" Background="#4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
+                        <Button Grid.Column="1" Content="Kết Thúc Ca" Margin="5,0,30,0" Background="#F44336" Style="{StaticResource RoundedButtonStyle}" Height="34" VerticalAlignment="Center"/>
                     </Grid>
-                </StackPanel>
-            </GroupBox>
 
-            <!-- Current date and time -->
-            <TextBlock Grid.Row="1" Name="txtCurrentDateTime" FontSize="16" FontWeight="Bold" Margin="0,10" HorizontalAlignment="Center"/>
+                    <TextBlock Name="txtCurrentDateTime" FontSize="16" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
-            <!-- Employee details -->
-            <GroupBox Grid.Row="2" Header="Thông Tin Nhân Viên" Padding="10">
-                <StackPanel>
-                    <TextBlock Text="Họ Tên:"/>
-                    <TextBlock Name="txtHoTen" FontWeight="Bold" Margin="0,0,0,10"/>
-                    <TextBlock Text="Chức Vụ:"/>
-                    <TextBlock Name="txtChucVu" FontWeight="Bold" Margin="0,0,0,10"/>
-                    <TextBlock Text="Email:"/>
-                    <TextBlock Name="txtEmail" FontWeight="Bold" Margin="0,0,0,10"/>
-                    <TextBlock Text="Số Điện Thoại:"/>
-                    <TextBlock Name="txtDienThoai" FontWeight="Bold" Margin="0,0,0,10"/>
-                    <TextBlock Text="Tổng Giờ Làm Tháng Này:"/>
-                    <TextBlock Name="txtTongGioLam" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Thông Tin Nhân Viên" FontSize="18" FontWeight="SemiBold" Foreground="#1976D2" Margin="0,0,0,15"/>
+                    <StackPanel>
+                        <TextBlock Text="Họ Tên:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBlock Name="txtHoTen" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Chức Vụ:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBlock Name="txtChucVu" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Email:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBlock Name="txtEmail" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Số Điện Thoại:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBlock Name="txtDienThoai" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Tổng Giờ Làm Tháng Này:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBlock Name="txtTongGioLam" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                    </StackPanel>
                 </StackPanel>
-            </GroupBox>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

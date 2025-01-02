@@ -17,7 +17,7 @@ namespace QLNhaHang
             LoadEmployeeData();
         }
 
-
+        // Tải dữ liệu nhân viên từ cơ sở dữ liệu
         private void LoadEmployeeData()
         {
             try
@@ -25,7 +25,7 @@ namespace QLNhaHang
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT MaNhanVien, HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, Luong, MaQuyen FROM NhanVien";
+                    string query = "SELECT MaNhanVien, HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, MaQuyen FROM NhanVien";
                     SqlCommand command = new SqlCommand(query, connection);
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     DataTable dataTable = new DataTable();
@@ -44,7 +44,6 @@ namespace QLNhaHang
                             DiaChi = row["DiaChi"].ToString(),
                             DienThoai = row["DienThoai"].ToString(),
                             CCCD = row["CCCD"].ToString(),
-                            Luong = row["Luong"] == DBNull.Value ? 0 : Convert.ToDecimal(row["Luong"]),
                             MaQuyen = row["MaQuyen"].ToString()
                         });
                     }
@@ -59,22 +58,77 @@ namespace QLNhaHang
         }
 
         // Sự kiện thêm nhân viên
-        private void click_ThemNV(object sender, RoutedEventArgs e)
+        private void AddEmployee_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Thêm nhân viên không được triển khai trong ví dụ này.");
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO NhanVien (MaNhanVien, HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, MaQuyen) " +
+                                   "VALUES (@MaNhanVien, @HoTen, @NTNS, @ChucVu, @GioiTinh, @DiaChi, @DienThoai, @CCCD, @MaQuyen)";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@MaNhanVien", txtMaNV.Text);
+                    command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
+                    command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@ChucVu", "Nhân viên");
+                    command.Parameters.AddWithValue("@GioiTinh", "Nam"); // Bạn có thể thêm combobox chọn giới tính
+                    command.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
+                    command.Parameters.AddWithValue("@DienThoai", txtDienThoai.Text);
+                    command.Parameters.AddWithValue("@CCCD", txtCCCD.Text);
+                    command.Parameters.AddWithValue("@MaQuyen", txtMaQuyen.Text);
+
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadEmployeeData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi thêm nhân viên: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        // Sự kiện tìm kiếm nhân viên
-        private void TimKiem_TextChanged(object sender, TextChangedEventArgs e)
+        // Sự kiện sửa nhân viên
+        private void EditEmployee_Click(object sender, RoutedEventArgs e)
         {
-            string searchText = txbTimKiem.Text.ToLower();
-            var filteredEmployees = ((List<Employee>)lvNhanVien.ItemsSource)?.FindAll(emp =>
-                emp.HoTen.ToLower().Contains(searchText) || emp.MaNhanVien.ToLower().Contains(searchText));
-            lvNhanVien.ItemsSource = filteredEmployees;
+            if (lvNhanVien.SelectedItem is Employee selectedEmployee)
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+                        string query = "UPDATE NhanVien SET HoTen = @HoTen, NTNS = @NTNS, GioiTinh = @GioiTinh, DiaChi = @DiaChi, " +
+                                       "DienThoai = @DienThoai, CCCD = @CCCD, MaQuyen = @MaQuyen WHERE MaNhanVien = @MaNhanVien";
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@MaNhanVien", txtMaNV.Text);
+                        command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
+                        command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
+                        command.Parameters.AddWithValue("@GioiTinh", "Nam");
+                        command.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
+                        command.Parameters.AddWithValue("@DienThoai", txtDienThoai.Text);
+                        command.Parameters.AddWithValue("@CCCD", txtCCCD.Text);
+                        command.Parameters.AddWithValue("@MaQuyen", txtMaQuyen.Text);
+
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LoadEmployeeData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi sửa nhân viên: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên để sửa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         // Sự kiện xóa nhân viên
-        private void click_XoaNV(object sender, RoutedEventArgs e)
+        private void DeleteEmployee_Click(object sender, RoutedEventArgs e)
         {
             if (lvNhanVien.SelectedItem is Employee selectedEmployee)
             {
@@ -103,13 +157,41 @@ namespace QLNhaHang
             }
         }
 
-        private void ColorZone_SuggestionChosen(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private void EmployeeSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (lvNhanVien.SelectedItem is Employee selectedEmployee)
+            {
+                // Gán dữ liệu của nhân viên được chọn vào các trường chi tiết
+                txtMaNV.Text = selectedEmployee.MaNhanVien;
+                txtHoTen.Text = selectedEmployee.HoTen;
+                txtDiaChi.Text = selectedEmployee.DiaChi;
+                txtDienThoai.Text = selectedEmployee.DienThoai;
+                txtCCCD.Text = selectedEmployee.CCCD;
+                txtMaQuyen.Text = selectedEmployee.MaQuyen;
+                dpNgaySinh.SelectedDate = selectedEmployee.NTNS;
+            }
+            else
+            {
+                // Nếu không có nhân viên nào được chọn, xóa dữ liệu trong các trường chi tiết
+                ClearEmployeeDetails();
+            }
         }
+
+        // Hàm xóa dữ liệu trong các trường chi tiết
+        private void ClearEmployeeDetails()
+        {
+            txtMaNV.Text = string.Empty;
+            txtHoTen.Text = string.Empty;
+            txtDiaChi.Text = string.Empty;
+            txtDienThoai.Text = string.Empty;
+            txtCCCD.Text = string.Empty;
+            txtMaQuyen.Text = string.Empty;
+            dpNgaySinh.SelectedDate = null;
+        }
+
     }
 
-    // Lớp biểu diễn nhân viên
+    // Lớp đại diện cho thông tin nhân viên
     public class Employee
     {
         public string MaNhanVien { get; set; }
@@ -120,7 +202,6 @@ namespace QLNhaHang
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }
         public string CCCD { get; set; }
-        public decimal Luong { get; set; }
         public string MaQuyen { get; set; }
     }
 }
