@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QLNhaHang"
         xmlns:converters="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
-        d:Height="600" Width="1000">
+        d:Height="600" Width="1055">
 
     <UserControl.Resources>
 
@@ -29,8 +29,10 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="19*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="52*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,7 +40,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Main Content Area -->
-        <Grid Grid.Column="0" Grid.RowSpan="2">
+        <Grid Grid.Column="0" Grid.RowSpan="4">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -46,7 +48,7 @@
             </Grid.RowDefinitions>
 
             <!-- Header -->
-            <Border Background="#2D4B73" Grid.Row="0" Margin="-160,0,0,100" Grid.RowSpan="2">
+            <Border Background="#2D4B73" Grid.Row="0" Margin="-130,0,0,100" Grid.RowSpan="2">
                 <TextBlock Text="Quản Lý Món Ăn" FontSize="24" FontWeight="Bold" Foreground="White" Margin="20,10"/>
             </Border>
 
@@ -69,15 +71,15 @@
                                                 <TextBox Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}" 
                                                          Background="White" Padding="10,5"/>
                                                 <TextBlock Text="Tìm kiếm theo tên món ăn..." Foreground="Gray" 
-                                                           Margin="10,8,0,0" IsHitTestVisible="False">
+                                                           Margin="15,9,-5,-1" IsHitTestVisible="False">
                                                     <TextBlock.Style>
                                                         <Style TargetType="TextBlock">
                                                             <Style.Triggers>
                                                                 <DataTrigger Binding="{Binding Text.Length, RelativeSource={RelativeSource AncestorType=TextBox}}" Value="0">
-                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                    <Setter Property="Visibility" Value="Hidden"/>
                                                                 </DataTrigger>
                                                                 <DataTrigger Binding="{Binding Text.Length, RelativeSource={RelativeSource AncestorType=TextBox}}" Value="0">
-                                                                    <Setter Property="Visibility" Value="Hidden"/>
+                                                                    <Setter Property="Visibility" Value="Visible"/>
                                                                 </DataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
@@ -127,7 +129,7 @@
             </Grid>
 
             <!-- DataGrid -->
-            <DataGrid Grid.Row="2" Margin="20,0,20,20" AutoGenerateColumns="False" 
+            <DataGrid Grid.Row="2" Margin="-130,0,20,20" AutoGenerateColumns="False" 
                       Name="dgMonAn" IsReadOnly="True" 
                       AlternatingRowBackground="#F5F5F5"
                       RowHeaderWidth="0"
@@ -192,7 +194,7 @@
         </Grid>
 
         <!-- Add/Edit Form -->
-        <Grid Grid.Column="1" Background="White" Margin="0,0,0,20" Grid.RowSpan="2">
+        <Grid Grid.Column="1" Background="White" Margin="0,0,0,20" Grid.RowSpan="4">
             <Border BorderBrush="#E0E0E0" BorderThickness="1,0,0,0" Margin="0,0,0,15">
                 <StackPanel Margin="20">
                     <TextBlock Text="Thêm Món Ăn Mới" FontSize="18" FontWeight="Bold" Margin="0,0,0,20"/>
