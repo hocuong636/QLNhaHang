@@ -4,171 +4,285 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.MenuPage"
-             mc:Ignorable="d" d:DesignWidth="800" Height="480">
-    <Grid Margin="20,-55,20,-40">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+             mc:Ignorable="d" 
+             Height="770"
+             Background="#F0F4F8" Width="1290">
 
-        <!-- Header -->
-        <TextBlock Grid.Row="0" Text="Quản Lý Tài Khoản" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+    <UserControl.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="22" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Height" Value="45"/>
+        </Style>
+
+        <Style x:Key="ModernTabItemStyle" TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="Border" 
+                                Margin="0,0,4,0" 
+                                BorderThickness="0,0,0,2" 
+                                BorderBrush="Transparent" 
+                                Background="Transparent">
+                            <ContentPresenter x:Name="ContentSite"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            ContentSource="Header"
+                                            Margin="10,5"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="BorderBrush" Value="#1976D2"/>
+                                <Setter Property="Foreground" Value="#1976D2"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Foreground" Value="#666"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style x:Key="ModernTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#E0E6ED"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="5" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ModernPasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#E0E6ED"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border CornerRadius="5" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Margin="0,0,35,15">
+        <!-- Main Header -->
+        <Border Background="#1976D2" 
+                Height="80" 
+                VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+            </Border.Effect>
+            <TextBlock Text="QUẢN LÝ TÀI KHOẢN"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Border>
 
         <!-- Main Content -->
-        <TabControl Grid.Row="1" Background="White" SelectionChanged="TabControl_SelectionChanged">
-            <TabItem Header="Tạo Tài Khoản Mới" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
-                <StackPanel Margin="20">
-                    <TextBlock Text="Tên Đăng Nhập:" FontSize="14"/>
-                    <TextBox Name="txtTenDangNhap" Margin="0,5,0,15" Padding="5"/>
+        <Border Background="White" 
+                CornerRadius="15" 
+                Margin="20,100,20,30">
+            <Border.Effect>
+                <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+            </Border.Effect>
 
-                    <TextBlock Text="Mật Khẩu:" FontSize="14"/>
-                    <PasswordBox Name="txtMatKhau" Margin="0,5,0,15" Padding="5"/>
+            <TabControl Background="Transparent" 
+                       BorderThickness="0"
+                       Margin="20"
+                       SelectionChanged="TabControl_SelectionChanged">
 
-                    <TextBlock Text="Họ Tên:" FontSize="14"/>
-                    <TextBox Name="txtHoTen" Margin="0,5,0,15" Padding="5"/>
+                <!-- Create Account Tab -->
+                <TabItem Header="Tạo Tài Khoản Mới" Style="{StaticResource ModernTabItemStyle}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="20">
+                            <TextBlock Text="Tên Đăng Nhập:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <TextBox Name="txtTenDangNhap" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
 
-                    <TextBlock Text="Email:" FontSize="14"/>
-                    <TextBox Name="txtEmail" Margin="0,5,0,15" Padding="5"/>
+                            <TextBlock Text="Mật Khẩu:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <PasswordBox Name="txtMatKhau" Style="{StaticResource ModernPasswordBoxStyle}" Margin="0,0,0,15"/>
 
-                    <TextBlock Text="Điện Thoại:" FontSize="14"/>
-                    <TextBox Name="txtDienThoai" Margin="0,5,0,15" Padding="5"/>
+                            <TextBlock Text="Họ Tên:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <TextBox Name="txtHoTen" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
 
-                    <TextBlock Text="Quyền:" FontSize="14"/>
-                    <ComboBox Name="cmbQuyen" Margin="0,5,0,15" Padding="5">
-                        <ComboBoxItem Content="Admin"/>
-                        <ComboBoxItem Content="Nhân Viên"/>
-                    </ComboBox>
+                            <TextBlock Text="Email:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <TextBox Name="txtEmail" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
 
-                    <Button Content="Tạo Tài Khoản" 
-                            Background="#0078D7" 
-                            Foreground="White" 
-                            Padding="10" 
-                            FontSize="14" 
-                            Width="150" 
-                            HorizontalAlignment="Left"
-                            Click="CreateAccount_Click"/>
-                </StackPanel>
-            </TabItem>
+                            <TextBlock Text="Điện Thoại:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <TextBox Name="txtDienThoai" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
 
-            <TabItem Header="Quản Lý Mật Khẩu">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#FFF0F0F0"/>
-                        <GradientStop Color="#FFB48787" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <StackPanel Margin="20">
-                    <!-- Hướng dẫn -->
-                    <TextBlock Text="Nhập Email hoặc Tên Đăng Nhập để tìm thông tin:" 
-                   FontSize="16" 
-                   FontWeight="Bold" 
-                   Margin="0,0,0,10"/>
+                            <TextBlock Text="Quyền:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <ComboBox Name="cmbQuyen" 
+                                    Height="40" 
+                                    Padding="10,8"
+                                    Margin="0,0,0,20">
+                                <ComboBoxItem Content="Admin"/>
+                                <ComboBoxItem Content="Nhân Viên"/>
+                            </ComboBox>
 
-                    <!-- TextBox nhập Email/User -->
-                    <TextBox Name="txtRecovery"
-                 Margin="0,5,0,15"
-                 Padding="5"
-                 Text="Email hoặc Tên Đăng Nhập"
-                 Foreground="Gray"
-                 GotFocus="TextBox_GotFocus"
-                 LostFocus="TextBox_LostFocus"/>
+                            <Button Content="Tạo Tài Khoản" 
+                                    Background="#4CAF50" 
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    Width="200"
+                                    Click="CreateAccount_Click"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <!-- Nút tìm kiếm -->
-                    <Button Content="Tìm Tài Khoản" 
-                            Background="#0078D7" 
-                            Foreground="White" 
-                            Padding="10" 
-                            FontSize="14" 
-                            Width="200"
-                            Margin="0,0,0,15"
-                            Click="SearchUser_Click"/>
+                <!-- Password Management Tab -->
+                <TabItem Header="Quản Lý Mật Khẩu" Style="{StaticResource ModernTabItemStyle}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="20">
+                            <TextBlock Text="Nhập Email hoặc Tên Đăng Nhập để tìm thông tin:" 
+                                     FontSize="16" 
+                                     FontWeight="SemiBold" 
+                                     Foreground="#1976D2"
+                                     Margin="0,0,0,15"/>
 
-                    <!-- Hiển thị thông tin -->
-                    <TextBlock Text="Mật khẩu mới:" FontSize="14" Margin="0,15,0,5"/>
-                    <PasswordBox Name="txtNewPassword" 
-                     Margin="0,5,0,15" 
-                     Padding="5"/>
+                            <TextBox Name="txtRecovery"
+                                    Style="{StaticResource ModernTextBoxStyle}"
+                                    Margin="0,0,0,15"
+                                    Text="Email hoặc Tên Đăng Nhập"
+                                    Foreground="Gray"
+                                    GotFocus="TextBox_GotFocus"
+                                    LostFocus="TextBox_LostFocus"/>
 
-                    <TextBlock Text="Nhập lại mật khẩu mới:" FontSize="14" Margin="0,15,0,5"/>
-                    <PasswordBox Name="txtConfirmPassword" 
-                     Margin="0,5,0,15" 
-                     Padding="5"/>
+                            <Button Content="Tìm Tài Khoản" 
+                                    Background="#1976D2" 
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    Width="200"
+                                    Margin="0,0,0,30"
+                                    Click="SearchUser_Click"/>
 
-                    <!-- Nút cập nhật -->
-                    <Button Content="Cập Nhật Mật Khẩu" 
-                Background="#28A745" 
-                Foreground="White" 
-                Padding="10" 
-                FontSize="14" 
-                Width="200"
-                Margin="0,0,0,15"
-                Click="UpdatePassword_Click"/>
+                            <TextBlock Text="Mật khẩu mới:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <PasswordBox Name="txtNewPassword" 
+                                       Style="{StaticResource ModernPasswordBoxStyle}"
+                                       Margin="0,0,0,15"/>
 
-                    <!-- Thông báo -->
-                    <TextBlock Name="txtNotification" 
-                   Text="Thông báo sẽ xuất hiện ở đây." 
-                   Foreground="Gray" 
-                   FontSize="12" 
-                   Visibility="Collapsed"/>
-                </StackPanel>
-            </TabItem>
+                            <TextBlock Text="Nhập lại mật khẩu mới:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <PasswordBox Name="txtConfirmPassword" 
+                                       Style="{StaticResource ModernPasswordBoxStyle}"
+                                       Margin="0,0,0,20"/>
 
+                            <Button Content="Cập Nhật Mật Khẩu" 
+                                    Background="#FF9800" 
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    Width="200"
+                                    Margin="0,0,0,15"
+                                    Click="UpdatePassword_Click"/>
 
-            <!-- Tab for viewing account information -->
-            <TabItem Header="Thông Tin Tài Khoản">
-                <Grid Margin="20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                            <TextBlock Name="txtNotification" 
+                                     Text="Thông báo sẽ xuất hiện ở đây." 
+                                     Foreground="Gray" 
+                                     FontSize="12" 
+                                     Visibility="Collapsed"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <!-- DataGrid ở phần trên -->
-                    <DataGrid Name="dgNguoiDung" 
-                              Grid.Row="0"
-                              AutoGenerateColumns="False" 
-                              HeadersVisibility="Column" 
-                              CanUserAddRows="False"
-                              SelectionMode="Single"
-                              SelectionUnit="FullRow"
-                              IsReadOnly="True"
-                              Margin="0,0,0,10">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" 
-                                              Binding="{Binding MaNguoiDung}" 
-                                              Width="50"/>
-                            <DataGridTextColumn Header="Tên Đăng Nhập" 
-                                              Binding="{Binding TenDangNhap}" 
-                                              Width="*"/>
-                            <DataGridTextColumn Header="Họ Tên" 
-                                              Binding="{Binding HoTen}" 
-                                              Width="*"/>
-                            <DataGridTextColumn Header="Email" 
-                                              Binding="{Binding Email}" 
-                                              Width="*"/>
-                            <DataGridTextColumn Header="Điện Thoại" 
-                                              Binding="{Binding DienThoai}" 
-                                              Width="*"/>
-                            <DataGridTextColumn Header="Quyền" 
-                                              Binding="{Binding TenQuyen}" 
-                                              Width="100"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                <!-- Account Information Tab -->
+                <TabItem Header="Thông Tin Tài Khoản" Style="{StaticResource ModernTabItemStyle}">
+                    <Grid Margin="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                    <!-- Nút xóa ở góc phải dưới -->
-                    <Button Grid.Row="1" 
-                            Content="Xóa Tài Khoản" 
-                            Background="#dc3545" 
-                            Foreground="White" 
-                            Padding="10" 
-                            FontSize="14" 
-                            Width="150"
-                            Height="45"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            Margin="0,10,0,0"
-                            Click="DeleteAccount_Click"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+                        <DataGrid Name="dgNguoiDung" 
+                                  Grid.Row="0"
+                                  AutoGenerateColumns="False" 
+                                  HeadersVisibility="Column" 
+                                  CanUserAddRows="False"
+                                  SelectionMode="Single"
+                                  SelectionUnit="FullRow"
+                                  IsReadOnly="True"
+                                  Background="Transparent"
+                                  BorderThickness="1"
+                                  BorderBrush="#E0E6ED"
+                                  RowBackground="White"
+                                  AlternatingRowBackground="#F8F9FA"
+                                  HorizontalGridLinesBrush="#E0E6ED"
+                                  VerticalGridLinesBrush="#E0E6ED"
+                                  Margin="0,0,0,20">
+                            <DataGrid.Resources>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#F5F7FA"/>
+                                    <Setter Property="Foreground" Value="#2C3E50"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                    <Setter Property="Padding" Value="10"/>
+                                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                    <Setter Property="BorderBrush" Value="#E0E6ED"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" 
+                                                  Binding="{Binding MaNguoiDung}" 
+                                                  Width="50"/>
+                                <DataGridTextColumn Header="Tên Đăng Nhập" 
+                                                  Binding="{Binding TenDangNhap}" 
+                                                  Width="*"/>
+                                <DataGridTextColumn Header="Họ Tên" 
+                                                  Binding="{Binding HoTen}" 
+                                                  Width="*"/>
+                                <DataGridTextColumn Header="Email" 
+                                                  Binding="{Binding Email}" 
+                                                  Width="*"/>
+                                <DataGridTextColumn Header="Điện Thoại" 
+                                                  Binding="{Binding DienThoai}" 
+                                                  Width="*"/>
+                                <DataGridTextColumn Header="Quyền" 
+                                                  Binding="{Binding TenQuyen}" 
+                                                  Width="100"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <Button Grid.Row="1" 
+                                Content="Xóa Tài Khoản" 
+                                Background="#F44336" 
+                                Style="{StaticResource RoundedButtonStyle}"
+                                Width="200"
+                                HorizontalAlignment="Right"
+                                Click="DeleteAccount_Click"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Border>
     </Grid>
 </UserControl>
