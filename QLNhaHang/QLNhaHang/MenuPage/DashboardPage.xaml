@@ -5,93 +5,208 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" Background="White"
-             d:DesignHeight="641" d:DesignWidth="1300">
+             mc:Ignorable="d" 
+             d:DesignHeight="641" 
+             d:DesignWidth="1300"
+             Background="#F0F4F8">
+
+    <UserControl.Resources>
+        <Style x:Key="MetricCardStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="MetricTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <Style x:Key="MetricValueStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style x:Key="ModernDatePickerStyle" TargetType="DatePicker">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#E0E6ED"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="10,5"/>
+        </Style>
+
+        <Style x:Key="ModernButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#1976D2"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="20,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="20"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <!-- Header -->
+        <Border Background="#1976D2" 
+                Height="80" 
+                VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+            </Border.Effect>
 
-        <!-- Menu Bar -->
-        <Grid Grid.Row="0" Background="#2196F3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Text="Dashboard" FontSize="20" FontWeight="Bold" Margin="10" Foreground="White"/>
-
-            <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10">
-                <Button Content="Thông báo" Margin="0,0,10,0" Command="{Binding ShowNotificationsCommand}">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Grid>
-                                <TextBlock Text="🔔" FontSize="20"/>
-                                <Ellipse Width="15" Height="15" Fill="Red" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-5,-5,0"/>
-                                <TextBlock Text="{Binding NotificationCount}" FontSize="10" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-5,-5,0"/>
-                            </Grid>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-                <TextBlock Text="{Binding CurrentUser.HoTen}" VerticalAlignment="Center" Foreground="White"/>
-            </StackPanel>
-        </Grid>
-
-        <!-- Dashboard Content -->
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <!-- Total Revenue -->
-            <Border Grid.Column="0" Background="#FF78DC7C" CornerRadius="5" Margin="5">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Tổng Doanh Thu" FontSize="16" Foreground="White"/>
-                    <TextBlock x:Name="TotalRevenueTextBlock" Text="0 VNĐ" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                </StackPanel>
-            </Border>
-
-            <!-- Active Orders -->
-            <Border Grid.Column="1" Background="#2196F3" CornerRadius="5" Margin="5">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Bàn Đang Phục Vụ" FontSize="16" Foreground="White"/>
-                    <TextBlock x:Name="ActiveOrdersTextBlock" Text="0" FontSize="24" FontWeight="Bold" Foreground="White" />
-                </StackPanel>
-            </Border>
-
-            <!-- Revenue Lookup -->
-            <Border Grid.Column="2" Background="#FFC107" CornerRadius="5" Margin="5">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Tra Cứu Doanh Thu" FontSize="16" Foreground="White"/>
-                    <DatePicker x:Name="SelectedDatePicker" Margin="0,5"/>
-                    <Button Content="Tra Cứu" Click="LookupRevenue_Click" Margin="0,5"/>
-
-                    <TextBlock x:Name="LookedUpRevenueTextBlock" Text="0 VNĐ" FontSize="20" FontWeight="Bold" Foreground="White"/>
-                </StackPanel>
-            </Border>
-        </Grid>
-
-        <!-- Charts Section -->
-        <Grid Grid.Row="2" Margin="10">
             <Grid>
-                <Border Height="385">
-                    <lvc:CartesianChart x:Name="RevenueChart" Loaded="RevenueChart_Loaded" Margin="0,0,0,10">
-                        <lvc:CartesianChart.Series>
-                            <lvc:ColumnSeries Title="Doanh Thu" Values="{Binding RevenueValues}"/>
-                        </lvc:CartesianChart.Series>
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Ngày trong tuần" Labels="{Binding DayOfWeekLabels}"/>
-                        </lvc:CartesianChart.AxisX>
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Tổng Doanh Thu (VNĐ)" LabelFormatter="{Binding Formatter}"/>
-                        </lvc:CartesianChart.AxisY>
-                    </lvc:CartesianChart>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="TỔNG QUAN"
+                         FontSize="28"
+                         FontWeight="Bold"
+                         Foreground="White"
+                         Margin="20,0"
+                         VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <StackPanel Grid.Column="1" 
+                          Orientation="Horizontal" 
+                          Margin="20,0"
+                          VerticalAlignment="Center">
+                    <TextBlock Text="{Binding CurrentUser.HoTen}" 
+                             VerticalAlignment="Center" 
+                             Foreground="White"
+                             FontSize="16"
+                             FontWeight="Medium"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Margin="20,100,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Metric Cards -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Total Revenue -->
+                <Border Grid.Column="0" 
+                        Style="{StaticResource MetricCardStyle}"
+                        Background="#4CAF50"
+                        Margin="0,0,10,0">
+                    <StackPanel>
+                        <TextBlock Text="Tổng Doanh Thu" 
+                                 Style="{StaticResource MetricTitleStyle}"/>
+                        <TextBlock x:Name="TotalRevenueTextBlock" 
+                                 Text="0 VNĐ"
+                                 Style="{StaticResource MetricValueStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Active Orders -->
+                <Border Grid.Column="1" 
+                        Style="{StaticResource MetricCardStyle}"
+                        Background="#1976D2"
+                        Margin="10,0">
+                    <StackPanel>
+                        <TextBlock Text="Bàn Đang Phục Vụ" 
+                                 Style="{StaticResource MetricTitleStyle}"/>
+                        <TextBlock x:Name="ActiveOrdersTextBlock" 
+                                 Text="0"
+                                 Style="{StaticResource MetricValueStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Revenue Lookup -->
+                <Border Grid.Column="2" 
+                        Style="{StaticResource MetricCardStyle}"
+                        Background="#FF9800"
+                        Margin="10,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Tra Cứu Doanh Thu" 
+                                 Style="{StaticResource MetricTitleStyle}"/>
+                        <DatePicker x:Name="SelectedDatePicker" 
+                                  Style="{StaticResource ModernDatePickerStyle}"
+                                  Margin="0,10"/>
+                        <Button Content="Tra Cứu" 
+                                Style="{StaticResource ModernButtonStyle}"
+                                Click="LookupRevenue_Click"
+                                Margin="0,0,0,10"/>
+                        <TextBlock x:Name="LookedUpRevenueTextBlock" 
+                                 Text="0 VNĐ"
+                                 Style="{StaticResource MetricValueStyle}"/>
+                    </StackPanel>
                 </Border>
             </Grid>
+
+            <!-- Chart Section -->
+            <Border Grid.Row="1" 
+                    Background="White"
+                    CornerRadius="15"
+                    Margin="0,20,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Border.Effect>
+
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Biểu Đồ Doanh Thu Theo Ngày"
+                             FontSize="20"
+                             FontWeight="SemiBold"
+                             Foreground="#1976D2"
+                             Margin="0,0,0,20"/>
+
+                    <lvc:CartesianChart Grid.Row="1" 
+                                      x:Name="RevenueChart"
+                                      Loaded="RevenueChart_Loaded">
+                        <lvc:CartesianChart.Series>
+                            <lvc:ColumnSeries Title="Doanh Thu" 
+                                            Values="{Binding RevenueValues}"/>
+                        </lvc:CartesianChart.Series>
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Ngày trong tuần" 
+                                     Labels="{Binding DayOfWeekLabels}"/>
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Tổng Doanh Thu (VNĐ)" 
+                                     LabelFormatter="{Binding Formatter}"/>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

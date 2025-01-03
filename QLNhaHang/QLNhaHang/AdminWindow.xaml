@@ -1,44 +1,162 @@
 ﻿<Window x:Class="QLNhaHang.AdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Admin Page"         
+        Title="Admin Dashboard"         
         WindowState="Maximized" 
         ResizeMode="CanResize"
-        Background="#ECF0F1">
-    <Grid>
+        Background="#F5F6FA">
 
+    <Window.Resources>
+        <!-- Navigation Button Style -->
+        <Style x:Key="NavButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Margin" Value="15,5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#B0B9C6"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                Padding="15,0">
+                            <Grid>
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2E374A" TargetName="border"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#1E2736" TargetName="border"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Active Navigation Button Style -->
+        <Style x:Key="ActiveNavButtonStyle" TargetType="Button" BasedOn="{StaticResource NavButtonStyle}">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="220"/>
-            <!-- Sidebar -->
+            <ColumnDefinition Width="280"/>
             <ColumnDefinition Width="*"/>
-            <!-- Content Area -->
         </Grid.ColumnDefinitions>
 
-        <!-- Sidebar (Navigation Menu) -->
-        <StackPanel Grid.Column="0" Background="#2C3E50" HorizontalAlignment="Stretch">
-            <!-- Header -->
-            <TextBlock Text="Admin Panel" Foreground="White" FontSize="18" FontWeight="Bold" 
-                       Margin="10" HorizontalAlignment="Center"/>
+        <!-- Sidebar -->
+        <Border Background="#1A2035">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" 
+                                BlurRadius="10" 
+                                ShadowDepth="3" 
+                                Direction="0"/>
+            </Border.Effect>
+            <DockPanel>
+                <!-- Header -->
+                <Border DockPanel.Dock="Top" 
+                        Height="80" 
+                        Background="#141829"
+                        Padding="20">
+                    <StackPanel Orientation="Horizontal" 
+                              VerticalAlignment="Center">
+                        <Ellipse Width="40" Height="40">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#2196F3" Offset="0"/>
+                                    <GradientStop Color="#1976D2" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Text="Admin Panel" 
+                                 Foreground="White" 
+                                 FontSize="20" 
+                                 FontWeight="SemiBold" 
+                                 Margin="15,0,0,0"
+                                 VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
 
-            <!-- Navigation Buttons -->
-            <Button Style="{StaticResource NavButtonStyle}" Content="Dashboard" Click="DashboardButton_Click" />
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý món ăn" Click="FoodManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý tình trạng bàn" Click="TableStatusButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý hóa đơn" Click="InvoiceManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý bếp" Click="KitchenManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý kho" Click="WarehouseManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản lý nhân viên" Click="EmployeeManagementButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Chấm công Nhân Viên" Click="ChamCongButton_Click"/>
-            <Button Style="{StaticResource NavButtonStyle}" Content="Quản Lý tài khoản" Click="account_managementButton_Click"/>
+                <!-- Navigation Menu -->
+                <StackPanel Width="250" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.364"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-0.794"/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <Button Style="{StaticResource ActiveNavButtonStyle}" 
+                            Content="Dashboard" 
+                            Click="DashboardButton_Click"
+                            Margin="15,20,15,5"/>
 
-            <!-- Logout Button -->
-            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" Click="LogoutButton_Click" 
-                    Margin="50" VerticalAlignment="Bottom"/>
-        </StackPanel>
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý món ăn" 
+                            Click="FoodManagementButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý tình trạng bàn" 
+                            Click="TableStatusButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý hóa đơn" 
+                            Click="InvoiceManagementButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý bếp" 
+                            Click="KitchenManagementButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý kho" 
+                            Click="WarehouseManagementButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản lý nhân viên" 
+                            Click="EmployeeManagementButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Chấm công Nhân Viên" 
+                            Click="ChamCongButton_Click"/>
+
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Quản Lý tài khoản" 
+                            Click="account_managementButton_Click"/>
+
+                    <!-- Logout Button -->
+                    <Button Style="{StaticResource NavButtonStyle}"
+                            Content="Đăng xuất"
+                            Click="LogoutButton_Click"
+                            Foreground="#FF5252"
+                            Margin="15,40,15,20"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
 
         <!-- Content Area -->
-        <Border Grid.Column="1" Background="White" CornerRadius="10">
-            <ContentControl x:Name="ContentArea" Grid.Column="1" Background="White"/>
+        <Border 
+                Background="White" 
+                CornerRadius="20,0,0,0" 
+                Margin="280,-36,0,1" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect Color="#20000000" 
+                                BlurRadius="15" 
+                                ShadowDepth="2" 
+                                Direction="0"/>
+            </Border.Effect>
+            <ContentControl x:Name="ContentArea" 
+                          Margin="20"/>
         </Border>
     </Grid>
 </Window>

@@ -61,5 +61,9 @@ namespace QLNhaHang
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
             }
         }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

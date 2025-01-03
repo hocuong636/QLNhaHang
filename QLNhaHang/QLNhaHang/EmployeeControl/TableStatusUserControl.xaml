@@ -5,142 +5,237 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.EmployeeControl"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
+             d:DesignHeight="450"
+             Background="#F0F4F8" Width="1355">
 
-        <ScrollViewer x:Name="scrollViewer" Grid.Column="0" Margin="10">
-            <WrapPanel>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn1">
-                    <TextBlock Text="Bàn 1" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn2">
-                    <TextBlock Text="Bàn 2" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn3">
-                    <TextBlock Text="Bàn 3" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn4">
-                    <TextBlock Text="Bàn 4" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn5">
-                    <TextBlock Text="Bàn 5" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn6">
-                    <TextBlock Text="Bàn 6" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn7">
-                    <TextBlock Text="Bàn 7" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn8">
-                    <TextBlock Text="Bàn 8" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn9">
-                    <TextBlock Text="Bàn 9" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn10">
-                    <TextBlock Text="Bàn 10" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn11">
-                    <TextBlock Text="Bàn 11" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn12">
-                    <TextBlock Text="Bàn 12" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn13">
-                    <TextBlock Text="Bàn 13" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn14">
-                    <TextBlock Text="Bàn 14" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn15">
-                    <TextBlock Text="Bàn 15" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn16">
-                    <TextBlock Text="Bàn 16" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn17">
-                    <TextBlock Text="Bàn 17" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn18">
-                    <TextBlock Text="Bàn 18" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn19">
-                    <TextBlock Text="Bàn 19" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn20">
-                    <TextBlock Text="Bàn 20" FontSize="18" Foreground="White"/>
-                </Button>
-                <Button Width="265" Height="150" Margin="5" Background="Green" Click="Table_Click" Name="btn21">
-                    <TextBlock Text="Bàn 21" FontSize="18" Foreground="White"/>
-                </Button>
-            </WrapPanel>
-        </ScrollViewer>
-       
-        <!-- Order Details Panel -->
-        <Grid Grid.Column="1" Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+    <UserControl.Resources>
+        <!-- Table Button Style -->
+        <Style x:Key="TableButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="265"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                CornerRadius="15" 
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="2"/>
+                            </Border.Effect>
+                            <Grid>
+                                <TextBlock Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}"
+                                         FontSize="22"
+                                         FontWeight="SemiBold"
+                                         Foreground="White"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#40000000" BlurRadius="15" ShadowDepth="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <!-- Selected Table Header -->
-            <TextBlock x:Name="SelectedTableText" 
-                 Grid.Row="0" 
-                 FontSize="24" 
-                 FontWeight="Bold" 
-                 Margin="0,0,0,10"/>
+        <!-- Modern Button Style -->
+        <Style x:Key="ModernButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                CornerRadius="22" 
+                                Background="{TemplateBinding Background}">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="2"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Effect">
+                                    <Setter.Value>
+                                        <DropShadowEffect Color="#40000000" BlurRadius="15" ShadowDepth="3"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
-            <!-- Thêm TextBlock hiển thị số bàn -->
-            <TextBlock x:Name="CurrentTableText"
-                 Grid.Row="1"
-                 FontSize="18"
-                 Margin="0,0,0,10"
-                 Text="Bàn: Chưa chọn"
-                 FontWeight="Bold"/>
+    <Grid Margin="0,0,25,0">
+        <!-- Header -->
+        <Border Background="#1976D2" 
+                Height="70" 
+                VerticalAlignment="Top">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+            </Border.Effect>
+            <TextBlock Text="QUẢN LÝ BÀN"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Border>
 
-            <!-- Order Details -->
-            <DataGrid x:Name="OrderDetailsGrid" 
-                 Grid.Row="2" 
-                 AutoGenerateColumns="False" 
-                 IsReadOnly="True"
-                 Margin="0,0,0,10">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tên món" Binding="{Binding TenMonAn}" Width="150"/>
-                    <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}" Width="75"/>
-                    <DataGridTextColumn Header="Thành tiền" Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
+        <!-- Main Content -->
+        <Grid Margin="20,100,45,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <!-- Total and Buttons -->
-            <StackPanel Grid.Row="3">
-                <DockPanel Margin="0,0,0,10">
-                    <TextBlock Text="Tổng:" 
-                      FontSize="18" 
-                      FontWeight="Bold"/>
-                    <TextBlock x:Name="TotalAmount" 
-                      FontSize="18" 
-                      FontWeight="Bold" 
-                      HorizontalAlignment="Right"/>
+            <!-- Tables Section -->
+            <Border Background="White" 
+                    CornerRadius="15" 
+                    Margin="0,0,380,0" Grid.ColumnSpan="2">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Border.Effect>
+
+                <ScrollViewer x:Name="scrollViewer" Padding="12" Margin="-5,0,5,5">
+                    <WrapPanel>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn1" Content="Bàn 1"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn2" Content="Bàn 2"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn3" Content="Bàn 3"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn4" Content="Bàn 4"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn5" Content="Bàn 5"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn6" Content="Bàn 6"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn7" Content="Bàn 7"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn8" Content="Bàn 8"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn9" Content="Bàn 9"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn10" Content="Bàn 10"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn11" Content="Bàn 11"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn12" Content="Bàn 12"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn13" Content="Bàn 13"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn14" Content="Bàn 14"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn15" Content="Bàn 15"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn16" Content="Bàn 16"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn17" Content="Bàn 17"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn18" Content="Bàn 18"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn19" Content="Bàn 19"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn20" Content="Bàn 20"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn21" Content="Bàn 21"/>
+                    </WrapPanel>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Order Details Panel -->
+            <Border Grid.Column="1" 
+                    Background="White" 
+                    CornerRadius="15"
+                    Margin="67,5,-10,-5">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
+                </Border.Effect>
+
+                <DockPanel Margin="20">
+                    <TextBlock Text="Chi tiết đơn hàng" 
+                             DockPanel.Dock="Top"
+                             FontSize="20" 
+                             FontWeight="SemiBold" 
+                             Foreground="#1976D2" 
+                             Margin="0,0,0,20"/>
+
+                    <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
+                        <TextBlock x:Name="SelectedTableText"
+                                 FontSize="24" 
+                                 FontWeight="Bold" 
+                                 Foreground="#2C3E50"/>
+
+                        <TextBlock x:Name="CurrentTableText"
+                                 FontSize="16"
+                                 Margin="0,5,0,0"
+                                 Text="Bàn: Chưa chọn"
+                                 Foreground="#666"/>
+                    </StackPanel>
+
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Border Background="#F8F9FA" 
+                                CornerRadius="10" 
+                                Padding="15" 
+                                Margin="0,0,0,20">
+                            <DockPanel>
+                                <TextBlock Text="Tổng tiền:" 
+                                         FontSize="18" 
+                                         FontWeight="SemiBold"
+                                         Foreground="#2C3E50"/>
+                                <TextBlock x:Name="TotalAmount" 
+                                         FontSize="18" 
+                                         FontWeight="Bold" 
+                                         Foreground="#1976D2"
+                                         HorizontalAlignment="Right"/>
+                            </DockPanel>
+                        </Border>
+
+                        <Button x:Name="PaymentButton" 
+                                Content="THANH TOÁN" 
+                                Style="{StaticResource ModernButtonStyle}"
+                                Background="#F44336"
+                                Click="PaymentButton_Click"/>
+
+                        <ComboBox x:Name="AvailableTablesCombo" 
+                                Height="40" 
+                                Margin="0,10,0,0"
+                                Padding="10,5"
+                                Visibility="Collapsed"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="OrderDetailsGrid" 
+                             AutoGenerateColumns="False" 
+                             IsReadOnly="True"
+                             Background="Transparent"
+                             BorderThickness="1"
+                             BorderBrush="#E0E6ED"
+                             RowBackground="White"
+                             AlternatingRowBackground="#F8F9FA"
+                             GridLinesVisibility="All"
+                             HorizontalGridLinesBrush="#E0E6ED"
+                             VerticalGridLinesBrush="#E0E6ED">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#F5F7FA"/>
+                                <Setter Property="Foreground" Value="#2C3E50"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#E0E6ED"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tên món" 
+                                              Binding="{Binding TenMonAn}" 
+                                              Width="150"/>
+                            <DataGridTextColumn Header="Số lượng" 
+                                              Binding="{Binding SoLuong}" 
+                                              Width="75"/>
+                            <DataGridTextColumn Header="Thành tiền" 
+                                              Binding="{Binding ThanhTien, StringFormat={}{0:N0} đ}" 
+                                              Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </DockPanel>
-
-                <Button x:Name="PaymentButton" 
-                    Content="THANH TOÁN" 
-                    Height="40" 
-                    Background="Red" 
-                    Foreground="White"
-                    Margin="0,0,0,10"
-                    Click="PaymentButton_Click"/>
-                <ComboBox x:Name="AvailableTablesCombo" 
-                      Height="40" 
-                      Visibility="Collapsed"/>
-            </StackPanel>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>
