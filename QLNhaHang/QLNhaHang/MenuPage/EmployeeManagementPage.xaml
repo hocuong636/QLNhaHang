@@ -1,13 +1,14 @@
-﻿<UserControl x:Class="QLNhaHang.EmployeeManagementPage"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Background="#F0F4F8" Height="690">
+             xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="QLNhaHang.EmployeeManagementPage"
+             Background="#F0F4F8" Height="720">
     <UserControl.Resources>
         <!-- Custom styles -->
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate TargetType="{x:Type Button}">
                         <Border CornerRadius="22" Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
@@ -15,10 +16,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox">
+        <Style x:Key="RoundedTextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
+                    <ControlTemplate TargetType="{x:Type TextBox}">
                         <Border CornerRadius="5" BorderBrush="#E0E6ED" BorderThickness="1" Background="White">
                             <ScrollViewer x:Name="PART_ContentHost"/>
                         </Border>
@@ -28,15 +29,15 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Margin="0,0,0,20">
+    <Grid Margin="0,0,0,20" Width="1150">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="54*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="123*"/>
         </Grid.RowDefinitions>
         <!-- Main Header -->
         <Border Background="#1976D2" 
                 Height="66" 
-                VerticalAlignment="Center" RenderTransformOrigin="0.497,0">
+                VerticalAlignment="Center" RenderTransformOrigin="0.497,0" Margin="0,0,-60,0">
             <Border.Effect>
                 <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
             </Border.Effect>
@@ -56,10 +57,10 @@
         </Border>
 
         <!-- Main Content -->
-        <Grid Margin="20,70,20,20" Grid.Row="1">
+        <Grid Margin="20,15,92,20" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="745*" />
+                <ColumnDefinition Width="293*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -69,8 +70,7 @@
             <!-- Search and Actions Bar -->
             <StackPanel Orientation="Horizontal" 
                         VerticalAlignment="Center" 
-                        Height="50" 
-                        Margin="0,0,0,20">
+                        Height="50" Margin="0,0,5,0">
                 <Border Background="White"
                         CornerRadius="25"
                         Width="330"
@@ -80,13 +80,13 @@
                     </Border.Effect>
                     <TextBox x:Name="txbTimKiem"
                              Width="300"
-                             Height="45"
+                             Height="44"
                              VerticalAlignment="Center"
                              FontSize="14"
                              Background="Transparent"
                              BorderThickness="0"
                              VerticalContentAlignment="Center"
-                             Padding="15,0,0,0">
+                             Padding="15,0,0,0" Margin="25,0,5,0">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -96,8 +96,8 @@
                 </Border>
                 <Button Content="Thêm Nhân Viên"
                         Margin="15,0"
-                        Width="130"
-                        Height="45"
+                        Width="105"
+                        Height="34"
                         FontWeight="Medium"
                         Background="#4CAF50"
                         Foreground="White"
@@ -109,29 +109,14 @@
                     </Button.Effect>
                 </Button>
                 <Button Content="Sửa"
-                        Margin="10,0"
-                        Width="105"
-                        Height="45"
+                        Width="95"
+                        Height="30"
                         FontWeight="Medium"
                         Background="#FF9800"
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
                         Click="EditEmployee_Click">
-                    <Button.Effect>
-                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                    </Button.Effect>
-                </Button>
-                <Button Content="Xóa"
-                        Margin="10,0"
-                        Width="110"
-                        Height="45"
-                        FontWeight="Medium"
-                        Background="#F44336"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Click="DeleteEmployee_Click">
                     <Button.Effect>
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
                     </Button.Effect>
@@ -143,7 +128,7 @@
                     Grid.Column="0"
                     Background="White"
                     CornerRadius="15"
-                    Margin="0,0,10,0">
+                    Margin="5,10,10,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                       BlurRadius="15" 
@@ -163,8 +148,8 @@
                               Background="Transparent">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Mã NV" Width="80" DisplayMemberBinding="{Binding MaNhanVien}"/>
-                                <GridViewColumn Header="Tên Nhân Viên" Width="150" DisplayMemberBinding="{Binding HoTen}"/>
+                                <GridViewColumn Header="Mã NV" Width="100" DisplayMemberBinding="{Binding MaNhanVien}"/>
+                                <GridViewColumn Header="Tên Nhân Viên" Width="200" DisplayMemberBinding="{Binding HoTen}"/>
                                 <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}"/>
                                 <GridViewColumn Header="Giới tính" Width="80" DisplayMemberBinding="{Binding GioiTinh}"/>
                             </GridView>
@@ -178,7 +163,7 @@
                     Grid.Column="1"
                     Background="White"
                     CornerRadius="15"
-                    Margin="10,0,0,0">
+                    Margin="15,78,-72,93">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                       BlurRadius="15" 
@@ -230,5 +215,16 @@
                 </StackPanel>
             </Border>
         </Grid>
+        <Button Content="Xóa"
+            FontWeight="Medium"
+            Background="#F44336"
+            Foreground="White"
+            BorderThickness="0"
+            Style="{StaticResource RoundedButtonStyle}"
+            Click="DeleteEmployee_Click" Margin="595,23,455,590" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </UserControl>

@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.MenuPage"
              mc:Ignorable="d" 
-             Height="770"
-             Background="#F0F4F8" Width="1290">
+             Height="780"
+             Background="#F0F4F8" Width="1240">
 
     <UserControl.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">

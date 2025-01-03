@@ -97,8 +97,8 @@
                             <TranslateTransform Y="-0.794"/>
                         </TransformGroup>
                     </StackPanel.RenderTransform>
-                    <Button Style="{StaticResource ActiveNavButtonStyle}" 
-                            Content="Dashboard" 
+                    <Button Style="{StaticResource NavButtonStyle}" 
+                            Content="Tổng quan" 
                             Click="DashboardButton_Click"
                             Margin="15,20,15,5"/>
 
@@ -127,7 +127,7 @@
                             Click="EmployeeManagementButton_Click"/>
 
                     <Button Style="{StaticResource NavButtonStyle}" 
-                            Content="Chấm công Nhân Viên" 
+                            Content="Quản lý chấm công" 
                             Click="ChamCongButton_Click"/>
 
                     <Button Style="{StaticResource NavButtonStyle}" 
