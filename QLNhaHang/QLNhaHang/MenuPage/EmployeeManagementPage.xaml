@@ -63,14 +63,14 @@
                 <ColumnDefinition Width="293*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" MinHeight="53" />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
             <!-- Search and Actions Bar -->
             <StackPanel Orientation="Horizontal" 
-                        VerticalAlignment="Center" 
-                        Height="50" Margin="0,0,5,0">
+                        VerticalAlignment="Top" 
+                        Height="45" Margin="95,-7,195,0">
                 <Border Background="White"
                         CornerRadius="25"
                         Width="330"
@@ -80,7 +80,7 @@
                     </Border.Effect>
                     <TextBox x:Name="txbTimKiem"
                              Width="300"
-                             Height="44"
+                             Height="36"
                              VerticalAlignment="Center"
                              FontSize="14"
                              Background="Transparent"
@@ -94,33 +94,6 @@
                         </TextBox.Resources>
                     </TextBox>
                 </Border>
-                <Button Content="Thêm Nhân Viên"
-                        Margin="15,0"
-                        Width="105"
-                        Height="34"
-                        FontWeight="Medium"
-                        Background="#4CAF50"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Click="AddEmployee_Click">
-                    <Button.Effect>
-                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                    </Button.Effect>
-                </Button>
-                <Button Content="Sửa"
-                        Width="95"
-                        Height="30"
-                        FontWeight="Medium"
-                        Background="#FF9800"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Style="{StaticResource RoundedButtonStyle}"
-                        Click="EditEmployee_Click">
-                    <Button.Effect>
-                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                    </Button.Effect>
-                </Button>
             </StackPanel>
 
             <!-- Left Panel: Employee List -->
@@ -221,7 +194,29 @@
             Foreground="White"
             BorderThickness="0"
             Style="{StaticResource RoundedButtonStyle}"
-            Click="DeleteEmployee_Click" Margin="595,23,455,590" Grid.Row="1">
+            Click="DeleteEmployee_Click" Margin="1035,553,15,60" Grid.Row="1">
+            <Button.Effect>
+                <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Sửa"
+            FontWeight="Medium"
+            Background="#FF9800"
+            Foreground="White"
+            BorderThickness="0"
+            Style="{StaticResource RoundedButtonStyle}"
+            Click="EditEmployee_Click" Margin="920,553,135,60" Grid.Row="1" RenderTransformOrigin="0.526,0.492">
+            <Button.Effect>
+                <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+            </Button.Effect>
+        </Button>
+        <Button Content="Thêm Nhân Viên"
+            FontWeight="Medium"
+            Background="#4CAF50"
+            Foreground="White"
+            BorderThickness="0"
+            Style="{StaticResource RoundedButtonStyle}"
+            Click="AddEmployee_Click" Margin="795,553,250,56" Grid.Row="1" RenderTransformOrigin="0.476,0.135">
             <Button.Effect>
                 <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
             </Button.Effect>

@@ -112,11 +112,11 @@
                                     </Style>
                                 </TextBox.Resources>
                             </TextBox>
-                            <Button Grid.Column="1"
+                            <Button
                                     Content="Tìm Kiếm" 
                                     Style="{StaticResource ModernButtonStyle}"
                                     Background="#4CAF50"
-                                    Click="SearchButton_Click"/>
+                                    Click="SearchButton_Click" Grid.ColumnSpan="2" Margin="460,0,9,0"/>
                         </Grid>
 
                         <!-- Action Buttons -->
