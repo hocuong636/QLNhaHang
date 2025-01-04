@@ -187,12 +187,7 @@
                                     Width="200"
                                     Margin="0,0,0,30"
                                     Click="SearchUser_Click"/>
-
-                            <TextBlock Text="Mật khẩu cũ:" Margin="0,0,0,5" FontWeight="Medium"/>
-                            <PasswordBox Name="txtOldPassword" 
-                                         Style="{StaticResource ModernPasswordBoxStyle}"
-                                         Margin="0,0,0,15"/>
-                            
+ 
                             <TextBlock Text="Mật khẩu mới:" Margin="0,0,0,5" FontWeight="Medium"/>
                             <PasswordBox Name="txtNewPassword" 
                                        Style="{StaticResource ModernPasswordBoxStyle}"

@@ -80,14 +80,14 @@
                         <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="1"/>
                     </Border.Effect>
                     <TextBox x:Name="txbTimKiem"
-                             Width="300"
+                             Width="460"
                              Height="44"
                              VerticalAlignment="Center"
                              FontSize="14"
                              Background="Transparent"
                              BorderThickness="0"
                              VerticalContentAlignment="Center"
-                             Padding="15,0,0,0" Margin="0,0,10,0" HorizontalAlignment="Right">
+                             Padding="15,0,0,0" HorizontalAlignment="Center">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="25"/>
@@ -95,7 +95,7 @@
                         </TextBox.Resources>
                     </TextBox>
                 </Border>
-                <Button Content="Thêm Nhân Viên"
+                <Button Content="Tìm kiếm"
                         Margin="15,0"
                         Width="105"
                         Height="34"
@@ -109,7 +109,7 @@
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
                     </Button.Effect>
                 </Button>
-                <Button Content="Sửa"
+                <Button Content="Làm Mới"
                         Width="105"
                         Height="34"
                         FontWeight="Medium"
@@ -235,6 +235,69 @@
                     </Grid>
                 </StackPanel>
             </Border>
+            <StackPanel Orientation="Horizontal" 
+            VerticalAlignment="Top" 
+            Height="50" Margin="21,463,-148,0" Grid.Column="1" Grid.RowSpan="2">
+                <Button Content="Thêm"
+                        Margin="0,0,10,0"
+                        Width="90"
+                        Height="34"
+                        FontWeight="Medium"
+                        Background="#4CAF50"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="AddEmployee_Click">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Content="Hủy"
+                        Margin="10,0,10,0"
+                        Width="90"
+                        Height="34"
+                        FontWeight="Medium"
+                        Background="#757575"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="AddEmployee_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                        </Button.Effect>
+                </Button>
+                
+                <Button Content="Sửa"
+                        Margin="10,0,10,0"
+                        Width="90"
+                        Height="34"
+                        FontWeight="Medium"
+                        Background="#2196F3"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="AddEmployee_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                        </Button.Effect>
+                </Button>
+
+                <Button Content="Xóa"
+                        Margin="5,0,5,0"
+                        Width="90"
+                        Height="34"
+                        FontWeight="Medium"
+                        Background="#F44336"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="AddEmployee_Click">
+                        <Button.Effect>
+                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                        </Button.Effect>
+                </Button>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>
