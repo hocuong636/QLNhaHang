@@ -5,24 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
-        d:Height="600" Width="1200">
-    <Grid Margin="10">
+        Background="#F0F4F8"
+        d:Height="725" Width="1200">
+
+    <UserControl.Resources>
+        <!-- Search TextBox Style -->
+        <Style x:Key="SearchBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="20" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#E0E6ED"
+                                BorderThickness="1">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="15,8"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBox Style -->
+        <Style x:Key="ModernComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Border CornerRadius="20" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="#E0E6ED"
+                                BorderThickness="1">
+                            <Grid>
+                                <ToggleButton IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                            />
+                                <ContentPresenter IsHitTestVisible="False" 
+                                                Content="{TemplateBinding SelectionBoxItem}"
+                                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                Margin="15,8"/>
+                                <Popup IsOpen="{TemplateBinding IsDropDownOpen}" 
+                                       Placement="Bottom"
+                                       PopupAnimation="Slide">
+                                    <Border Background="White" 
+                                            BorderBrush="#E0E6ED"
+                                            BorderThickness="1"
+                                            CornerRadius="8">
+                                        <ScrollViewer MaxHeight="200">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Button Style -->
+        <Style x:Key="ModernButtonStyle" TargetType="Button">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                            <Border.Effect>
+                                <DropShadowEffect Color="#40000000" 
+                                                BlurRadius="10" 
+                                                ShadowDepth="3" 
+                                                Direction="315"/>
+                            </Border.Effect>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#1976D2" TargetName="border"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#0D47A1" TargetName="border"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <!-- Header Section Removed -->
 
         <!-- Header -->
         <Border Background="#1976D2" 
-        Height="80" 
-        VerticalAlignment="Top" Margin="0,0,0,0">
+                Height="80" 
+                VerticalAlignment="Top">
             <Border.Effect>
-                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+                <DropShadowEffect Color="#40000000" 
+                                Direction="270" 
+                                ShadowDepth="3" 
+                                BlurRadius="4"/>
             </Border.Effect>
-
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -30,117 +122,185 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="QUẢN LÝ HÓA ĐƠN"
-                 FontSize="28"
-                 FontWeight="Bold"
-                 Foreground="White"
-                 Margin="20,0"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center">
+                         FontSize="28"
+                         FontWeight="Bold"
+                         Foreground="White"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
                     <TextBlock.Effect>
-                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
+                        <DropShadowEffect Color="#40000000" 
+                                        Direction="320" 
+                                        ShadowDepth="3" 
+                                        BlurRadius="4"/>
                     </TextBlock.Effect>
                 </TextBlock>
 
                 <StackPanel Grid.Column="1" 
-                  Orientation="Horizontal" 
-                  Margin="20,0"
-                  VerticalAlignment="Center">
+                          Orientation="Horizontal" 
+                          Margin="20,0"
+                          VerticalAlignment="Center">
                     <TextBlock Text="{Binding CurrentUser.HoTen}" 
-                     VerticalAlignment="Center" 
-                     Foreground="White"
-                     FontSize="16"
-                     FontWeight="Medium"/>
+                             Foreground="White"
+                             FontSize="16"
+                             FontWeight="Medium"/>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <!-- Main Content Section -->
-        <Grid Grid.Row="0" Margin="0,10,110,15">
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Invoice List Section -->
-            <StackPanel Grid.Column="0" Margin="0,87,0,-292" Background="#F2F1F1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="673">
-                <StackPanel Orientation="Horizontal" Background="LightGray" Margin="0,0,0,10" Width="532" RenderTransformOrigin="0.613,0.683">
-                    <Label Content="Tìm Kiếm" Height="25" Width="70"/>
-                    <TextBox x:Name="SearchTextBox" 
-                            Width="200" 
-                            VerticalAlignment="Center" 
-                            Margin="0,0,20,0"
-                            TextChanged="SearchTextBox_TextChanged"/>
+            <Border Grid.Column="0" 
+                    Background="White" 
+                    CornerRadius="15" 
+                    Margin="0,0,10,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" 
+                                    BlurRadius="15" 
+                                    ShadowDepth="2" 
+                                    Direction="315"/>
+                </Border.Effect>
 
-                    <ComboBox x:Name="StatusComboBox" 
-                              Width="160"
-                              SelectionChanged="StatusComboBox_SelectionChanged" RenderTransformOrigin="0.66,0.455">
-                        <ComboBoxItem Content="Tất cả trạng thái" IsSelected="True"/>
-                        <ComboBoxItem Content="Chưa thanh toán"/>
-                        <ComboBoxItem Content="Đã thanh toán"/>
-                    </ComboBox>
-                    <Button Content="Lọc" Width="80" Click="FilterButton_Click"/>
-                </StackPanel>
+                <DockPanel Margin="20">
+                    <!-- Search and Filter Section -->
+                    <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Danh Sách Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Width="618"/>
-                <ListView Name="InvoiceListView" ItemsSource="{Binding InvoiceList}" SelectedItem="{Binding SelectedInvoice}" Width="646" Height="408">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Mã Hóa Đơn" DisplayMemberBinding="{Binding MaHoaDon}" Width="90"/>
-                            <GridViewColumn Header="Mã Người Dùng" DisplayMemberBinding="{Binding MaNguoiDung}" Width="110"/>
-                            <GridViewColumn Header="Ngày Lập" DisplayMemberBinding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="130"/>
-                            <GridViewColumn Header="Tổng Tiền" DisplayMemberBinding="{Binding TongTien, StringFormat='{}{0:C}'}" Width="115"/>
-                            <GridViewColumn Header="Số Bàn" DisplayMemberBinding="{Binding SoBan}" Width="68"/>
-                            <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
-                        </GridView>
-                    </ListView.View>
+                            <TextBox x:Name="SearchTextBox"
+                                    Style="{StaticResource SearchBoxStyle}"
+                                    Margin="0,0,10,0"
+                                    TextChanged="SearchTextBox_TextChanged"/>
 
-                </ListView>
+                            <ComboBox x:Name="StatusComboBox"
+                                    Grid.Column="1"
+                                    Style="{StaticResource ModernComboBoxStyle}"
+                                    Width="200"
+                                    Margin="0,0,10,0"
+                                    SelectionChanged="StatusComboBox_SelectionChanged">
+                                <ComboBoxItem Content="Tất cả trạng thái" IsSelected="True"/>
+                                <ComboBoxItem Content="Chưa thanh toán"/>
+                                <ComboBoxItem Content="Đã thanh toán"/>
+                            </ComboBox>
 
+                            <Button Grid.Column="2"
+                                    Content="Lọc"
+                                    Style="{StaticResource ModernButtonStyle}"
+                                    Width="100"
+                                    Click="FilterButton_Click"/>
+                        </Grid>
+                    </StackPanel>
 
-            </StackPanel>
+                    <!-- Invoice List -->
+                    <DataGrid Name="InvoiceListView"
+                              ItemsSource="{Binding InvoiceList}"
+                              SelectedItem="{Binding SelectedInvoice}"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              RowBackground="White"
+                              AlternatingRowBackground="#F8F9FA"
+                              VerticalGridLinesBrush="#E0E6ED"
+                              HorizontalGridLinesBrush="#E0E6ED">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#F5F7FA"/>
+                                <Setter Property="Foreground" Value="#2C3E50"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#E0E6ED"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mã HĐ" Binding="{Binding MaHoaDon}" Width="80"/>
+                            <DataGridTextColumn Header="Mã ND" Binding="{Binding MaNguoiDung}" Width="80"/>
+                            <DataGridTextColumn Header="Ngày Lập" Binding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="100"/>
+                            <DataGridTextColumn Header="Tổng Tiền" Binding="{Binding TongTien, StringFormat='{}{0:N0} đ'}" Width="120"/>
+                            <DataGridTextColumn Header="Số Bàn" Binding="{Binding SoBan}" Width="80"/>
+                            <DataGridTextColumn Header="Trạng Thái" Binding="{Binding TrangThai}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Border>
 
             <!-- Invoice Details Section -->
-            <StackPanel Grid.Column="1" Margin="245,87,-78,0" Background="#F2F1F1" Height="474" VerticalAlignment="Top">
-                <TextBlock Text="Chi Tiết Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Width="435"/>
+            <Border Grid.Column="1" 
+                    Background="White" 
+                    CornerRadius="15" 
+                    Margin="10,0,0,0">
+                <Border.Effect>
+                    <DropShadowEffect Color="#20000000" 
+                                    BlurRadius="15" 
+                                    ShadowDepth="2" 
+                                    Direction="315"/>
+                </Border.Effect>
 
-                <!-- ListView chiếm phần lớn không gian -->
-                <ListView Name="InvoiceDetailsListView" 
-                          Margin="0,10,0,0" 
-                          Height="300" Width="445">
-                    <!-- Thêm chiều cao cố định -->
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Tên Món" DisplayMemberBinding="{Binding TenMonAn}" Width="100"/>
-                            <GridViewColumn Header="Số Lượng" DisplayMemberBinding="{Binding SoLuong}" Width="95"/>
-                            <GridViewColumn Header="Đơn Giá" DisplayMemberBinding="{Binding DonGia, StringFormat='{}{0:N0} VNĐ'}" Width="120"/>
-                            <GridViewColumn Header="Thành Tiền" DisplayMemberBinding="{Binding ThanhTien, StringFormat='{}{0:N0} VNĐ'}" Width="120"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                <DockPanel Margin="20">
+                    <TextBlock Text="Chi Tiết Hóa Đơn" 
+                             FontSize="20" 
+                             FontWeight="SemiBold" 
+                             Foreground="#1976D2" 
+                             DockPanel.Dock="Top"
+                             Margin="0,0,0,20"/>
 
-                <!-- Khoảng trống giữa ListView và TextBlock -->
-                <Grid Height="20"/>
-                <!-- Thêm khoảng cách -->
+                    <StackPanel DockPanel.Dock="Bottom">
+                        <Border BorderThickness="0,1,0,0" 
+                                BorderBrush="#E0E6ED" 
+                                Padding="0,20,0,20">
+                            <TextBlock x:Name="TotalAmountText"
+                                     Text="Tổng tiền: 0 VNĐ"
+                                     FontSize="18"
+                                     FontWeight="Bold"
+                                     Foreground="#2196F3"
+                                     HorizontalAlignment="Right"/>
+                        </Border>
 
-                <!-- TextBlock tổng tiền ở cuối -->
-                <Border BorderThickness="0,1,0,0" 
-                        BorderBrush="#CCCCCC" 
-                        Padding="0,10,0,0">
-                    <!-- Thêm đường kẻ phía trên -->
-                    <TextBlock x:Name="TotalAmountText" 
-                               Text="Tổng tiền: 0 VNĐ" 
-                               FontSize="16" 
-                               FontWeight="Bold" 
-                               HorizontalAlignment="Right"
-                               Margin="10,0,10,10"/>
-                </Border>
+                        <Button Content="In Hóa Đơn"
+                                Style="{StaticResource ModernButtonStyle}"
+                                Width="150"
+                                Margin="0,10,0,0"
+                                Click="PrintInvoiceButton_Click"/>
+                    </StackPanel>
 
-                <!-- Add Print Button -->
-                <Button Content="In Hóa Đơn" 
-                        Width="100"
-                        Margin="10,20,10,0"
-                        Click="PrintInvoiceButton_Click"/>
-            </StackPanel>
+                    <DataGrid Name="InvoiceDetailsListView"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              RowBackground="White"
+                              AlternatingRowBackground="#F8F9FA"
+                              VerticalGridLinesBrush="#E0E6ED"
+                              HorizontalGridLinesBrush="#E0E6ED">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="#F5F7FA"/>
+                                <Setter Property="Foreground" Value="#2C3E50"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                                <Setter Property="Padding" Value="10"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                                <Setter Property="BorderBrush" Value="#E0E6ED"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tên Món" Binding="{Binding TenMonAn}" Width="*"/>
+                            <DataGridTextColumn Header="SL" Binding="{Binding SoLuong}" Width="60"/>
+                            <DataGridTextColumn Header="Đơn Giá" Binding="{Binding DonGia, StringFormat='{}{0:N0} đ'}" Width="100"/>
+                            <DataGridTextColumn Header="Thành Tiền" Binding="{Binding ThanhTien, StringFormat='{}{0:N0} đ'}" Width="120"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>
