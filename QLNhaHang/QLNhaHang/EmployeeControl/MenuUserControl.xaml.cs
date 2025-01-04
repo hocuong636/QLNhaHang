@@ -413,6 +413,11 @@ namespace QLNhaHang.EmployeeControl
                 MessageBox.Show($"Lỗi khi tạo file PDF: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 
     public class MonAn

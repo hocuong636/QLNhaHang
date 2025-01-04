@@ -36,8 +36,8 @@
         </Grid.RowDefinitions>
         <!-- Main Header -->
         <Border Background="#1976D2" 
-                Height="66" 
-                VerticalAlignment="Center" RenderTransformOrigin="0.497,0" Margin="0,0,-60,0">
+                Height="80" 
+                VerticalAlignment="Top" Grid.RowSpan="2">
             <Border.Effect>
                 <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
             </Border.Effect>
@@ -69,8 +69,8 @@
 
             <!-- Search and Actions Bar -->
             <StackPanel Orientation="Horizontal" 
-                        VerticalAlignment="Center" 
-                        Height="50" Margin="0,0,5,0">
+                        VerticalAlignment="Top" 
+                        Height="50" Margin="5,28,0,0" Grid.Row="1">
                 <Border Background="White"
                         CornerRadius="25"
                         Width="330"
@@ -121,6 +121,17 @@
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
                     </Button.Effect>
                 </Button>
+                <Button Content="Xóa"
+                        FontWeight="Medium"
+                        Background="#F44336"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Click="DeleteEmployee_Click" Margin="595,23,455,590" Grid.Row="1">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                    </Button.Effect>
+                </Button>
             </StackPanel>
 
             <!-- Left Panel: Employee List -->
@@ -128,7 +139,7 @@
                     Grid.Column="0"
                     Background="White"
                     CornerRadius="15"
-                    Margin="5,10,10,0">
+                    Margin="5,78,45,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                       BlurRadius="15" 
@@ -141,7 +152,16 @@
                                FontSize="20"
                                FontWeight="SemiBold"
                                Foreground="#1976D2"
-                               Margin="0,0,0,20"/>
+                               Margin="0,0,0,20" RenderTransformOrigin="0.5,0.5">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.327"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
                     <ListView x:Name="lvNhanVien"
                               SelectionChanged="EmployeeSelectionChanged"
                               BorderThickness="0"
@@ -215,16 +235,5 @@
                 </StackPanel>
             </Border>
         </Grid>
-        <Button Content="Xóa"
-            FontWeight="Medium"
-            Background="#F44336"
-            Foreground="White"
-            BorderThickness="0"
-            Style="{StaticResource RoundedButtonStyle}"
-            Click="DeleteEmployee_Click" Margin="595,23,455,590" Grid.Row="1">
-            <Button.Effect>
-                <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-            </Button.Effect>
-        </Button>
     </Grid>
 </UserControl>

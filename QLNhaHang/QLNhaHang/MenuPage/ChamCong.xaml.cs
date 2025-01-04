@@ -19,7 +19,7 @@ namespace QLNhaHang.MenuPage
     /// Interaction logic for ChamCong.xaml
     /// </summary>
     public partial class ChamCong : UserControl
-    {
+    {   
         public ChamCong()
         {
             InitializeComponent();

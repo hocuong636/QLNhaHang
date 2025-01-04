@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:QLNhaHang"
              mc:Ignorable="d"
-             d:DesignHeight="600" d:DesignWidth="1000"
+             d:DesignHeight="790" d:DesignWidth="1325"
              Background="#F0F4F8">
 
     <UserControl.Resources>
@@ -58,7 +58,7 @@
         <!-- Header -->
         <Border Background="#1976D2" 
                 Height="80" 
-                VerticalAlignment="Top">
+                VerticalAlignment="Top" Margin="0,0,0,0">
             <Border.Effect>
                 <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
             </Border.Effect>
@@ -78,13 +78,13 @@
         <Grid Grid.Row="1" Margin="20,20,20,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="420"/>
             </Grid.ColumnDefinitions>
 
             <!-- Food List Section -->
             <Border Background="White" 
                     CornerRadius="15" 
-                    Margin="0,0,10,-20">
+                    Margin="0,0,10,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
@@ -100,8 +100,9 @@
                         <!-- Search Bar -->
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
                             </Grid.ColumnDefinitions>
                             <TextBox x:Name="searchTextBox" 
                                      Style="{StaticResource ModernTextBoxStyle}"
@@ -112,30 +113,23 @@
                                     </Style>
                                 </TextBox.Resources>
                             </TextBox>
+                            
+                            
                             <Button Grid.Column="1"
                                     Content="Tìm Kiếm" 
                                     Style="{StaticResource ModernButtonStyle}"
                                     Background="#4CAF50"
-                                    Click="SearchButton_Click"/>
-                        </Grid>
+                                    Click="SearchButton_Click"
+                                    Margin="0,0,5,0"/>
 
-                        <!-- Action Buttons -->
-                        <StackPanel Grid.Row="1" 
-                                    Orientation="Horizontal" 
-                                    Margin="0,10,0,0">
-                            <Button Content="Sửa Món" 
-                                    Style="{StaticResource ModernButtonStyle}"
-                                    Background="#2196F3"
-                                    Margin="0,0,10,0"/>
-                            <Button Content="Xóa Món" 
-                                    Style="{StaticResource ModernButtonStyle}"
-                                    Background="#F44336"
-                                    Margin="0,0,10,0"/>
-                            <Button Content="Làm Mới" 
+                            <Button Grid.Column="2"
+                                Content="Làm Mới" 
                                     Style="{StaticResource ModernButtonStyle}"
                                     Background="#FF9800"
-                                    Click="RefreshButton_Click"/>
-                        </StackPanel>
+                                    Click="RefreshButton_Click"
+                                    Margin="5,0,0,0"/>
+                        </Grid>
+                        <!-- Action Buttons -->
                     </Grid>
 
                     <!-- Food List -->
@@ -186,12 +180,12 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15"
-                    Margin="10,0,0,-15">
+                    Margin="10,0,0,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
 
-                <StackPanel Margin="20">
+                <StackPanel Margin="15">
                     <TextBlock Text="Thêm Món Ăn Mới" 
                                FontSize="20" 
                                FontWeight="SemiBold" 
@@ -229,12 +223,23 @@
                         <Button Content="Lưu" 
                                 Style="{StaticResource ModernButtonStyle}" 
                                 Background="#4CAF50"
-                                Width="100"
-                                Margin="0,0,10,0"/>
+                                Width="90"
+                                Margin="5,0,5,0"/>
                         <Button Content="Hủy" 
                                 Style="{StaticResource ModernButtonStyle}" 
                                 Background="#757575"
-                                Width="100"/>
+                                Width="90"
+                                Margin="0,0,5,0"/>
+                        <Button Content="Sửa Món" 
+                                Style="{StaticResource ModernButtonStyle}"
+                                Background="#2196F3"
+                                Margin="0,0,5,0"
+                                Width="90"
+                                />
+                        <Button Content="Xóa Món" 
+                                Style="{StaticResource ModernButtonStyle}"
+                                Background="#F44336"
+                                Width="90"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

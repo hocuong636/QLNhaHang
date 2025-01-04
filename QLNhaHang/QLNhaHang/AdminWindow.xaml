@@ -69,20 +69,13 @@
                         Background="#141829"
                         Padding="20">
                     <StackPanel Orientation="Horizontal" 
-                              VerticalAlignment="Center">
-                        <Ellipse Width="40" Height="40">
-                            <Ellipse.Fill>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#2196F3" Offset="0"/>
-                                    <GradientStop Color="#1976D2" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>
+                              VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
                         <TextBlock Text="Admin Panel" 
                                  Foreground="White" 
                                  FontSize="20" 
                                  FontWeight="SemiBold" 
-                                 Margin="15,0,0,0"
+                                 Margin="0,0,0,0"
                                  VerticalAlignment="Center"/>
                     </StackPanel>
                 </Border>
@@ -115,10 +108,6 @@
                             Click="InvoiceManagementButton_Click"/>
 
                     <Button Style="{StaticResource NavButtonStyle}" 
-                            Content="Quản lý bếp" 
-                            Click="KitchenManagementButton_Click"/>
-
-                    <Button Style="{StaticResource NavButtonStyle}" 
                             Content="Quản lý kho" 
                             Click="WarehouseManagementButton_Click"/>
 
@@ -133,13 +122,12 @@
                     <Button Style="{StaticResource NavButtonStyle}" 
                             Content="Quản Lý tài khoản" 
                             Click="account_managementButton_Click"/>
-
-                    <!-- Logout Button -->
                     <Button Style="{StaticResource NavButtonStyle}"
                             Content="Đăng xuất"
                             Click="LogoutButton_Click"
-                            Foreground="#FF5252"
-                            Margin="15,40,15,20"/>
+                            Foreground="#FF5252"/>
+
+                    <!-- Logout Button -->
                 </StackPanel>
             </DockPanel>
         </Border>
@@ -147,8 +135,8 @@
         <!-- Content Area -->
         <Border 
                 Background="White" 
-                CornerRadius="20,0,0,0" 
-                Margin="280,-36,0,1" Grid.ColumnSpan="2">
+                CornerRadius="0,0,0,0" 
+                Margin="280,0,0,1" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect Color="#20000000" 
                                 BlurRadius="15" 

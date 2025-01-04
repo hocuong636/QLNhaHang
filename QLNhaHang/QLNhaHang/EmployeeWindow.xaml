@@ -16,12 +16,11 @@
                        Margin="10" HorizontalAlignment="Center"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />
-            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" Click="LogoutButton_Click" Margin="50,50,50,200" VerticalAlignment="Bottom"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" HorizontalAlignment="Center" Click="LogoutButton_Click" Margin="50,50,50,200" VerticalAlignment="Bottom" Foreground="#FF5252"/>
 
         </StackPanel>
         <Border Grid.Column="1" Background="White" CornerRadius="10">
             <ContentControl x:Name="ContentArea" Grid.Column="1" Background="White"/>
-
         </Border>
     </Grid>
 </Window>

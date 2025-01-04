@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.EmployeeControl"
              mc:Ignorable="d" 
-             d:DesignHeight="450"
-             Background="#F0F4F8" Width="1350">
+             d:DesignHeight="790"
+             Background="#F0F4F8" Width="1325">
 
     <UserControl.Resources>
         <!-- Table Button Style -->
@@ -81,12 +81,12 @@
     <Grid Margin="0,0,45,0">
         <!-- Header -->
         <Border Background="#1976D2" 
-                Height="70" 
+                Height="80" 
                 VerticalAlignment="Top">
             <Border.Effect>
                 <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
             </Border.Effect>
-            <TextBlock Text="QUẢN LÝ BÀN"
+            <TextBlock Text="QUẢN LÝ TÌNH TRẠNG BÀN"
                        FontSize="28"
                        FontWeight="Bold"
                        Foreground="White"
@@ -107,13 +107,13 @@
 
             <!-- Tables Section -->
             <Border Background="White" 
-                    CornerRadius="15" 
-                    Margin="0,0,405,0" Grid.ColumnSpan="2">
+                    CornerRadius="15,0,0,15" 
+                    Margin="0,0,380,0" Grid.ColumnSpan="2">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
 
-                <ScrollViewer x:Name="scrollViewer" Padding="12" Margin="-5,0,0,5">
+                <ScrollViewer x:Name="scrollViewer" Padding="12" Margin="-5,0,0,0">
                     <WrapPanel>
                         <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn1" Content="Bàn 1" Width="250"/>
                         <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn2" Content="Bàn 2" Width="250"/>
@@ -144,7 +144,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15"
-                    Margin="23,-5,45,5">
+                    Margin="40,-5,20,5">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>

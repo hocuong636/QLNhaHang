@@ -6,8 +6,8 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="641" 
-             d:DesignWidth="1300"
+             d:DesignHeight="790" 
+             d:DesignWidth="1325"
              Background="#F0F4F8">
 
     <UserControl.Resources>
@@ -68,7 +68,7 @@
         <!-- Header -->
         <Border Background="#1976D2" 
                 Height="80" 
-                VerticalAlignment="Top">
+                VerticalAlignment="Top" Margin="0,0,0,0">
             <Border.Effect>
                 <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
             </Border.Effect>
@@ -84,6 +84,7 @@
                          FontWeight="Bold"
                          Foreground="White"
                          Margin="20,0"
+                         HorizontalAlignment="Center"
                          VerticalAlignment="Center">
                     <TextBlock.Effect>
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
@@ -124,10 +125,10 @@
                         Background="#4CAF50"
                         Margin="0,0,10,0">
                     <StackPanel>
-                        <TextBlock Text="Tổng Doanh Thu" 
+                        <TextBlock Text="Doanh Thu Ngày" 
                                  Style="{StaticResource MetricTitleStyle}"/>
                         <TextBlock x:Name="TotalRevenueTextBlock" 
-                                 Text="0 VNĐ"
+                                 Text="0 VND"
                                  Style="{StaticResource MetricValueStyle}"/>
                     </StackPanel>
                 </Border>
@@ -138,10 +139,10 @@
                         Background="#1976D2"
                         Margin="10,0">
                     <StackPanel>
-                        <TextBlock Text="Bàn Đang Phục Vụ" 
+                        <TextBlock Text="Doanh Thu Tháng" 
                                  Style="{StaticResource MetricTitleStyle}"/>
                         <TextBlock x:Name="ActiveOrdersTextBlock" 
-                                 Text="0"
+                                 Text="0 VND"
                                  Style="{StaticResource MetricValueStyle}"/>
                     </StackPanel>
                 </Border>
@@ -162,7 +163,7 @@
                                 Click="LookupRevenue_Click"
                                 Margin="0,0,0,10"/>
                         <TextBlock x:Name="LookedUpRevenueTextBlock" 
-                                 Text="0 VNĐ"
+                                 Text="0 VND"
                                  Style="{StaticResource MetricValueStyle}"/>
                     </StackPanel>
                 </Border>
@@ -183,7 +184,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Biểu Đồ Doanh Thu Theo Ngày"
+                    <TextBlock Text="Biểu Đồ Doanh Thu Theo Tuần"
                              FontSize="20"
                              FontWeight="SemiBold"
                              Foreground="#1976D2"

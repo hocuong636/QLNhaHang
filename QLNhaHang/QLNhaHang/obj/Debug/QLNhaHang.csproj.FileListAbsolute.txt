@@ -35,7 +35,6 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\DashboardPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\EmployeeManagementPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\FoodManagementPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\InvoiceManagementPage.g.cs
-C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\KitchenManagementPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\TableStatusPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\WarehouseManagementPage.g.cs
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\App.baml
@@ -43,7 +42,6 @@ C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\DashboardPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\EmployeeManagementPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\FoodManagementPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\InvoiceManagementPage.baml
-C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\KitchenManagementPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\TableStatusPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\obj\Debug\MenuPage\WarehouseManagementPage.baml
 C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\LiveCharts.dll

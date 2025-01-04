@@ -128,13 +128,11 @@
             <Grid Grid.Column="1" Margin="40">
                 <!-- Close Button -->
                 <Button Style="{StaticResource ModernButton}" 
-                        Width="32" 
                         Height="32"
-                        Background="#FF5252"
-                        HorizontalAlignment="Right" 
+                        Background="#FF5252" 
                         VerticalAlignment="Top" 
                         Content="✕"
-                        Click="CloseButton_Click"/>
+                        Click="CloseButton_Click" Margin="288,0,0,0" HorizontalAlignment="Left" Width="32"/>
 
                 <StackPanel VerticalAlignment="Center" Margin="0,20">
                     <TextBlock Text="Login" 
@@ -174,6 +172,7 @@
                              Margin="0,20,0,0"
                              Cursor="Hand"/>
                 </StackPanel>
+                 <ContentControl x:Name="ContentArea" Grid.Row="1" />
             </Grid>
         </Grid>
     </Border>

@@ -24,11 +24,6 @@ namespace QLNhaHang
             ContentArea.Content = new TableStatusPage();
         }
 
-        private void KitchenManagementButton_Click(object sender, RoutedEventArgs e)
-        {
-            ContentArea.Content = new KitchenManagementPage();
-        }
-
         private void WarehouseManagementButton_Click(object sender, RoutedEventArgs e)
         {
             ContentArea.Content = new WarehouseManagementPage();
@@ -55,9 +50,12 @@ namespace QLNhaHang
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bạn đã đăng xuất thành công!");
-            this.Close(); // Đóng AdminWindow
-
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+                Application.Current.MainWindow.Show();
+            }
             // Hiện lại MainWindow
             Application.Current.MainWindow.Show();
         }

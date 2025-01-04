@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLNhaHang.EmployeeControl;
+using System;
 using System.Data.SqlClient;
 using System.Windows;
 
@@ -36,22 +37,23 @@ namespace QLNhaHang
 
                             if (role == 1) // Admin
                             {
-                                MessageBox.Show("Đăng nhập thành công! Bạn là Quản trị viên.");
                                 AdminWindow adminWindow = new AdminWindow();
                                 adminWindow.Show();
                                 this.Hide();
+                                SetNull();
                             }
                             else if (role == 2) // Employee
                             {
-                                MessageBox.Show("Đăng nhập thành công! Bạn là Nhân viên.");
                                 EmployeeWindow employeeWindow = new EmployeeWindow(maNguoiDung);
                                 employeeWindow.Show();
                                 this.Hide();
+                                SetNull();
                             }
                         }
                         else
                         {
                             MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
+                            SetNull();
                         }
                     }
                 }
@@ -59,8 +61,16 @@ namespace QLNhaHang
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu: " + ex.Message);
+                SetNull();
             }
         }
+
+        private void SetNull()
+        {
+            UsernameTextBox.Text = string.Empty;    
+            PasswordBox.Password = string.Empty; 
+        }
+
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

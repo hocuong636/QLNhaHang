@@ -25,9 +25,12 @@ namespace QLNhaHang
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Bạn đã đăng xuất thành công!");
-            this.Close();
-            Application.Current.MainWindow.Show();
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất",MessageBoxButton.YesNo,MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+                Application.Current.MainWindow.Show();
+            }
         }
     }
 }

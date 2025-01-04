@@ -120,9 +120,6 @@
     <Compile Include="MenuPage\InvoiceManagementPage.xaml.cs">
       <DependentUpon>InvoiceManagementPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPage\KitchenManagementPage.xaml.cs">
-      <DependentUpon>KitchenManagementPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MenuPage\TableStatusPage.xaml.cs">
       <DependentUpon>TableStatusPage.xaml</DependentUpon>
     </Compile>
@@ -166,10 +163,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuPage\InvoiceManagementPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MenuPage\KitchenManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -15,6 +15,45 @@
 
         <!-- Header Section Removed -->
 
+        <!-- Header -->
+        <Border Background="#1976D2" 
+        Height="80" 
+        VerticalAlignment="Top" Margin="0,0,0,0">
+            <Border.Effect>
+                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
+            </Border.Effect>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="QUẢN LÝ HÓA ĐƠN"
+                 FontSize="28"
+                 FontWeight="Bold"
+                 Foreground="White"
+                 Margin="20,0"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="3" BlurRadius="4"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <StackPanel Grid.Column="1" 
+                  Orientation="Horizontal" 
+                  Margin="20,0"
+                  VerticalAlignment="Center">
+                    <TextBlock Text="{Binding CurrentUser.HoTen}" 
+                     VerticalAlignment="Center" 
+                     Foreground="White"
+                     FontSize="16"
+                     FontWeight="Medium"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
         <!-- Main Content Section -->
         <Grid Grid.Row="0" Margin="0,10,110,15">
             <Grid.ColumnDefinitions>
@@ -23,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Invoice List Section -->
-            <StackPanel Grid.Column="0" Margin="10,15,0,-260" Background="#F2F1F1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="715">
+            <StackPanel Grid.Column="0" Margin="0,87,0,-292" Background="#F2F1F1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="673">
                 <StackPanel Orientation="Horizontal" Background="LightGray" Margin="0,0,0,10" Width="532" RenderTransformOrigin="0.613,0.683">
                     <Label Content="Tìm Kiếm" Height="25" Width="70"/>
                     <TextBox x:Name="SearchTextBox" 
@@ -42,8 +81,8 @@
                     <Button Content="Lọc" Width="80" Click="FilterButton_Click"/>
                 </StackPanel>
 
-                <TextBlock Text="Danh Sách Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
-                <ListView Name="InvoiceListView" ItemsSource="{Binding InvoiceList}" SelectedItem="{Binding SelectedInvoice}" Width="623" Height="551">
+                <TextBlock Text="Danh Sách Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Width="618"/>
+                <ListView Name="InvoiceListView" ItemsSource="{Binding InvoiceList}" SelectedItem="{Binding SelectedInvoice}" Width="646" Height="408">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Mã Hóa Đơn" DisplayMemberBinding="{Binding MaHoaDon}" Width="90"/>
@@ -54,14 +93,14 @@
                             <GridViewColumn Header="Trạng Thái" DisplayMemberBinding="{Binding TrangThai}" Width="100"/>
                         </GridView>
                     </ListView.View>
-                    
+
                 </ListView>
-               
+
 
             </StackPanel>
 
             <!-- Invoice Details Section -->
-            <StackPanel Grid.Column="1" Margin="322,16,-155,0" Background="#F2F1F1" Height="474" VerticalAlignment="Top">
+            <StackPanel Grid.Column="1" Margin="245,87,-78,0" Background="#F2F1F1" Height="474" VerticalAlignment="Top">
                 <TextBlock Text="Chi Tiết Hóa Đơn" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Width="435"/>
 
                 <!-- ListView chiếm phần lớn không gian -->
