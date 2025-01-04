@@ -108,34 +108,34 @@
             <!-- Tables Section -->
             <Border Background="White" 
                     CornerRadius="15,0,0,15" 
-                    Margin="0,0,380,0" Grid.ColumnSpan="2">
+                    Margin="0,0,410,0" Grid.ColumnSpan="2">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
 
                 <ScrollViewer x:Name="scrollViewer" Padding="12" Margin="-5,0,0,0">
                     <WrapPanel>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn1" Content="Bàn 1" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn2" Content="Bàn 2" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn3" Content="Bàn 3" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn4" Content="Bàn 4" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn5" Content="Bàn 5" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn6" Content="Bàn 6" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn7" Content="Bàn 7" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn8" Content="Bàn 8" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn9" Content="Bàn 9" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn10" Content="Bàn 10" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn11" Content="Bàn 11" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn12" Content="Bàn 12" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn13" Content="Bàn 13" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn14" Content="Bàn 14" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn15" Content="Bàn 15" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn16" Content="Bàn 16" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn17" Content="Bàn 17" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn18" Content="Bàn 18" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn19" Content="Bàn 19" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn20" Content="Bàn 20" Width="250"/>
-                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn21" Content="Bàn 21" Width="250"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn1" Content="Bàn 1" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn2" Content="Bàn 2" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn3" Content="Bàn 3" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn4" Content="Bàn 4" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn5" Content="Bàn 5" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn6" Content="Bàn 6" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn7" Content="Bàn 7" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn8" Content="Bàn 8" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn9" Content="Bàn 9" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn10" Content="Bàn 10" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn11" Content="Bàn 11" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn12" Content="Bàn 12" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn13" Content="Bàn 13" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn14" Content="Bàn 14" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn15" Content="Bàn 15" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn16" Content="Bàn 16" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn17" Content="Bàn 17" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn18" Content="Bàn 18" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn19" Content="Bàn 19" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn20" Content="Bàn 20" Width="240"/>
+                        <Button Style="{StaticResource TableButtonStyle}" Background="#4CAF50" Click="Table_Click" Name="btn21" Content="Bàn 21" Width="240"/>
                     </WrapPanel>
                 </ScrollViewer>
             </Border>
@@ -144,7 +144,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15"
-                    Margin="40,-5,20,5">
+                    Margin="20,0,40,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
