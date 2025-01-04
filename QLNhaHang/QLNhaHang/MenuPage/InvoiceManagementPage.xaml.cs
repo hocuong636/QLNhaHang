@@ -34,11 +34,11 @@ namespace QLNhaHang
         {
             try
             {
-                if (StatusComboBox != null && SearchTextBox != null)
+                if (ComboBox != null && SearchTextBox != null)
                 {
-                    StatusComboBox.SelectedIndex = 0; // Reset về "Tất cả trạng thái"
+                    ComboBox.SelectedIndex = 0; // Reset về "Tất cả trạng thái"
                     SearchTextBox.Text = ""; // Xóa text tìm kiếm
-                    FilterButton_Click(null, null); // Gọi lại hàm lọc
+                    ComboBox_SelectionChanged(null, null); // Gọi lại hàm lọc
                 }
             }
             catch (Exception ex)
@@ -199,14 +199,14 @@ namespace QLNhaHang
             }
         }
 
-        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
             {
-                if (InvoiceListView == null || StatusComboBox == null || SearchTextBox == null)
+                if (InvoiceListView == null || ComboBox == null || SearchTextBox == null)
                     return;
 
-                string selectedStatus = ((ComboBoxItem)StatusComboBox.SelectedItem).Content.ToString();
+                string selectedStatus = ((ComboBoxItem)ComboBox.SelectedItem).Content.ToString();
                 string searchText = SearchTextBox.Text.Trim();
 
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -262,12 +262,12 @@ namespace QLNhaHang
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            FilterButton_Click(null, null);
+            ComboBox_SelectionChanged(null, null);
         }
 
         private void StatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FilterButton_Click(null, null);
+            ComboBox_SelectionChanged(null, null);
         }
     }
 }

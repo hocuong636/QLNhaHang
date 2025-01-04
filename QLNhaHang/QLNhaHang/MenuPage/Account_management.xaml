@@ -101,9 +101,6 @@
         <Border Background="#1976D2" 
                 Height="80" 
                  VerticalAlignment="Top" Margin="0,0,-32,0">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
-            </Border.Effect>
             <TextBlock Text="QUẢN LÝ TÀI KHOẢN"
                        FontSize="28"
                        FontWeight="Bold"
@@ -191,6 +188,11 @@
                                     Margin="0,0,0,30"
                                     Click="SearchUser_Click"/>
 
+                            <TextBlock Text="Mật khẩu cũ:" Margin="0,0,0,5" FontWeight="Medium"/>
+                            <PasswordBox Name="txtOldPassword" 
+                                         Style="{StaticResource ModernPasswordBoxStyle}"
+                                         Margin="0,0,0,15"/>
+                            
                             <TextBlock Text="Mật khẩu mới:" Margin="0,0,0,5" FontWeight="Medium"/>
                             <PasswordBox Name="txtNewPassword" 
                                        Style="{StaticResource ModernPasswordBoxStyle}"

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:QLNhaHang"
              mc:Ignorable="d"
              Background="#F0F4F8"
-             d:Height="725" d:Width="1200">
+             d:Height="790" d:Width="1325">
 
     <UserControl.Resources>
         <!-- Modern TextBox Style -->
@@ -135,12 +135,7 @@
         <Border Background="#1976D2" 
                 Height="80" 
                 VerticalAlignment="Top">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" 
-                                Direction="270" 
-                                ShadowDepth="3" 
-                                BlurRadius="4"/>
-            </Border.Effect>
+            
             <TextBlock Text="QUẢN LÝ KHO"
                        FontSize="28"
                        FontWeight="Bold"
@@ -159,14 +154,14 @@
         <!-- Main Content -->
         <Grid Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="750"/>
+                <ColumnDefinition Width="430"/>
             </Grid.ColumnDefinitions>
 
             <!-- Left Panel: Inventory List -->
             <Border Background="White" 
                     CornerRadius="15" 
-                    Margin="0,0,10,0">
+                    Margin="10,10,10,10">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                     BlurRadius="15" 
@@ -175,7 +170,7 @@
                 </Border.Effect>
 
                 <DockPanel Margin="20">
-                    <Grid DockPanel.Dock="Top" Margin="0,0,0,20">
+                    <Grid DockPanel.Dock="Top" Margin="0,0,20,20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
@@ -183,7 +178,7 @@
 
                         <TextBox x:Name="SearchTextBox"
                                 Style="{StaticResource ModernTextBox}"
-                                Margin="0,0,10,0"/>
+                                Margin="0,0,20,0"/>
 
                         <Button Grid.Column="1"
                                 Content="Tìm kiếm"
@@ -228,7 +223,7 @@
                             <DataGridTextColumn Header="Mã NL" Binding="{Binding MaNguyenLieu}" Width="100"/>
                             <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="*"/>
                             <DataGridTextColumn Header="Số Lượng" Binding="{Binding SoLuong}" Width="100"/>
-                            <DataGridTextColumn Header="Đơn vị" Binding="{Binding DonVi}" Width="100"/>
+                            <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding DonVi}" Width="100"/>
                             <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia, StringFormat='{}{0:N0} đ'}" Width="120"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -239,7 +234,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15" 
-                    Margin="10,0,0,0">
+                    Margin="10,10,15,10">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                     BlurRadius="15" 
@@ -275,7 +270,7 @@
                             Style="{StaticResource ModernTextBox}"
                             Margin="0,0,0,15"/>
 
-                    <TextBlock Text="Giá nhập:" 
+                    <TextBlock Text="Giá nhập tính:" 
                              Margin="0,0,0,5" 
                              FontWeight="Medium"/>
                     <TextBox x:Name="PriceTextBox" 

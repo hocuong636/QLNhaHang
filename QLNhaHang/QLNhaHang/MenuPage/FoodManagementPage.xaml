@@ -59,9 +59,6 @@
         <Border Background="#1976D2" 
                 Height="80" 
                 VerticalAlignment="Top" Margin="0,0,0,0">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
-            </Border.Effect>
             <TextBlock Text="QUẢN LÝ MÓN ĂN"
                        FontSize="28"
                        FontWeight="Bold"
@@ -78,7 +75,7 @@
         <Grid Grid.Row="1" Margin="20,20,20,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="420"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
             <!-- Food List Section -->

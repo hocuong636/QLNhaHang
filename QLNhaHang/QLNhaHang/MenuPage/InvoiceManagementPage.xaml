@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:QLNhaHang"
         mc:Ignorable="d"
         Background="#F0F4F8"
-        d:Height="725" Width="1200">
+        d:Height="790" Width="1325">
 
     <UserControl.Resources>
         <!-- Search TextBox Style -->
@@ -109,12 +109,6 @@
         <Border Background="#1976D2" 
                 Height="80" 
                 VerticalAlignment="Top">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" 
-                                Direction="270" 
-                                ShadowDepth="3" 
-                                BlurRadius="4"/>
-            </Border.Effect>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -150,8 +144,8 @@
         <!-- Main Content -->
         <Grid Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="750"/>
+                <ColumnDefinition Width="430"/>
             </Grid.ColumnDefinitions>
 
             <!-- Invoice List Section -->
@@ -171,32 +165,43 @@
                     <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="500"/>
+                                <ColumnDefinition Width="200"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBox x:Name="SearchTextBox"
+                            <Border Grid.Column="0">
+                                <TextBox x:Name="SearchTextBox"
                                     Style="{StaticResource SearchBoxStyle}"
-                                    Margin="0,0,10,0"
+                                    Margin="0,0,0,0"
                                     TextChanged="SearchTextBox_TextChanged"/>
+                            </Border>
 
-                            <ComboBox x:Name="StatusComboBox"
-                                    Grid.Column="1"
-                                    Style="{StaticResource ModernComboBoxStyle}"
-                                    Width="200"
-                                    Margin="0,0,10,0"
-                                    SelectionChanged="StatusComboBox_SelectionChanged">
-                                <ComboBoxItem Content="Tất cả trạng thái" IsSelected="True"/>
-                                <ComboBoxItem Content="Chưa thanh toán"/>
-                                <ComboBoxItem Content="Đã thanh toán"/>
-                            </ComboBox>
+                            <Border Grid.Column="1">
+                                <TextBox x:Name="TextBox"
+                                         Style="{StaticResource SearchBoxStyle}"
+                                         Margin="10,0,10,0"/>
+                                
+                            </Border>
 
-                            <Button Grid.Column="2"
-                                    Content="Lọc"
-                                    Style="{StaticResource ModernButtonStyle}"
-                                    Width="100"
-                                    Click="FilterButton_Click"/>
+                            <Border Grid.Column="1">
+                                <ComboBox x:Name="ComboBox"
+                                          Margin="0,0,0,0"
+                                          Width="150"
+                                          Height="30"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          VerticalContentAlignment="Center"
+                                          Background="White"
+                                          BorderThickness="0"
+                                          SelectedIndex="-1"
+                                          IsEditable="True"
+                                          StaysOpenOnEdit="True" SelectionChanged="ComboBox_SelectionChanged">
+                                    <ComboBoxItem Content="Tất cả trạng thái" />
+                                    <ComboBoxItem Content="Đã thanh toán" />
+                                    <ComboBoxItem Content="Chưa thanh toán" />
+                                </ComboBox>
+                            </Border>
                         </Grid>
                     </StackPanel>
 

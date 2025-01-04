@@ -83,9 +83,6 @@
         <Border Background="#1976D2" 
                 Height="80" 
                 VerticalAlignment="Top">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
-            </Border.Effect>
             <TextBlock Text="QUẢN LÝ TÌNH TRẠNG BÀN"
                        FontSize="28"
                        FontWeight="Bold"

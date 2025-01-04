@@ -169,17 +169,18 @@ namespace QLNhaHang
             }
         }
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
-{
-    // Kiểm tra nếu TextBox rỗng thì hiển thị placeholder, nếu không thì ẩn placeholder
-    if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
-    {
-        SearchPlaceholder.Visibility = Visibility.Visible;
-    }
-    else
-    {
-        SearchPlaceholder.Visibility = Visibility.Collapsed;
-    }
-}
+        {
+            /*Kiểm tra nếu TextBox rỗng thì hiển thị placeholder, nếu không thì ẩn placeholder
+            if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
+            {
+                //SearchPlaceholder.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                //SearchPlaceholder.Visibility = Visibility.Collapsed;
+            }
+        }*/
+        }
 
         private void ClearInputForm()
         {

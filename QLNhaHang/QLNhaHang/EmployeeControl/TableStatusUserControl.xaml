@@ -83,10 +83,7 @@
         <!-- Header -->
         <Border Background="#1976D2" 
                 Height="80" 
-                VerticalAlignment="Top" Margin="0,0,0,0">
-            <Border.Effect>
-                <DropShadowEffect Color="#40000000" Direction="270" ShadowDepth="3" BlurRadius="4"/>
-            </Border.Effect>
+                VerticalAlignment="Top" Margin="0,0,-24,0">
             <TextBlock Text="TÌNH TRẠNG BÀN"
                        FontSize="28"
                        FontWeight="Bold"
@@ -145,7 +142,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15"
-                    Margin="90,0,-30,0">
+                    Margin="90,0,-40,0">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
