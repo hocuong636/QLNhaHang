@@ -55,10 +55,10 @@ namespace QLNhaHang
                 DataRowView row = (DataRowView)InvoiceListView.SelectedItem;
                 int maHoaDon = Convert.ToInt32(row["MaHoaDon"]);
                 decimal tongTien = Convert.ToDecimal(row["TongTien"]);
-                
+
                 // Cập nhật hiển thị tổng tiền
                 TotalAmountText.Text = $"Tổng tiền: {tongTien:N0} VNĐ";
-                
+
                 LoadInvoiceDetails(maHoaDon);
             }
             else
@@ -168,19 +168,19 @@ namespace QLNhaHang
                     foreach (DataRowView item in InvoiceDetailsListView.ItemsSource)
                     {
                         table.AddCell(new PdfPCell(new Phrase(item["TenMonAn"].ToString(), font)));
-                        table.AddCell(new PdfPCell(new Phrase(item["SoLuong"].ToString(), font)) 
-                            { HorizontalAlignment = Element.ALIGN_CENTER });
-                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(item["DonGia"]).ToString("N0") + " VNĐ", font)) 
-                            { HorizontalAlignment = Element.ALIGN_RIGHT });
-                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(item["ThanhTien"]).ToString("N0") + " VNĐ", font)) 
-                            { HorizontalAlignment = Element.ALIGN_RIGHT });
+                        table.AddCell(new PdfPCell(new Phrase(item["SoLuong"].ToString(), font))
+                        { HorizontalAlignment = Element.ALIGN_CENTER });
+                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(item["DonGia"]).ToString("N0") + " VNĐ", font))
+                        { HorizontalAlignment = Element.ALIGN_RIGHT });
+                        table.AddCell(new PdfPCell(new Phrase(Convert.ToDecimal(item["ThanhTien"]).ToString("N0") + " VNĐ", font))
+                        { HorizontalAlignment = Element.ALIGN_RIGHT });
                     }
 
                     document.Add(table);
 
                     // Tổng tiền
                     document.Add(new Paragraph("\n"));
-                    Paragraph total = new Paragraph($"Tổng tiền: {tongTien:N0} VNĐ", 
+                    Paragraph total = new Paragraph($"Tổng tiền: {tongTien:N0} VNĐ",
                         new Font(baseFont, 12, Font.BOLD));
                     total.Alignment = Element.ALIGN_RIGHT;
                     document.Add(total);
@@ -189,12 +189,11 @@ namespace QLNhaHang
                 }
 
                 // Mở file PDF sau khi tạo
-                MessageBox.Show("In hóa đơn thành công!", "Thông báo");
                 Process.Start(new ProcessStartInfo(pdfPath) { UseShellExecute = true });
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi in hóa đơn: {ex.Message}", "Lỗi", 
+                MessageBox.Show($"Lỗi khi in hóa đơn: {ex.Message}", "Lỗi",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -268,6 +267,75 @@ namespace QLNhaHang
         private void StatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox_SelectionChanged(null, null);
+        }
+
+        private void DeleteInvoiceButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (InvoiceListView.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn cần xóa!", "Thông báo");
+                return;
+            }
+
+            DataRowView row = (DataRowView)InvoiceListView.SelectedItem;
+            int maHoaDon = Convert.ToInt32(row["MaHoaDon"]);
+            string trangThai = row["TrangThai"].ToString();
+
+            if (trangThai != "Đã thanh toán")
+            {
+                MessageBox.Show("Chỉ có thể xóa những hóa đơn đã thanh toán!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hóa đơn này không?", "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Xóa bản ghi liên quan trong LichSuHoaDon
+                    string deleteHistoryQuery = "DELETE FROM LichSuHoaDon WHERE MaHoaDon = @MaHoaDon";
+                    using (SqlCommand cmd = new SqlCommand(deleteHistoryQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Xóa chi tiết hóa đơn
+                    string deleteDetailsQuery = "DELETE FROM ChiTietHoaDon WHERE MaHoaDon = @MaHoaDon";
+                    using (SqlCommand cmd = new SqlCommand(deleteDetailsQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // Xóa hóa đơn
+                    string deleteInvoiceQuery = "DELETE FROM HoaDon WHERE MaHoaDon = @MaHoaDon";
+                    using (SqlCommand cmd = new SqlCommand(deleteInvoiceQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                LoadInvoices(); // Tải lại danh sách hóa đơn
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xóa hóa đơn: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void InvoiceListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

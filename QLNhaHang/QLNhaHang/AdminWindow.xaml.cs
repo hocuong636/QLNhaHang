@@ -7,6 +7,7 @@ namespace QLNhaHang
         public AdminWindow()
         {
             InitializeComponent();
+            ContentArea.Content = new DashboardPage();
         }
 
         private void DashboardButton_Click(object sender, RoutedEventArgs e)

@@ -11,6 +11,8 @@ namespace QLNhaHang
         {
             InitializeComponent();
             _maNguoiDung = maNguoiDung;
+
+            ContentArea.Content = new EmployeeControl.MenuUserControl(_maNguoiDung);
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)

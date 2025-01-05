@@ -100,8 +100,12 @@ namespace QLNhaHang.EmployeeControl
             var selectedItem = OrderListView.SelectedItem as OrderItem;
             if (selectedItem != null)
             {
-                orderItems.Remove(selectedItem);
-                UpdateTotal();
+                MessageBoxResult result = MessageBox.Show("Bạn có muốn xóa món đã gọi?", "Xác nhận xóa", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    orderItems.Remove(selectedItem);
+                    UpdateTotal();
+                }
             }
         }
 
@@ -286,7 +290,7 @@ namespace QLNhaHang.EmployeeControl
                             }
 
                             transaction.Commit();
-                            MessageBox.Show("Đã gửi yêu cầu chế biến thành công!", "Thông báo");
+                            //MessageBox.Show("Báo chế biến thành công", "Thông báo");
                             // Tạo phiếu order PDF
                             CreateOrderPDF(maHoaDon, soBan, orderItems.ToList());
 
@@ -314,8 +318,12 @@ namespace QLNhaHang.EmployeeControl
         private void OnSearchButtonClick(object sender, RoutedEventArgs e)
         {
             string searchText = SearchTextBox.Text.ToLower();
-            var filteredList = danhSachMonAn.Where(x => 
-                x.TenMonAn.ToLower().Contains(searchText));
+            if (searchText == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập món ăn", "Thông báo");
+                return;
+            }
+            var filteredList = danhSachMonAn.Where(x => x.TenMonAn.ToLower().Contains(searchText));
             MenuItemsControl.ItemsSource = filteredList;
         }
 
@@ -414,9 +422,17 @@ namespace QLNhaHang.EmployeeControl
             }
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void RefreshButtonClick(object sender, RoutedEventArgs e)
         {
+            LoadData();
+            ScrollViewer.ScrollToVerticalOffset(0); 
+            ScrollViewer.ScrollToHorizontalOffset(0);
+            SearchTextBox.Text = string.Empty;
+        }
 
+        private void SearchTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !e.Text.All(char.IsLetter);
         }
     }
 

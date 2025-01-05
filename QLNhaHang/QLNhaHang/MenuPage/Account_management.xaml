@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QLNhaHang.MenuPage"
              mc:Ignorable="d" 
-             Height="780"
-             Background="#F0F4F8" Width="1240">
+             Height="790"
+             Background="#F0F4F8" Width="1325">
 
     <UserControl.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
@@ -96,11 +96,11 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Margin="0,0,35,15">
+    <Grid Margin="0,0,105,15">
         <!-- Main Header -->
         <Border Background="#1976D2" 
                 Height="80" 
-                 VerticalAlignment="Top" Margin="0,0,-32,0">
+                 VerticalAlignment="Top" Margin="0,0,0,0">
             <TextBlock Text="QUẢN LÝ TÀI KHOẢN"
                        FontSize="28"
                        FontWeight="Bold"
@@ -116,7 +116,7 @@
         <!-- Main Content -->
         <Border Background="White" 
                 CornerRadius="15" 
-                Margin="20,100,20,30">
+                Margin="20,100,20,36">
             <Border.Effect>
                 <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
             </Border.Effect>

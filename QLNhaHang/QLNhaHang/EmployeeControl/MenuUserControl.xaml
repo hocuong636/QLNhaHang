@@ -79,33 +79,50 @@
                     <!-- Search Bar -->
                     <Border DockPanel.Dock="Top" 
                             Background="Transparent" 
-                            Width="300"
+                            Width="791"
                             Height="45"
-                            HorizontalAlignment="Left"
                             Margin="20,20,20,10">
                         <Border.Effect>
                             <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="1"/>
                         </Border.Effect>
-                        
+
                         <Grid>
-                            <TextBox x:Name="SearchTextBox"
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="380"/>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0"
+                                     x:Name="SearchTextBox"
                                      Style="{StaticResource SearchBoxStyle}"
                                      BorderThickness="0"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent"
-                                     FontSize="14" Margin="0,-5,-10,0" HorizontalAlignment="Right" Width="305"/>
-                            <Button Content="Tìm" 
+                                     FontSize="14" Margin="0,-3,0,-2" HorizontalAlignment="Left" Width="365" PreviewTextInput="SearchTextBox_PreviewTextInput"/>
+
+                            <Button Content="Tìm"
+                                    Grid.Column="1"
                                     Width="80"
                                     Style="{StaticResource RoundedButtonStyle}"
-                                    Background="#FFAC18B4"
-                                    HorizontalAlignment="Right"
-                                    Margin="0,0,0,5"
+                                    Background="#4CAF50"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,0,0,0"
                                     Click="OnSearchButtonClick"/>
+
+                            <Button Content="Làm mới"
+                                    Grid.Column="2"
+                                    Width="80"
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    Background="#FF9800"
+                                    HorizontalAlignment="Center"
+                                    Margin="0,0,0,0"
+                                    Click="RefreshButtonClick"/>
+
                         </Grid>
                     </Border>
 
                     <!-- Menu Items -->
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                    <ScrollViewer x:Name="ScrollViewer" VerticalScrollBarVisibility="Auto" 
                                 Margin="20,10,20,20">
                         <ItemsControl x:Name="MenuItemsControl" Width="840">
                             <ItemsControl.ItemsPanel>
@@ -147,7 +164,7 @@
                                                     Width="120" 
                                                     Style="{StaticResource RoundedButtonStyle}"
                                                     Background="#4CAF50"
-                                                    Margin="5"
+                                                    Margin="5,0,5,0"
                                                     Click="OnOrderButtonClick"
                                                     Tag="{Binding}"/>
                                         </StackPanel>

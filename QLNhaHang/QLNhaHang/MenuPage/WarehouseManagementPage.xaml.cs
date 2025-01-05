@@ -191,6 +191,26 @@ namespace QLNhaHang
             UnitComboBox.SelectedIndex = -1;
             PersonTextBox.Text = string.Empty;
         }
+
+        private void ButtonNhap(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonHuy(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSua(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonXoa(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class NguyenLieu

@@ -8,6 +8,7 @@
         Title="Đăng Nhập" 
         Height="600" 
         Width="900"
+        KeyDown="Window_KeyDown"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -163,16 +164,20 @@
                             Style="{StaticResource ModernButton}"
                             Content="LOGIN" 
                             Height="50"
-                            Click="LoginBtn_Click"/>
+                            Width="200"
+                            Click="LoginBtn_Click">
+                    </Button>
 
-                    <TextBlock Text="Forgot Password?" 
-                             Foreground="#1976D2" 
-                             FontSize="12" 
-                             HorizontalAlignment="Center" 
-                             Margin="0,20,0,0"
-                             Cursor="Hand"/>
+                    <Button x:Name="ForgetBtn" 
+                            Content="Forget Password ?" 
+                            Height="20"
+                            Width="100"
+                            Margin="0,10,0,0"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="#1976D2"
+                            Click="ForgetBtn_Click"/>
                 </StackPanel>
-                 <ContentControl x:Name="ContentArea" Grid.Row="1" />
             </Grid>
         </Grid>
     </Border>

@@ -59,7 +59,7 @@
         <!-- Main Content -->
         <Grid Margin="20,15,92,20" Grid.Row="2" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="745*" />
+                <ColumnDefinition Width="615*" />
                 <ColumnDefinition Width="293*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -73,14 +73,14 @@
                         Height="50" Margin="10,10,0,0" Grid.Row="1">
                 <Border Background="White"
                         CornerRadius="15"
-                        Width="480"
+                        Width="440"
                         Height="46"
                         Margin="5,0,0,0">
                     <Border.Effect>
                         <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="1"/>
                     </Border.Effect>
                     <TextBox x:Name="txbTimKiem"
-                             Width="460"
+                             Width="420"
                              Height="44"
                              VerticalAlignment="Center"
                              FontSize="14"
@@ -104,7 +104,7 @@
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
-                        Click="AddEmployee_Click">
+                        Click="SearchEmployee_Click">
                     <Button.Effect>
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
                     </Button.Effect>
@@ -117,7 +117,7 @@
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
-                        Click="EditEmployee_Click">
+                        Click="RefreshEmployee_Click">
                     <Button.Effect>
                         <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
                     </Button.Effect>
@@ -169,10 +169,11 @@
                               Background="Transparent">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Mã NV" Width="100" DisplayMemberBinding="{Binding MaNhanVien}"/>
                                 <GridViewColumn Header="Tên Nhân Viên" Width="200" DisplayMemberBinding="{Binding HoTen}"/>
                                 <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}"/>
                                 <GridViewColumn Header="Giới tính" Width="80" DisplayMemberBinding="{Binding GioiTinh}"/>
+                                <GridViewColumn Header="Số điện thoại" Width="120" DisplayMemberBinding="{Binding DienThoai}"/>
+                                <GridViewColumn Header="Ngày sinh " Width="120" DisplayMemberBinding="{Binding NTNS, StringFormat='dd/MM/yyyy'}"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -210,28 +211,41 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-
-                        <TextBlock Text="Mã Nhân Viên:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox x:Name="txtMaNV" Grid.Row="0" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
                         <TextBlock Text="Tên Nhân Viên:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
                         <TextBox x:Name="txtHoTen" Grid.Row="1" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
-                        <TextBlock Text="Số Điện Thoại:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox x:Name="txtDienThoai" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        <TextBlock Text="Giới tính:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox x:Name="TextBox" Grid.Row="2" Grid.Column="2" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        <ComboBox x:Name="ComboBox" Grid.Row="2" Margin="90,0,0,10" Height="25" Width="335"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  Background="#1976D2"
+                                  BorderThickness="0"
+                                  SelectedIndex="-1"
+                                  IsEditable="True"
+                                  StaysOpenOnEdit="True" Grid.ColumnSpan="2">  
+                            <ComboBoxItem Content="Nam" />
+                            <ComboBoxItem Content="Nu" />
+                            <ComboBoxItem Content="Khac" />
+                        </ComboBox>
+                        <TextBlock Text="Số Điện Thoại:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox x:Name="txtDienThoai" Grid.Row="3" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
-                        <TextBlock Text="Địa Chỉ:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox x:Name="txtDiaChi" Grid.Row="3" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        <TextBlock Text="Địa Chỉ:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox x:Name="txtDiaChi" Grid.Row="4" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
-                        <TextBlock Text="Ngày Sinh:" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <DatePicker x:Name="dpNgaySinh" Grid.Row="4" Grid.Column="1" Height="30" Margin="0,0,0,10"/>
+                        <TextBlock Text="Ngày Sinh:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <DatePicker x:Name="dpNgaySinh" Grid.Row="5" Grid.Column="1" Height="30" Margin="0,0,0,10"/>
 
-                        <TextBlock Text="CCCD:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox x:Name="txtCCCD" Grid.Row="5" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        <TextBlock Text="CCCD:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox x:Name="txtCCCD" Grid.Row="6" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
-                        <TextBlock Text="Mã Quyền:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-                        <TextBox x:Name="txtMaQuyen" Grid.Row="6" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        <TextBlock Text="Mã Quyền:" Grid.Row="7" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+                        <TextBox x:Name="txtMaQuyen" Grid.Row="7" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
                     </Grid>
                 </StackPanel>
             </Border>
@@ -239,7 +253,7 @@
             VerticalAlignment="Top" 
             Height="50" Margin="21,463,-148,0" Grid.Column="1" Grid.RowSpan="2">
                 <Button Content="Thêm"
-                        Margin="0,0,10,0"
+                        Margin="20,0,10,0"
                         Width="90"
                         Height="34"
                         FontWeight="Medium"
@@ -262,12 +276,12 @@
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
-                        Click="AddEmployee_Click">
-                        <Button.Effect>
-                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                        </Button.Effect>
+                        Click="CancelEmployee_Click">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                    </Button.Effect>
                 </Button>
-                
+
                 <Button Content="Sửa"
                         Margin="10,0,10,0"
                         Width="90"
@@ -277,10 +291,10 @@
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
-                        Click="AddEmployee_Click">
-                        <Button.Effect>
-                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                        </Button.Effect>
+                        Click="EditEmployee_Click">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                    </Button.Effect>
                 </Button>
 
                 <Button Content="Xóa"
@@ -292,10 +306,10 @@
                         Foreground="White"
                         BorderThickness="0"
                         Style="{StaticResource RoundedButtonStyle}"
-                        Click="AddEmployee_Click">
-                        <Button.Effect>
-                            <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
-                        </Button.Effect>
+                        Click="DeleteEmployee_Click">
+                    <Button.Effect>
+                        <DropShadowEffect Color="#40000000" Direction="320" ShadowDepth="2" BlurRadius="4"/>
+                    </Button.Effect>
                 </Button>
             </StackPanel>
         </Grid>

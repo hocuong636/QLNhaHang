@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Background="#2C3E50" HorizontalAlignment="Stretch">
-            <TextBlock Text="Employee Panel" Foreground="White" FontSize="18" FontWeight="Bold" 
+            <TextBlock Text="Employee" Foreground="White" FontSize="18" FontWeight="Bold" 
                        Margin="10" HorizontalAlignment="Center"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />

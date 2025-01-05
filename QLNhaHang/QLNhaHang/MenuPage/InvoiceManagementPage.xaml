@@ -192,7 +192,7 @@
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"
                                           VerticalContentAlignment="Center"
-                                          Background="White"
+                                          Background="#1976D2"
                                           BorderThickness="0"
                                           SelectedIndex="-1"
                                           IsEditable="True"
@@ -228,11 +228,10 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Mã HĐ" Binding="{Binding MaHoaDon}" Width="80"/>
-                            <DataGridTextColumn Header="Mã ND" Binding="{Binding MaNguoiDung}" Width="80"/>
-                            <DataGridTextColumn Header="Ngày Lập" Binding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="100"/>
-                            <DataGridTextColumn Header="Tổng Tiền" Binding="{Binding TongTien, StringFormat='{}{0:N0} đ'}" Width="120"/>
-                            <DataGridTextColumn Header="Số Bàn" Binding="{Binding SoBan}" Width="80"/>
+                            <DataGridTextColumn Header="Mã ND" Binding="{Binding MaNguoiDung}" Width="100"/>
+                            <DataGridTextColumn Header="Ngày Lập" Binding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="120"/>
+                            <DataGridTextColumn Header="Tổng Tiền" Binding="{Binding TongTien, StringFormat='{}{0:N0} đ'}" Width="140"/>
+                            <DataGridTextColumn Header="Số Bàn" Binding="{Binding SoBan}" Width="100"/>
                             <DataGridTextColumn Header="Trạng Thái" Binding="{Binding TrangThai}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -270,12 +269,21 @@
                                      Foreground="#2196F3"
                                      HorizontalAlignment="Right"/>
                         </Border>
-
-                        <Button Content="In Hóa Đơn"
-                                Style="{StaticResource ModernButtonStyle}"
-                                Width="150"
-                                Margin="0,10,0,0"
-                                Click="PrintInvoiceButton_Click"/>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="In Hóa Đơn"
+                                    Style="{StaticResource ModernButtonStyle}"
+                                    Background="#4CAF50"
+                                    Width="150"
+                                    Margin="20,0,20,0"
+                                    Click="PrintInvoiceButton_Click"/>
+                            <Button Content="Xóa Hóa Đơn"
+                                    Style="{StaticResource ModernButtonStyle}"
+                                    Background="#F44336"
+                                    Width="150"
+                                    Margin="20,0,20,0"
+                                    Click="DeleteInvoiceButton_Click"/> 
+                        </StackPanel>
                     </StackPanel>
 
                     <DataGrid Name="InvoiceDetailsListView"

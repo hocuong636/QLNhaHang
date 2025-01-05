@@ -65,14 +65,18 @@ namespace QLNhaHang
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "INSERT INTO NhanVien (MaNhanVien, HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, MaQuyen) " +
-                                   "VALUES (@MaNhanVien, @HoTen, @NTNS, @ChucVu, @GioiTinh, @DiaChi, @DienThoai, @CCCD, @MaQuyen)";
+                    string query = "INSERT INTO NhanVien (HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, MaQuyen) " +
+                                   "VALUES (@HoTen, @NTNS, @ChucVu, @GioiTinh, @DiaChi, @DienThoai, @CCCD, @MaQuyen)";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@MaNhanVien", txtMaNV.Text);
                     command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                     command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@ChucVu", "Nhân viên");
-                    command.Parameters.AddWithValue("@GioiTinh", "Nam"); // Bạn có thể thêm combobox chọn giới tính
+
+                    // Lấy giá trị từ ComboBox
+                    ComboBoxItem selectedGenderItem = ComboBox.SelectedItem as ComboBoxItem;
+                    string gender = selectedGenderItem != null ? selectedGenderItem.Content.ToString() : string.Empty;
+                    command.Parameters.AddWithValue("@GioiTinh", gender);
+
                     command.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                     command.Parameters.AddWithValue("@DienThoai", txtDienThoai.Text);
                     command.Parameters.AddWithValue("@CCCD", txtCCCD.Text);
@@ -81,6 +85,7 @@ namespace QLNhaHang
                     command.ExecuteNonQuery();
                     MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                     LoadEmployeeData();
+                    CancelEmployee_Click(null, null);
                 }
             }
             catch (Exception ex)
@@ -102,14 +107,21 @@ namespace QLNhaHang
                         string query = "UPDATE NhanVien SET HoTen = @HoTen, NTNS = @NTNS, GioiTinh = @GioiTinh, DiaChi = @DiaChi, " +
                                        "DienThoai = @DienThoai, CCCD = @CCCD, MaQuyen = @MaQuyen WHERE MaNhanVien = @MaNhanVien";
                         SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@MaNhanVien", txtMaNV.Text);
                         command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                         command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
-                        command.Parameters.AddWithValue("@GioiTinh", "Nam");
+
+                        // Lấy giá trị giới tính từ ComboBox
+                        ComboBoxItem selectedGenderItem = ComboBox.SelectedItem as ComboBoxItem;
+                        string gender = selectedGenderItem != null ? selectedGenderItem.Content.ToString() : string.Empty;
+                        command.Parameters.AddWithValue("@GioiTinh", gender);
+
                         command.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
                         command.Parameters.AddWithValue("@DienThoai", txtDienThoai.Text);
                         command.Parameters.AddWithValue("@CCCD", txtCCCD.Text);
                         command.Parameters.AddWithValue("@MaQuyen", txtMaQuyen.Text);
+
+                        // Thêm tham số @MaNhanVien
+                        command.Parameters.AddWithValue("@MaNhanVien", selectedEmployee.MaNhanVien);
 
                         command.ExecuteNonQuery();
                         MessageBox.Show("Sửa nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -162,8 +174,15 @@ namespace QLNhaHang
             if (lvNhanVien.SelectedItem is Employee selectedEmployee)
             {
                 // Gán dữ liệu của nhân viên được chọn vào các trường chi tiết
-                txtMaNV.Text = selectedEmployee.MaNhanVien;
                 txtHoTen.Text = selectedEmployee.HoTen;
+                foreach (ComboBoxItem item in ComboBox.Items)
+                {
+                    if (item.Content.ToString().Trim().Equals(selectedEmployee.GioiTinh.Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        ComboBox.SelectedItem = item;
+                        break;
+                    }
+                }
                 txtDiaChi.Text = selectedEmployee.DiaChi;
                 txtDienThoai.Text = selectedEmployee.DienThoai;
                 txtCCCD.Text = selectedEmployee.CCCD;
@@ -180,15 +199,70 @@ namespace QLNhaHang
         // Hàm xóa dữ liệu trong các trường chi tiết
         private void ClearEmployeeDetails()
         {
-            txtMaNV.Text = string.Empty;
             txtHoTen.Text = string.Empty;
             txtDiaChi.Text = string.Empty;
             txtDienThoai.Text = string.Empty;
             txtCCCD.Text = string.Empty;
             txtMaQuyen.Text = string.Empty;
             dpNgaySinh.SelectedDate = null;
+            ComboBox.SelectedIndex = -1;
         }
 
+        private void CancelEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            ClearEmployeeDetails();
+            txtHoTen.Focus();
+        }
+
+        private void SearchEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            string searchText = txbTimKiem.Text.Trim(); // Assuming there is a TextBox named txtSearch for entering search text
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "SELECT MaNhanVien, HoTen, NTNS, ChucVu, GioiTinh, DiaChi, DienThoai, CCCD, MaQuyen FROM NhanVien " +
+                                   "WHERE MaNhanVien LIKE @SearchText OR HoTen LIKE @SearchText";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    List<Employee> employees = new List<Employee>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        employees.Add(new Employee
+                        {
+                            MaNhanVien = row["MaNhanVien"].ToString(),
+                            HoTen = row["HoTen"].ToString(),
+                            NTNS = row["NTNS"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(row["NTNS"]),
+                            ChucVu = row["ChucVu"].ToString(),
+                            GioiTinh = row["GioiTinh"].ToString(),
+                            DiaChi = row["DiaChi"].ToString(),
+                            DienThoai = row["DienThoai"].ToString(),
+                            CCCD = row["CCCD"].ToString(),
+                            MaQuyen = row["MaQuyen"].ToString()
+                        });
+                    }
+
+                    lvNhanVien.ItemsSource = employees;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm nhân viên: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void RefreshEmployee_Click(object sender, RoutedEventArgs e)
+        {
+             LoadEmployeeData();
+             txbTimKiem.Clear(); 
+        }
     }
 
     // Lớp đại diện cho thông tin nhân viên

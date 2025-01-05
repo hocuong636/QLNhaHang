@@ -318,7 +318,7 @@ namespace QLNhaHang.EmployeeControl
                                 var menuControl = mainWindow.FindName("MenuControl") as MenuUserControl;
                             }
 
-                            MessageBox.Show("Thanh toán thành công!", "Thông báo");
+                            //MessageBox.Show("Thanh toán thành công!", "Thông báo");
 
                             // Mở file PDF
                             try

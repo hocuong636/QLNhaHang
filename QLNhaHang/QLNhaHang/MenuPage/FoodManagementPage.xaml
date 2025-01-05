@@ -101,7 +101,7 @@
                                 <ColumnDefinition Width="100"/>
                                 <ColumnDefinition Width="100"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="searchTextBox" 
+                            <TextBox x:Name="searchTextBox" PreviewTextInput="searchTextBox_PreviewTextInput" 
                                      Style="{StaticResource ModernTextBoxStyle}"
                                      Margin="0,0,10,0">
                                 <TextBox.Resources>
@@ -130,7 +130,7 @@
                     </Grid>
 
                     <!-- Food List -->
-                    <DataGrid Name="dgMonAn"
+                    <DataGrid Name="dgMonAn" SelectionChanged="dgMonAn_SelectionChanged"
                               AutoGenerateColumns="False"
                               IsReadOnly="True"
                               Background="Transparent"
@@ -151,7 +151,6 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Mã Món" Binding="{Binding MaMonAn}" Width="80"/>
                             <DataGridTextColumn Header="Tên Món" Binding="{Binding TenMonAn}" Width="*"/>
                             <DataGridTextColumn Header="Mô Tả" Binding="{Binding MoTa}" Width="2*"/>
                             <DataGridTextColumn Header="Giá (VNĐ)" Binding="{Binding Gia, StringFormat='{}{0:N0}'}" Width="120">
@@ -177,7 +176,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15"
-                    Margin="10,0,0,0">
+                    Margin="10,0,0,134">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" BlurRadius="15" ShadowDepth="2" Direction="315"/>
                 </Border.Effect>
@@ -192,13 +191,15 @@
                     <TextBlock Text="Tên Món:" 
                                Margin="0,0,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox Style="{StaticResource ModernTextBoxStyle}" 
+                    <TextBox x:Name="txtTenMonAn" 
+                             Style="{StaticResource ModernTextBoxStyle}" 
                              Margin="0,0,0,10"/>
 
                     <TextBlock Text="Mô Tả:" 
                                Margin="0,10,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox Style="{StaticResource ModernTextBoxStyle}" 
+                    <TextBox x:Name="txtMoTa"
+                             Style="{StaticResource ModernTextBoxStyle}" 
                              Height="80" 
                              TextWrapping="Wrap" 
                              AcceptsReturn="True"
@@ -207,13 +208,15 @@
                     <TextBlock Text="Giá (VNĐ):" 
                                Margin="0,10,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox Style="{StaticResource ModernTextBoxStyle}" 
+                    <TextBox x:Name="txtGia"  
+                             Style="{StaticResource ModernTextBoxStyle}" 
                              Margin="0,0,0,10"/>
 
                     <TextBlock Text="Số Lượng:" 
                                Margin="0,10,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox Style="{StaticResource ModernTextBoxStyle}" 
+                    <TextBox x:Name="txtSoLuong"
+                             Style="{StaticResource ModernTextBoxStyle}" 
                              Margin="0,0,0,20"/>
 
                     <StackPanel Orientation="Horizontal">
@@ -221,22 +224,22 @@
                                 Style="{StaticResource ModernButtonStyle}" 
                                 Background="#4CAF50"
                                 Width="90"
-                                Margin="5,0,5,0"/>
+                                Margin="5,0,5,0" Click="ButtonThem"/>
                         <Button Content="Hủy" 
                                 Style="{StaticResource ModernButtonStyle}" 
                                 Background="#757575"
                                 Width="90"
-                                Margin="0,0,5,0"/>
+                                Margin="0,0,5,0" Click="ButtonHuy"/>
                         <Button Content="Sửa" 
                                 Style="{StaticResource ModernButtonStyle}"
                                 Background="#2196F3"
                                 Margin="0,0,5,0"
-                                Width="90"
+                                Width="90" Click="ButtonSua"
                                 />
                         <Button Content="Xóa" 
                                 Style="{StaticResource ModernButtonStyle}"
                                 Background="#F44336"
-                                Width="90"/>
+                                Width="90" Click="ButtonXoa"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
