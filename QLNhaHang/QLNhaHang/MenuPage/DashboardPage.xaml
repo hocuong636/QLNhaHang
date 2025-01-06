@@ -123,7 +123,7 @@
                     <StackPanel>
                         <TextBlock Text="Doanh Thu Ngày" 
                                  Style="{StaticResource MetricTitleStyle}"/>
-                        <TextBlock x:Name="TotalRevenueTextBlock" 
+                        <TextBlock x:Name="DayTotalRevenueTextBlock" 
                                  Text="0 VND"
                                  Style="{StaticResource MetricValueStyle}"/>
                     </StackPanel>
@@ -137,7 +137,7 @@
                     <StackPanel>
                         <TextBlock Text="Doanh Thu Tháng" 
                                  Style="{StaticResource MetricTitleStyle}"/>
-                        <TextBlock x:Name="ActiveOrdersTextBlock" 
+                        <TextBlock x:Name="MonthTotalRevenueTextBlock" 
                                  Text="0 VND"
                                  Style="{StaticResource MetricValueStyle}"/>
                     </StackPanel>
