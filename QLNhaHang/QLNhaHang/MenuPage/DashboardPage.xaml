@@ -185,23 +185,21 @@
                              FontWeight="SemiBold"
                              Foreground="#1976D2"
                              Margin="0,0,0,20"/>
-
-                    <lvc:CartesianChart Grid.Row="1" 
-                                      x:Name="RevenueChart"
-                                      Loaded="RevenueChart_Loaded">
+                    <!-- Column Chart -->
+                    <lvc:CartesianChart Grid.Row="1" x:Name="RevenueChart">
                         <lvc:CartesianChart.Series>
-                            <lvc:ColumnSeries Title="Doanh Thu" 
-                                            Values="{Binding RevenueValues}"/>
+                            <lvc:ColumnSeries Values="{Binding RevenueValues}" 
+                                  Title="Doanh Thu" 
+                                  Fill="#1976D2"/>
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Ngày trong tuần" 
-                                     Labels="{Binding DayOfWeekLabels}"/>
+                            <lvc:Axis Title="Ngày" Labels="{Binding DaysOfWeek}"/>
                         </lvc:CartesianChart.AxisX>
                         <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Tổng Doanh Thu (VNĐ)" 
-                                     LabelFormatter="{Binding Formatter}"/>
+                            <lvc:Axis Title="Doanh Thu (VND)" MinValue="0"/>
                         </lvc:CartesianChart.AxisY>
                     </lvc:CartesianChart>
+
                 </Grid>
             </Border>
         </Grid>

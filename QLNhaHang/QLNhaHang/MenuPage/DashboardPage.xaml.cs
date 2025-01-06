@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows;
@@ -8,6 +9,7 @@ namespace QLNhaHang
 {
     public partial class DashboardPage : UserControl
     {
+        public DashboardViewModel ViewModel { get; set; }
         public List<decimal> RevenueValues { get; set; }
         public List<string> RevenueLabels { get; set; }
         public Func<decimal, string> Formatter { get; set; }
@@ -16,6 +18,11 @@ namespace QLNhaHang
             InitializeComponent();
             DayTotalRevenue_DataContextChanged();
             MonthTotalRevenue_DataContextChanged();
+            ViewModel = new DashboardViewModel();
+            DataContext = ViewModel;
+
+            // Cập nhật biểu đồ
+            UpdateChart();
         }
 
         private void LookupRevenue_Click(object sender, RoutedEventArgs e)
@@ -97,40 +104,12 @@ namespace QLNhaHang
                 }
             }
         }
-
-        private void RevenueChart_Loaded(object sender, RoutedEventArgs e)
+        private void UpdateChart()
         {
-            LoadRevenueData();
+            // Cập nhật giá trị cho biểu đồ
+            RevenueChart.Series[0].Values = new ChartValues<decimal>(ViewModel.RevenueValues);
+            RevenueChart.AxisX[0].Labels = ViewModel.RevenueLabels;
         }
-        private void LoadRevenueData()
-        {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\QLNhaHang\QLNhaHang\QLNhaHang\DatabaseQLnhahang.mdf;Integrated Security=True";
-            string query = @"
-            SELECT TOP 7 
-                CONVERT(date, NgayLap) AS Ngay, 
-                SUM(TongTien) AS DoanhThu
-            FROM HoaDon
-            GROUP BY CONVERT(date, NgayLap)
-            ORDER BY Ngay DESC";
 
-            RevenueValues = new List<decimal>();
-            RevenueLabels = new List<string>();
-
-            using(SqlConnection conn = DatabaseConnection.GetConnection())
-            {
-                SqlCommand command = new SqlCommand(query, conn);
-                conn.Open();
-
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    DateTime date = reader.GetDateTime(0);
-                    decimal revenue = reader.GetDecimal(1);
-
-                    RevenueLabels.Insert(0, date.ToString("dd/MM"));
-                    RevenueValues.Insert(0, revenue);
-                }
-            }
-        }
     }
 }
