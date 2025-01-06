@@ -48,18 +48,53 @@ namespace QLNhaHang.EmployeeControl
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM MonAn";
+                string query = "SELECT MaMonAn, TenMonAn, Gia, HinhAnh FROM MonAn";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
+                            string hinhAnhPath = reader["HinhAnh"].ToString();
+                            string fullPath;
+
+                            // Xử lý đường dẫn hình ảnh
+                            if (!string.IsNullOrEmpty(hinhAnhPath))
+                            {
+                                // Tạo đường dẫn đầy đủ đến thư mục Images trong project
+                                fullPath = Path.Combine(
+                                    Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName,
+                                    "Images",
+                                    hinhAnhPath
+                                );
+
+                                // Kiểm tra xem file có tồn tại không
+                                if (!File.Exists(fullPath))
+                                {
+                                    // Nếu không tìm thấy, sử dụng hình mặc định
+                                    fullPath = Path.Combine(
+                                        Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName,
+                                        "Images",
+                                        "default.jpg"
+                                    );
+                                }
+                            }
+                            else
+                            {
+                                // Sử dụng hình mặc định nếu không có đường dẫn
+                                fullPath = Path.Combine(
+                                    Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.FullName,
+                                    "Images",
+                                    "default.jpg"
+                                );
+                            }
+
                             danhSachMonAn.Add(new MonAn
                             {
                                 MaMonAn = reader["MaMonAn"].ToString(),
                                 TenMonAn = reader["TenMonAn"].ToString(),
-                                Gia = Convert.ToDecimal(reader["Gia"])
+                                Gia = Convert.ToDecimal(reader["Gia"]),
+                                HinhAnh = fullPath
                             });
                         }
                     }
@@ -441,7 +476,7 @@ namespace QLNhaHang.EmployeeControl
         public string MaMonAn { get; set; }
         public string TenMonAn { get; set; }
         public decimal Gia { get; set; }
-
+        public string HinhAnh { get; set; }
     }
 
     public class OrderItem : INotifyPropertyChanged

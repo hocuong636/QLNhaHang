@@ -3,21 +3,21 @@
   "WorkspaceRootPath": "C:\\QLNhaHang\\QLNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\dashboardpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\dashboardpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\menuusercontrol.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\dashboardpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\employeecontrol\\menuusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 1,
+      "Orientation": 0,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 326,
+          "DockedWidth": 170,
           "SelectedChildIndex": 2,
           "Children": [
             {
@@ -31,26 +31,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DashboardPage.xaml.cs",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
-              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
-              "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Title": "MenuUserControl.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T03:38:29.31Z",
+              "WhenOpened": "2025-01-06T04:28:09.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DashboardPage.xaml",
-              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\DashboardPage.xaml",
-              "RelativeToolTip": "QLNhaHang\\MenuPage\\DashboardPage.xaml",
+              "Title": "MenuUserControl.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
+              "RelativeToolTip": "QLNhaHang\\EmployeeControl\\MenuUserControl.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-05T17:01:01.457Z",
+              "WhenOpened": "2025-01-06T04:28:05.376Z",
               "EditorCaption": ""
             }
           ]
