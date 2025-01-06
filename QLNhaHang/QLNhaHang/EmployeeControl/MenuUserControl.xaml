@@ -98,7 +98,7 @@
                                      BorderThickness="0"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent"
-                                     FontSize="14" Margin="0,-3,0,-2" HorizontalAlignment="Left" Width="365" PreviewTextInput="SearchTextBox_PreviewTextInput"/>
+                                     FontSize="14" Margin="0,-3,0,-2" HorizontalAlignment="Left" Width="365" PreviewTextInput="SearchTextBox_PreviewTextInput" PreviewKeyDown="SearchTextBox_PreviewKeyDown"/>
 
                             <Button Content="Tìm"
                                     Grid.Column="1"

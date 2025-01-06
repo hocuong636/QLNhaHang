@@ -264,6 +264,33 @@ namespace QLNhaHang
             ComboBox_SelectionChanged(null, null);
         }
 
+        private void SearchTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            // Chỉ cho phép nhập số
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        private static bool IsTextAllowed(string text)
+        {
+            return int.TryParse(text, out _);
+        }
+
+        private void SearchTextBox_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+                if (!IsTextAllowed(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
         private void StatusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox_SelectionChanged(null, null);
@@ -331,11 +358,6 @@ namespace QLNhaHang
             {
                 MessageBox.Show($"Lỗi khi xóa hóa đơn: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void InvoiceListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

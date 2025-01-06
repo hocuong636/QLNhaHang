@@ -101,7 +101,8 @@
                                 <ColumnDefinition Width="100"/>
                                 <ColumnDefinition Width="100"/>
                             </Grid.ColumnDefinitions>
-                            <TextBox x:Name="searchTextBox" PreviewTextInput="searchTextBox_PreviewTextInput" 
+                            <TextBox x:Name="searchTextBox"  
+                                     PreviewTextInput="searchTextBox_PreviewTextInput" DataObject.Pasting="searchTextBox_Pasting"  
                                      Style="{StaticResource ModernTextBoxStyle}"
                                      Margin="0,0,10,0">
                                 <TextBox.Resources>
@@ -208,16 +209,16 @@
                     <TextBlock Text="Giá (VNĐ):" 
                                Margin="0,10,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox x:Name="txtGia"  
+                    <TextBox x:Name="txtGia" PreviewTextInput="NumberOnly_PreviewTextInput" DataObject.Pasting="TextBoxPastingEventHandler"  
                              Style="{StaticResource ModernTextBoxStyle}" 
                              Margin="0,0,0,10"/>
 
                     <TextBlock Text="Số Lượng:" 
                                Margin="0,10,0,5" 
                                FontWeight="Medium"/>
-                    <TextBox x:Name="txtSoLuong"
+                    <TextBox x:Name="txtSoLuong" PreviewTextInput="NumberOnly_PreviewTextInput" DataObject.Pasting="TextBoxPastingEventHandler"
                              Style="{StaticResource ModernTextBoxStyle}" 
-                             Margin="0,0,0,20"/>
+                             Margin="0,0,0,20" />
 
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Thêm" 

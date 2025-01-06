@@ -469,6 +469,16 @@ namespace QLNhaHang.EmployeeControl
         {
             e.Handled = !e.Text.All(char.IsLetter);
         }
+
+        private void SearchTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                // Ngăn chặn hành động dán
+                e.Handled = true;
+            }
+        }
+
     }
 
     public class MonAn

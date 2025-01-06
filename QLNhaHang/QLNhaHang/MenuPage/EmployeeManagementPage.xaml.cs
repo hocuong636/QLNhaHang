@@ -1,7 +1,10 @@
-﻿using System;
+﻿using iTextSharp.text;
+using QLNhaHang.EmployeeControl;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,6 +18,13 @@ namespace QLNhaHang
         {
             InitializeComponent();
             LoadEmployeeData();
+            txtDienThoai.PreviewTextInput += TextBox_OnlyNumbers;
+            txtCCCD.PreviewTextInput += TextBox_OnlyNumbers;
+            txtMaQuyen.PreviewTextInput += TextBox_OnlyNumbers;
+
+            DataObject.AddPastingHandler(txtDienThoai, TextBox_PastingHandler);
+            DataObject.AddPastingHandler(txtCCCD, TextBox_PastingHandler);
+            DataObject.AddPastingHandler(txtMaQuyen, TextBox_PastingHandler);
         }
 
         // Tải dữ liệu nhân viên từ cơ sở dữ liệu
@@ -62,6 +72,50 @@ namespace QLNhaHang
         {
             try
             {
+                if (string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtChuVu.Text) || string.IsNullOrEmpty(txtDienThoai.Text) ||string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtCCCD.Text) || string.IsNullOrEmpty(txtMaQuyen.Text) || ComboBox.SelectedIndex == -1 || dpNgaySinh.SelectedDate == null) 
+                {
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (txtDienThoai.Text.Length != 10 || !txtDienThoai.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Số điện thoại phải có đúng 10 chữ số.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Validate txtCCCD for 12 digits
+                if (txtCCCD.Text.Length != 12 || !txtCCCD.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("CCCD phải có đúng 12 chữ số.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                // Validate txtMaQuyen for either "1" or "2"
+                if (txtMaQuyen.Text != "1" && txtMaQuyen.Text != "2")
+                {
+                    MessageBox.Show("Mã quyền chỉ được phép nhập 1 (ADMIN) hoặc 2 (NHÂN VIÊN).", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string checkQuery = "SELECT COUNT(*) FROM NhanVien WHERE HoTen = @HoTen";
+
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@HoTen", txtHoTen);
+                        int count = (int)checkCmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Nhân viên này đã tồn tại.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+                }
+
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
@@ -70,7 +124,7 @@ namespace QLNhaHang
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                     command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@ChucVu", "Nhân viên");
+                    command.Parameters.AddWithValue("@ChucVu", txtChuVu.Text);
 
                     // Lấy giá trị từ ComboBox
                     ComboBoxItem selectedGenderItem = ComboBox.SelectedItem as ComboBoxItem;
@@ -104,10 +158,11 @@ namespace QLNhaHang
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        string query = "UPDATE NhanVien SET HoTen = @HoTen, NTNS = @NTNS, GioiTinh = @GioiTinh, DiaChi = @DiaChi, " +
+                        string query = "UPDATE NhanVien SET HoTen = @HoTen, ChucVu = @ChucVu, NTNS = @NTNS, GioiTinh = @GioiTinh, DiaChi = @DiaChi, " +
                                        "DienThoai = @DienThoai, CCCD = @CCCD, MaQuyen = @MaQuyen WHERE MaNhanVien = @MaNhanVien";
                         SqlCommand command = new SqlCommand(query, connection);
                         command.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
+                        command.Parameters.AddWithValue("@ChucVu", txtChuVu.Text);
                         command.Parameters.AddWithValue("@NTNS", dpNgaySinh.SelectedDate ?? (object)DBNull.Value);
 
                         // Lấy giá trị giới tính từ ComboBox
@@ -146,16 +201,29 @@ namespace QLNhaHang
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    if (lvNhanVien.SelectedItem == null)
                     {
-                        connection.Open();
-                        string query = "DELETE FROM NhanVien WHERE MaNhanVien = @MaNhanVien";
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@MaNhanVien", selectedEmployee.MaNhanVien);
-                        command.ExecuteNonQuery();
+                        MessageBox.Show("Vui lòng chọn món ăn cần xóa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
 
-                        MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
-                        LoadEmployeeData();
+
+                    var result = MessageBox.Show("Bạn có chắc chắn muốn xóa món ăn này?", "Xác nhận",
+                                                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            string query = "DELETE FROM NhanVien WHERE MaNhanVien = @MaNhanVien";
+                            SqlCommand command = new SqlCommand(query, connection);
+                            command.Parameters.AddWithValue("@MaNhanVien", selectedEmployee.MaNhanVien);
+                            command.ExecuteNonQuery();
+
+                            MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                            LoadEmployeeData();
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -169,12 +237,43 @@ namespace QLNhaHang
             }
         }
 
+
+        // Hàm chỉ cho phép nhập số
+        private void TextBox_OnlyNumbers(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        // Kiểm tra nếu văn bản chỉ chứa số
+        private static bool IsTextNumeric(string text)
+        {
+            return int.TryParse(text, out _);
+        }
+
+        // Hàm xử lý sự kiện dán, chỉ cho phép dán số
+        private void TextBox_PastingHandler(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+                if (!IsTextNumeric(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
         private void EmployeeSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lvNhanVien.SelectedItem is Employee selectedEmployee)
             {
                 // Gán dữ liệu của nhân viên được chọn vào các trường chi tiết
                 txtHoTen.Text = selectedEmployee.HoTen;
+                txtChuVu.Text = selectedEmployee.ChucVu;
                 foreach (ComboBoxItem item in ComboBox.Items)
                 {
                     if (item.Content.ToString().Trim().Equals(selectedEmployee.GioiTinh.Trim(), StringComparison.OrdinalIgnoreCase))
@@ -200,6 +299,7 @@ namespace QLNhaHang
         private void ClearEmployeeDetails()
         {
             txtHoTen.Text = string.Empty;
+            txtChuVu.Text= string.Empty;
             txtDiaChi.Text = string.Empty;
             txtDienThoai.Text = string.Empty;
             txtCCCD.Text = string.Empty;

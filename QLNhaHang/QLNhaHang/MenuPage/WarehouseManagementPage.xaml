@@ -154,8 +154,8 @@
         <!-- Main Content -->
         <Grid Grid.Row="1" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="790"/>
-                <ColumnDefinition Width="390"/>
+                <ColumnDefinition Width="680"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
 
             <!-- Left Panel: Inventory List -->
@@ -172,12 +172,12 @@
                 <DockPanel Margin="20">
                     <Grid DockPanel.Dock="Top" Margin="0,0,20,20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="450"/>
+                            <ColumnDefinition Width="360"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox x:Name="SearchTextBox"
+                        <TextBox x:Name="SearchTextBox" PreviewTextInput="SearchTextBox_PreviewTextInput" DataObject.Pasting="SearchTextBox_Pasting"
                                 Style="{StaticResource ModernTextBox}"
                                 Margin="0,0,10,0"/>
 
@@ -186,14 +186,14 @@
                                 Style="{StaticResource ModernButton}"
                                 Width="100"
                                 Background="#4CAF50"
-                                Margin="10,0,10,0"/>
+                                Margin="10,0,10,0" Height="NaN" Click="ButtonSearch"/>
 
                         <Button Grid.Column="2"
                                 Content="Làm mới"
                                 Style="{StaticResource ModernButton}"
                                 Width="100"
                                 Background="#FF9800"
-                                Margin="10,0,10,0"/>   
+                                Margin="10,0,10,0" Click="ButtonRefresh"/>   
 
                     </Grid>
 
@@ -211,7 +211,7 @@
                               RowBackground="White"
                               AlternatingRowBackground="#F8F9FA"
                               HorizontalGridLinesBrush="#E0E6ED"
-                              VerticalGridLinesBrush="#E0E6ED" Height="549">
+                              VerticalGridLinesBrush="#E0E6ED" Height="549" SelectionChanged="InventoryDataGrid_SelectionChanged">
                         <DataGrid.Resources>
                             <Style TargetType="DataGridColumnHeader">
                                 <Setter Property="Background" Value="#F5F7FA"/>
@@ -223,13 +223,10 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Mã NL" Binding="{Binding MaNguyenLieu}" Width="80"/>
-                            <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="140"/>
-                            <DataGridTextColumn Header="Số Lượng" Binding="{Binding SoLuong}" Width="80"/>
-                            <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding DonVi}" Width="82"/>
-                            <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia, StringFormat='{}{0:N0} đ'}" Width="80"/>
-                            <DataGridTextColumn Header="Người nhập" Binding="{Binding NguoiNhap}" Width="140"/>
-                            <DataGridTextColumn Header="Ngày nhập" Binding="{Binding NgayLap, StringFormat='dd/MM/yyyy'}" Width="120"/>
+                            <DataGridTextColumn Header="Tên Nguyên Liệu" Binding="{Binding TenNguyenLieu}" Width="*"/>
+                            <DataGridTextColumn Header="Số Lượng" Binding="{Binding SoLuong}" Width="*"/>
+                            <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding DonVi}" Width="*"/>
+                            <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia, StringFormat='{}{0:N0} đ'}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -239,7 +236,7 @@
             <Border Grid.Column="1" 
                     Background="White" 
                     CornerRadius="15" 
-                    Margin="10,10,15,10">
+                    Margin="10,10,15,180">
                 <Border.Effect>
                     <DropShadowEffect Color="#20000000" 
                                     BlurRadius="15" 
@@ -254,13 +251,6 @@
                              Foreground="#1976D2" 
                              Margin="0,0,0,20"/>
 
-                    <TextBlock Text="Mã Nguyên liệu:" 
-                             Margin="0,0,0,5" 
-                             FontWeight="Medium"/>
-                    <TextBox x:Name="InputCodeTextBox" 
-                            Style="{StaticResource ModernTextBox}"
-                            Margin="0,0,0,15"/>
-
                     <TextBlock Text="Tên Nguyên liệu:" 
                              Margin="0,0,0,5" 
                              FontWeight="Medium"/>
@@ -271,60 +261,49 @@
                     <TextBlock Text="Số lượng:" 
                              Margin="0,0,0,5" 
                              FontWeight="Medium"/>
-                    <TextBox x:Name="QuantityTextBox" 
+                    <TextBox x:Name="QuantityTextBox" PreviewTextInput="QuantityTextBox_PreviewTextInput" DataObject.Pasting="QuantityTextBox_Pasting"
                             Style="{StaticResource ModernTextBox}"
                             Margin="0,0,0,15"/>
 
                     <TextBlock Text="Đơn vị tính:" 
                              Margin="0,0,0,5" 
                              FontWeight="Medium"/>
-                    <ComboBox x:Name="UnitComboBox" 
-                                Style="{StaticResource ModernComboBox}"
-                                Margin="0,0,0,15">
-                        <ComboBoxItem Content="Kg"/>
-                        <ComboBoxItem Content="Chai"/>
-                        <ComboBoxItem Content="Hộp"/>
-                    </ComboBox>
-                    
-                    <TextBlock Text="Đơn giá:" 
-                             Margin="0,0,0,5" 
-                             FontWeight="Medium"/>
-                    <TextBox x:Name="PriceTextBox" 
+                    <TextBox x:Name="UnitTextBox" PreviewTextInput="UnitTextBox_PreviewTextInput" DataObject.Pasting="UnitTextBox_Pasting"
                                Style="{StaticResource ModernTextBox}"
                                Margin="0,0,0,15"/>
 
-                    <TextBlock Text="Người nhập:" 
+                    <TextBlock Text="Đơn giá:" 
                              Margin="0,0,0,5" 
                              FontWeight="Medium"/>
-                    <TextBox x:Name="PersonTextBox" 
-                            Style="{StaticResource ModernTextBox}"
-                            Margin="0,0,0,30"/>
+                    <TextBox x:Name="PriceTextBox" PreviewTextInput="PriceTextBox_PreviewTextInput" DataObject.Pasting="PriceTextBox_Pasting"
+                               Style="{StaticResource ModernTextBox}"
+                               Margin="0,0,0,15"/>
 
                     <StackPanel Orientation="Horizontal"
                                 Margin="0,0,0,10">
-                        <Button Content="Nhập kho"
+                        <Button Content="Nhập"
                                 Style="{StaticResource ModernButton}"
                                 Background="#4CAF50"
-                                Width="70"
-                                Margin="0,0,0,0" Click="ButtonNhap"/>
+                                Width="90"
+                                Margin="15,0,0,0" Click="ButtonNhap" />
                         
                         <Button Content="Hủy" 
                                 Style="{StaticResource ModernButton}"            
                                 Background="#757575"
-                                Width="70"    
+                                Width="90"    
                                 Margin="15,0,0,0" Click="ButtonHuy"/>
                     
                         <Button Content="Sửa" 
                                 Style="{StaticResource ModernButton}"            
                                 Background="#2196F3"
                                 Margin="15,0,0,0"
-                                Width="70" Click="ButtonSua"/>
+                                Width="90" Click="ButtonSua" />
                         
                         <Button Content="Xóa" 
                                 Style="{StaticResource ModernButton}"
                                 Background="#F44336"
                                 Margin="15,0,0,0"
-                                Width="70" Click="ButtonXoa"/>
+                                Width="90" Click="ButtonXoa" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" 
                               HorizontalAlignment="Right">

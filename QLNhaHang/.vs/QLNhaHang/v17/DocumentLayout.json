@@ -3,10 +3,20 @@
   "WorkspaceRootPath": "C:\\QLNhaHang\\QLNhaHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.NguyenLieu.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\employeemanagementpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\employeemanagementpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.MonAn.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\employeemanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\employeemanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\foodmanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\foodmanagementpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\foodmanagementpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\foodmanagementpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 170,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,22 +38,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FoodManagementPage.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAADwv4MAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T11:29:31.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FoodManagementPage.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\FoodManagementPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-06T11:29:28.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "dbo.NguyenLieu [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.NguyenLieu.sql",
-              "ToolTip": "dbo.NguyenLieu [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-01-06T04:33:52.536Z",
+              "Title": "EmployeeManagementPage.xaml.cs",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml.cs",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml.cs",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml.cs",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T11:19:14.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.MonAn [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.MonAn.sql",
-              "ToolTip": "dbo.MonAn [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-01-06T04:33:11.602Z",
+              "Title": "EmployeeManagementPage.xaml",
+              "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
+              "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
+              "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
+              "RelativeToolTip": "QLNhaHang\\MenuPage\\EmployeeManagementPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-06T11:19:05.891Z",
               "EditorCaption": ""
             }
           ]

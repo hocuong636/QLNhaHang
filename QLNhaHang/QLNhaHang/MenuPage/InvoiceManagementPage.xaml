@@ -174,7 +174,8 @@
                                 <TextBox x:Name="SearchTextBox"
                                     Style="{StaticResource SearchBoxStyle}"
                                     Margin="0,0,0,0"
-                                    TextChanged="SearchTextBox_TextChanged"/>
+                                    TextChanged="SearchTextBox_TextChanged"
+                                    PreviewTextInput="SearchTextBox_PreviewTextInput" DataObject.Pasting="SearchTextBox_Pasting"/>
                             </Border>
 
                             <Border Grid.Column="1">

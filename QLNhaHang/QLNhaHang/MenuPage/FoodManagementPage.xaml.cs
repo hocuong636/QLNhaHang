@@ -283,6 +283,43 @@ namespace QLNhaHang
             {
                 MessageBox.Show($"Lỗi khi xóa món ăn: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        } 
+        }
+
+        private void NumberOnly_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !int.TryParse(e.Text, out _);
+        }
+
+        private void searchTextBox_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string pastedText = (string)e.DataObject.GetData(typeof(string));
+                if (pastedText.All(char.IsDigit))
+                {
+                    e.CancelCommand();  
+                }
+            }
+            else
+            {
+                e.CancelCommand(); 
+            }
+        }
+
+        private void TextBoxPastingEventHandler(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+                if (!int.TryParse(text, out _))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
     }
 }
