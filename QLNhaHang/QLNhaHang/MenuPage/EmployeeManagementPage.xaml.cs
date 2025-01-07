@@ -105,7 +105,7 @@ namespace QLNhaHang
 
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        checkCmd.Parameters.AddWithValue("@HoTen", txtHoTen);
+                        checkCmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text    );
                         int count = (int)checkCmd.ExecuteScalar();
 
                         if (count > 0)
@@ -371,7 +371,7 @@ namespace QLNhaHang
         public string MaNhanVien { get; set; }
         public string HoTen { get; set; }
         public DateTime? NTNS { get; set; }
-        public string ChucVu { get; set; }
+        public string ChucVu { get; set; }  
         public string GioiTinh { get; set; }
         public string DiaChi { get; set; }
         public string DienThoai { get; set; }

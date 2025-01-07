@@ -143,7 +143,8 @@
                             <TextBox Name="txtEmail" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
 
                             <TextBlock Text="Điện Thoại:" Margin="0,0,0,5" FontWeight="Medium"/>
-                            <TextBox Name="txtDienThoai" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15"/>
+                            <TextBox Name="txtDienThoai" Style="{StaticResource ModernTextBoxStyle}" Margin="0,0,0,15" PreviewTextInput="TxtDienThoai_PreviewTextInput"
+         PreviewKeyDown="TxtDienThoai_PreviewKeyDown" />
 
                             <TextBlock Text="Quyền:" Margin="0,0,0,5" FontWeight="Medium"/>
                             <ComboBox Name="cmbQuyen" 
@@ -167,7 +168,7 @@
                 <TabItem Header="Quản Lý Mật Khẩu" Style="{StaticResource ModernTabItemStyle}">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="20">
-                            <TextBlock Text="Nhập Email hoặc Tên Đăng Nhập để tìm thông tin:" 
+                            <TextBlock Text="Nhập tên đăng nhập hoặc Email để tìm thông tin:" 
                                      FontSize="16" 
                                      FontWeight="SemiBold" 
                                      Foreground="#1976D2"
@@ -176,7 +177,6 @@
                             <TextBox Name="txtRecovery"
                                     Style="{StaticResource ModernTextBoxStyle}"
                                     Margin="0,0,0,15"
-                                    Text="Email hoặc Tên Đăng Nhập"
                                     Foreground="Gray"
                                     GotFocus="TextBox_GotFocus"
                                     LostFocus="TextBox_LostFocus"/>
@@ -249,9 +249,6 @@
                                 </Style>
                             </DataGrid.Resources>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" 
-                                                  Binding="{Binding MaNguoiDung}" 
-                                                  Width="50"/>
                                 <DataGridTextColumn Header="Tên Đăng Nhập" 
                                                   Binding="{Binding TenDangNhap}" 
                                                   Width="*"/>

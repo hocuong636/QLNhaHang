@@ -135,6 +135,20 @@ namespace QLNhaHang.MenuPage
                     return;
                 }
 
+                if (txtNewPassword.Password.Length < 6)
+                {
+                    MessageBox.Show("Mật khẩu phải có từ 6 đến 8 ký tự.", "Thông báo");
+                    txtNewPassword.Password = string.Empty;
+                    return;
+                }
+
+                if (txtConfirmPassword.Password.Length < 6)
+                {
+                    MessageBox.Show("Mật khẩu phải có từ 6 đến 8 ký tự.", "Thông báo");
+                    txtConfirmPassword.Password = string.Empty;
+                    return;
+                }
+
                 string newPassword = txtNewPassword.Password;
                 string confirmPassword = txtConfirmPassword.Password;
 
@@ -201,6 +215,20 @@ namespace QLNhaHang.MenuPage
                     return;
                 }
 
+                if (txtMatKhau.Password.Length < 6)
+                {
+                    MessageBox.Show("Mật khẩu phải có từ 6 đến 8 ký tự.", "Thông báo");
+                    txtMatKhau.Password = string.Empty;
+                    return;
+                }
+
+                // Kiểm tra độ dài số điện thoại
+                if (txtDienThoai.Text.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại phải có đúng 10 ký tự!", "Thông báo");
+                    return;
+                }
+
                 // Lấy giá trị quyền từ ComboBox
                 string quyen = ((ComboBoxItem)cmbQuyen.SelectedItem).Content.ToString();
                 int maQuyen = (quyen == "Admin") ? 1 : 2;
@@ -244,7 +272,7 @@ namespace QLNhaHang.MenuPage
                                 decimal newId = (decimal)cmd.ExecuteScalar();
                                 
                                 transaction.Commit();
-                                MessageBox.Show($"Tạo tài khoản thành công! ID: {newId}", "Thông báo");
+                                MessageBox.Show("Tạo tài khoản thành công!","Thông báo");
 
                                 // Reset các trường nhập liệu
                                 txtTenDangNhap.Text = "";
@@ -269,6 +297,31 @@ namespace QLNhaHang.MenuPage
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void TxtDienThoai_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextNumeric(e.Text);
+        }
+
+        private bool IsTextNumeric(string text)
+        {
+            return int.TryParse(text, out _);
+        }
+
+        private void TxtDienThoai_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                e.Handled = true;
+                string clipboardText = Clipboard.GetText();
+
+                if (clipboardText.All(char.IsDigit))
+                {
+                    // Chỉ cho phép dán nếu toàn bộ nội dung clipboard là số
+                    (sender as TextBox).Text += clipboardText;
+                }
             }
         }
 
@@ -425,6 +478,7 @@ namespace QLNhaHang.MenuPage
                     LoadUserData(); // Load lại dữ liệu người dùng
                 }
             }
-        }
+        }   
+
     }
 }

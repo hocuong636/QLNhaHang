@@ -30,13 +30,12 @@ namespace QLNhaHang
                 return;
             }
 
-            //Giới hạn passwordbox
-            /*if (PasswordBox.Password.Length < 6)
+            if (PasswordBox.Password.Length < 6)
             {
                 MessageBox.Show("Mật khẩu phải có từ 6 đến 8 ký tự.", "Thông báo");
                 PasswordBox.Password = string.Empty;
                 return;
-            }*/
+            }
 
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\QLNhaHang\QLNhaHang\QLNhaHang\DatabaseQLnhahang.mdf;Integrated Security=True";
             string username = UsernameTextBox.Text;
