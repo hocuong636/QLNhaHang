@@ -192,56 +192,90 @@ namespace QLNhaHang
         {
             try
             {
-                string tenMonAn = txtTenMonAn.Text.Trim();
-                string moTa = txtMoTa.Text.Trim();
-                string gia = txtGia.Text.Trim();
-                string soLuong = txtSoLuong.Text.Trim();
-
-                if (string.IsNullOrEmpty(tenMonAn) || string.IsNullOrEmpty(moTa) || string.IsNullOrEmpty(gia) || string.IsNullOrEmpty(soLuong))
-                {
-                    MessageBox.Show("Vui lòng điền đầy đủ thông tin món ăn.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-
                 if (dgMonAn.SelectedItem == null)
                 {
                     MessageBox.Show("Vui lòng chọn món ăn cần sửa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                if (gia.Length < 3)
+                string tenMonAn = txtTenMonAn.Text.Trim();
+                string moTa = txtMoTa.Text.Trim();
+                string gia = txtGia.Text.Trim();
+                string soLuong = txtSoLuong.Text.Trim();
+
+                if (string.IsNullOrEmpty(tenMonAn) || string.IsNullOrEmpty(moTa) || 
+                    string.IsNullOrEmpty(gia) || string.IsNullOrEmpty(soLuong))
                 {
-                    gia += "000";
+                    MessageBox.Show("Vui lòng điền đầy đủ thông tin món ăn.", "Thông báo", 
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (!int.TryParse(soLuong, out int soLuongValue) || soLuongValue < 0)
+                {
+                    MessageBox.Show("Số lượng không hợp lệ.", "Thông báo", 
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (!decimal.TryParse(gia, out decimal giaValue) || giaValue <= 0)
+                {
+                    MessageBox.Show("Giá không hợp lệ.", "Thông báo", 
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
                 }
 
                 DataRowView selectedRow = (DataRowView)dgMonAn.SelectedItem;
-                int MaMonAn = Convert.ToInt32(selectedRow["MaMonAn"]);
+                int maMonAn = Convert.ToInt32(selectedRow["MaMonAn"]);
 
+                // Kiểm tra xem tên món ăn mới có bị trùng không (trừ chính nó)
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = @"UPDATE MonAn 
-                             SET TenMonAn = @TenMonAn, MoTa = @MoTa, Gia = @Gia, SoLuong = @SoLuong
-                             WHERE MaMonAn = @MaMonAn";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    string checkQuery = @"SELECT COUNT(*) FROM MonAn 
+                                        WHERE TenMonAn = @TenMonAn AND MaMonAn != @MaMonAn";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaMonAn", MaMonAn);
+                        checkCmd.Parameters.AddWithValue("@TenMonAn", tenMonAn);
+                        checkCmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
+                        int count = (int)checkCmd.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Tên món ăn này đã tồn tại.", "Thông báo", 
+                                MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+
+                    // Cập nhật thông tin món ăn
+                    string updateQuery = @"UPDATE MonAn 
+                                         SET TenMonAn = @TenMonAn, 
+                                             MoTa = @MoTa, 
+                                             Gia = @Gia, 
+                                             SoLuong = @SoLuong
+                                         WHERE MaMonAn = @MaMonAn";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaMonAn", maMonAn);
                         cmd.Parameters.AddWithValue("@TenMonAn", tenMonAn);
                         cmd.Parameters.AddWithValue("@MoTa", moTa);
-                        cmd.Parameters.AddWithValue("@Gia", gia);
-                        cmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                        cmd.Parameters.AddWithValue("@Gia", giaValue);
+                        cmd.Parameters.AddWithValue("@SoLuong", soLuongValue);
+
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                MessageBox.Show("Sửa món ăn thành công!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Sửa món ăn thành công!", "Thông báo", 
+                    MessageBoxButton.OK, MessageBoxImage.Information);
                 LoadMonAnData();
-                ButtonHuy(null,null);
+                ButtonHuy(null, null);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi sửa món ăn: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Lỗi khi sửa món ăn: {ex.Message}", "Lỗi", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
