@@ -105,7 +105,7 @@ namespace QLNhaHang
 
                     using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
                     {
-                        checkCmd.Parameters.AddWithValue("@HoTen", txtHoTen);
+                        checkCmd.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
                         int count = (int)checkCmd.ExecuteScalar();
 
                         if (count > 0)

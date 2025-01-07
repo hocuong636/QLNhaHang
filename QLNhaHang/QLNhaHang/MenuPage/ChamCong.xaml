@@ -74,19 +74,17 @@
                 </Border.Effect>
                 <DockPanel Margin="20">
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,20">
-                        <Border Background="White" CornerRadius="25" Width="290" RenderTransformOrigin="0.5,0.5" Height="40">
-                            <TextBox x:Name="searchTextBox"    
-                                     Margin="0,0,10,0">
-                                <TextBox.Resources>
-                                    <Style TargetType="{x:Type Border}">
-                                        <Setter Property="CornerRadius" Value="20"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
-                            <Border.Effect>
-                                <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="0"/>
-                            </Border.Effect>
-                        </Border>
+                        <TextBox x:Name="searchTextBox" TextAlignment="Left" VerticalContentAlignment="Center"  
+                                   Height="40"
+                                   Width="400"
+                                   Padding="10,0,0,0"
+                                   Margin="0,0,0,0">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
                         <Button Content="Tìm Kiếm"
                                 Margin="15,0"
                                 Width="120"
