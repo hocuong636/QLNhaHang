@@ -75,14 +75,14 @@
                 <DockPanel Margin="20">
                     <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,20">
                         <Border Background="White" CornerRadius="25" Width="290" RenderTransformOrigin="0.5,0.5" Height="40">
-                            <Border.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform AngleX="-1.432"/>
-                                    <RotateTransform/>
-                                    <TranslateTransform X="-0.375"/>
-                                </TransformGroup>
-                            </Border.RenderTransform>
+                            <TextBox x:Name="searchTextBox"    
+                                     Margin="0,0,10,0">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
                             <Border.Effect>
                                 <DropShadowEffect Color="#20000000" BlurRadius="10" ShadowDepth="0"/>
                             </Border.Effect>
@@ -174,17 +174,17 @@
                     <TextBlock Name="txtCurrentDateTime" FontSize="16" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"/>
 
                     <TextBlock Text="Thông Tin Nhân Viên" FontSize="18" FontWeight="SemiBold" Foreground="#1976D2" Margin="0,0,0,15"/>
+
+                    
                     <StackPanel>
                         <TextBlock Text="Họ Tên:" Foreground="#455A64" FontWeight="Medium"/>
-                        <TextBlock Name="txtHoTen" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBox x:Name="txtHoTen" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+
                         <TextBlock Text="Chức Vụ:" Foreground="#455A64" FontWeight="Medium"/>
-                        <TextBlock Name="txtChucVu" FontWeight="SemiBold" Margin="0,0,0,10"/>
-                        <TextBlock Text="Email:" Foreground="#455A64" FontWeight="Medium"/>
-                        <TextBlock Name="txtEmail" FontWeight="SemiBold" Margin="0,0,0,10"/>
-                        <TextBlock Text="Số Điện Thoại:" Foreground="#455A64" FontWeight="Medium"/>
-                        <TextBlock Name="txtDienThoai" FontWeight="SemiBold" Margin="0,0,0,10"/>
-                        <TextBlock Text="Tổng Giờ Làm Tháng Này:" Foreground="#455A64" FontWeight="Medium"/>
-                        <TextBlock Name="txtTongGioLam" FontWeight="SemiBold" Margin="0,0,0,10"/>
+                        <TextBox x:Name="txtChucVu" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
+                        
+                        <TextBlock Text="Tổng số giờ làm:" Foreground="#455A64" FontWeight="Medium"/>
+                        <TextBox x:Name="txtTGL" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

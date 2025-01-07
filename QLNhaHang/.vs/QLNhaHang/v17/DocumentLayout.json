@@ -7,8 +7,11 @@
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\chamcong.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\chamcong.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\menupage\\chamcong.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\chamcong.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.ChamCong.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +21,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 170,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,13 +33,23 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.ChamCong [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.ChamCong.sql",
+              "ToolTip": "dbo.ChamCong [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-01-07T02:34:47.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MenuPage\\ChamCong.xaml.cs",
+              "Title": "ChamCong.xaml.cs",
               "DocumentMoniker": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\ChamCong.xaml.cs",
               "RelativeDocumentMoniker": "QLNhaHang\\MenuPage\\ChamCong.xaml.cs",
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\ChamCong.xaml.cs",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\ChamCong.xaml.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAWwCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMoAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T01:16:27.05Z",
               "EditorCaption": ""
