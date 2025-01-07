@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\menupage\\account_management.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\menupage\\account_management.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\account_management.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
@@ -43,7 +43,7 @@
               "RelativeDocumentMoniker": "QLNhaHang\\MainWindow.xaml.cs",
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MainWindow.xaml.cs",
               "RelativeToolTip": "QLNhaHang\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwCUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wCwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T16:12:07.409Z",
               "EditorCaption": ""
@@ -57,18 +57,16 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MainWindow.xaml",
               "RelativeToolTip": "QLNhaHang\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-07T16:11:59.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:11:59.333Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dbo.NguoiDung [Data]",
+              "Title": "dbo.NguoiDung.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.NguoiDung.sql",
-              "ToolTip": "dbo.NguoiDung [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__QLNHAHANG_QLNHAHANG_QLNHAHANG_DATABASEQLNHAHANG.MDF/True/SqlTable/dbo.NguoiDung.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-01-07T16:08:34.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T16:08:34.599Z"
             },
             {
               "$type": "Document",
@@ -79,8 +77,7 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MenuPage\\Account_management.xaml",
               "RelativeToolTip": "QLNhaHang\\MenuPage\\Account_management.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-07T15:30:05.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T15:30:05.926Z"
             }
           ]
         }

@@ -203,12 +203,12 @@ namespace QLNhaHang
                 {
                     if (lvNhanVien.SelectedItem == null)
                     {
-                        MessageBox.Show("Vui lòng chọn món ăn cần xóa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("Vui lòng chọn nhân viên cần xóa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                         return;
                     }
 
 
-                    var result = MessageBox.Show("Bạn có chắc chắn muốn xóa món ăn này?", "Xác nhận",
+                    var result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhân viên này?", "Xác nhận",
                                                  MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                     if (result == MessageBoxResult.Yes)
