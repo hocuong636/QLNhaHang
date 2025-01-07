@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\menupage\\employeemanagementpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|c:\\qlnhahang\\qlnhahang\\qlnhahang\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "AbsoluteMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|C:\\QLNhaHang\\QLNhaHang\\qlnhahang\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{A2B2F18F-BFE7-4422-B90D-9A778F8A5540}|QLNhaHang\\QLNhaHang.csproj|solutionrelative:qlnhahang\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
@@ -61,9 +61,8 @@
               "ToolTip": "C:\\QLNhaHang\\QLNhaHang\\QLNhaHang\\MainWindow.xaml.cs",
               "RelativeToolTip": "QLNhaHang\\MainWindow.xaml.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAA1wCwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:12:07.409Z",
-              "EditorCaption": ""
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIGSURBVDhP7ZRPaNpQHMe/iTGkYQnTiZb9odCpUHQw7FqQyVbYYTDKEDzNy45Ddtp9jLLzYPfKwNN2cghSxENpPGlvG0yE9SRYMRaL/6bGaLIYnqwpdAjrYYd\u002B4Mfv8fv\u002B3jfvvTwehTO83/u5zTF0ds3Nw0Zpz5/dv50l0sLQJJusuXgsX2Px6VBGWR69zX0/fkGkhaHwen\u002BHjBFY5n1GxPePOni0KuLJKietKEeFVCpFOgCGYeD1ehGNRnuKouxGIpEekUwYUNQ6GUPuqx6uNcJoouGkr4K1LW05HI6tQCBAOoBWq4XBYIBqtXrq8XhOisViPhwOy0Q2VniGvW\u002B17Z6iZz8c1BFfd\u002BGpX4CbpzAej0kHkMvlkM/nIYoiYrEYBEF4aXz0azAY7M90yxn\u002BaAxw3B3jzeObhpmIGxygqipR/6BpGrrdLtLpNOr1\u002BsfhcPiKSFbDTZcRbg2bdzhcZzXo2hS6rhPVyty0VCo5M5mMQMqwkWzy8ME9/69TOX535RYYG21OOg9FUXA6nfD5fObPMVaIWq1WKJfL0ky3GBrn4W82m/FQKASWZUnVytxsHpVKBY1Go2Bk09CyZeMamHHRNhfBYngZXBn\u002BO/\u002B/IUOyCc/zoGkakiRdeLHP0\u002Bl0zHlzLK9NIpHYmEwm79rtNqbTKan\u002BndmrY7fbvySTyc\u002BkdJkAvwE\u002BOLpgLlA3ZAAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-01-07T16:12:07.409Z"
             },
             {
               "$type": "Document",
