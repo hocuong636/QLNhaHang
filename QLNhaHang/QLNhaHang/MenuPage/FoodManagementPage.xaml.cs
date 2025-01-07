@@ -160,6 +160,14 @@ namespace QLNhaHang
                     }
                 }
 
+                // Kiểm tra và chuyển đổi giá trị giá
+                if (!decimal.TryParse(gia, out decimal giaValue) || giaValue <= 0)
+                {
+                    MessageBox.Show("Giá không hợp lệ.", "Thông báo", 
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 // Nếu món ăn chưa tồn tại, thực hiện thêm vào cơ sở dữ liệu
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -171,8 +179,8 @@ namespace QLNhaHang
                     {
                         cmd.Parameters.AddWithValue("@TenMonAn", tenMonAn);
                         cmd.Parameters.AddWithValue("@MoTa", moTa);
-                        cmd.Parameters.AddWithValue("@Gia", gia);
-                        cmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                        cmd.Parameters.AddWithValue("@Gia", giaValue);
+                        cmd.Parameters.AddWithValue("@SoLuong", soLuongValue);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -184,7 +192,8 @@ namespace QLNhaHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi thêm món ăn: {ex.Message}", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Lỗi khi thêm món ăn: {ex.Message}", "Lỗi", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
