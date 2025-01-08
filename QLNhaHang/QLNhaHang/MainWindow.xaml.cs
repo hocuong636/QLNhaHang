@@ -1,6 +1,7 @@
 ﻿using QLNhaHang.EmployeeControl;
 using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -102,6 +103,13 @@ namespace QLNhaHang
         private void ForgetBtn_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Vui lòng liên hệ với ADMIN qua số điện thoại: 0353704987.","Thông báo");
+        }
+
+
+        private void HDSDBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = @"C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\HDSD.pdf";
+            Process.Start(filePath);
         }
     }
 }
