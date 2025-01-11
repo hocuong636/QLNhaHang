@@ -175,25 +175,32 @@ namespace QLNhaHang
         {
             try
             {
-                // Lấy số bàn từ button được chọn
-                Button selectedButton = null;
-                if (scrollViewer != null)
-                {
-                    var panel = scrollViewer.Content as Panel;
-                    if (panel != null)
-                    {
-                        selectedButton = panel.Children.OfType<Button>()
-                            .FirstOrDefault(b => b.Background == Brushes.Red);
-                    }
-                }
-
-                if (selectedButton == null)
+                // Lấy số bàn từ CurrentTableText thay vì tìm button
+                string currentTableText = CurrentTableText.Text;
+                if (currentTableText == "Bàn: Chưa chọn" || string.IsNullOrEmpty(currentTableText))
                 {
                     MessageBox.Show("Vui lòng chọn bàn cần thanh toán!", "Thông báo");
                     return;
                 }
 
-                int maBan = Convert.ToInt32(selectedButton.Tag);
+                int maBan = int.Parse(currentTableText.Replace("Bàn: ", ""));
+
+                // Kiểm tra xem bàn có đang được sử dụng không
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string checkQuery = "SELECT TrangThai FROM Ban WHERE SoBan = @MaBan";
+                    using (SqlCommand cmd = new SqlCommand(checkQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaBan", maBan);
+                        string trangThai = cmd.ExecuteScalar()?.ToString();
+                        if (trangThai != "Đang phục vụ")
+                        {
+                            MessageBox.Show("Bàn này không có hóa đơn cần thanh toán!", "Thông báo");
+                            return;
+                        }
+                    }
+                }
 
                 // Tạo thư mục HoaDon nếu chưa tồn tại
                 string folderPath = @"C:\QLNhaHang\QLNhaHang\QLNhaHang\bin\Debug\HoaDon";
