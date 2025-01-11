@@ -78,16 +78,16 @@ namespace QLNhaHang
                     return;
                 }
 
-                if (txtDienThoai.Text.Length != 10 || !txtDienThoai.Text.All(char.IsDigit))
+                if (txtDienThoai.Text.Length != 10 || !txtDienThoai.Text.All(char.IsDigit) || !txtDienThoai.Text.StartsWith("0"))
                 {
-                    MessageBox.Show("Số điện thoại phải có đúng 10 chữ số.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Số điện thoại phải có đúng 10 chữ số và bắt đầu bằng số 0.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                // Validate txtCCCD for 12 digits
-                if (txtCCCD.Text.Length != 12 || !txtCCCD.Text.All(char.IsDigit))
+                // Validate txtCCCD for 12 digits and must start with 0
+                if (txtCCCD.Text.Length != 12 || !txtCCCD.Text.All(char.IsDigit) || !txtCCCD.Text.StartsWith("0"))
                 {
-                    MessageBox.Show("CCCD phải có đúng 12 chữ số.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("CCCD phải có đúng 12 chữ số và bắt đầu bằng số 0.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -363,6 +363,8 @@ namespace QLNhaHang
              LoadEmployeeData();
              txbTimKiem.Clear(); 
         }
+
+   
     }
 
     // Lớp đại diện cho thông tin nhân viên

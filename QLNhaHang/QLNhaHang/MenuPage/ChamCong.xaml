@@ -44,7 +44,7 @@
         <!-- Main Header -->
         <Border Background="#1976D2" 
                 Height="80" 
-                VerticalAlignment="Top" Margin="0,0,0,0">
+                VerticalAlignment="Center" HorizontalAlignment="Left" Width="1256">
             <TextBlock Text="QUẢN LÝ CHẤM CÔNG"
                        FontSize="28"
                        FontWeight="Bold"
@@ -108,7 +108,7 @@
                                 Width="120"
                                 Height="30"
                                 Background="#FF9800"
-                                Style="{StaticResource RoundedButtonStyle}" RenderTransformOrigin="0.5,0.5" Click="Button_Click">        
+                                Style="{StaticResource RoundedButtonStyle}" RenderTransformOrigin="0.5,0.5" Click="Button_Click">
                             <Button.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -173,14 +173,14 @@
 
                     <TextBlock Text="Thông Tin Nhân Viên" FontSize="18" FontWeight="SemiBold" Foreground="#1976D2" Margin="0,0,0,15"/>
 
-                    
+
                     <StackPanel>
                         <TextBlock Text="Họ Tên:" Foreground="#455A64" FontWeight="Medium"/>
                         <TextBox x:Name="txtHoTen" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
 
                         <TextBlock Text="Chức Vụ:" Foreground="#455A64" FontWeight="Medium"/>
                         <TextBox x:Name="txtChucVu" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
-                        
+
                         <TextBlock Text="Tổng số giờ làm:" Foreground="#455A64" FontWeight="Medium"/>
                         <TextBox x:Name="txtTGL" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,0,0,10" Style="{StaticResource RoundedTextBoxStyle}"/>
                     </StackPanel>

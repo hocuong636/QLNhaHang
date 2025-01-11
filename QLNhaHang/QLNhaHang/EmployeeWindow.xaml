@@ -4,7 +4,7 @@
         Title="Employee Page"         
         WindowState="Maximized" 
         ResizeMode="CanResize"
-        Background="#ECF0F1" Height="300">
+        Background="#ECF0F1" Height="790">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
@@ -16,7 +16,7 @@
                        Margin="10" HorizontalAlignment="Center"/>
             <Button Style="{StaticResource NavButtonStyle}" Content="Menu" Click="MenuButton_Click" />
             <Button Style="{StaticResource NavButtonStyle}" Content="Tình Trạng Bàn" Click="TableStatusemployeeButton_Click" />
-            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" HorizontalAlignment="Center" Click="LogoutButton_Click" Margin="50,50,50,200" VerticalAlignment="Bottom" Foreground="#FF5252"/>
+            <Button Style="{StaticResource NavButtonStyle}" Content="Đăng xuất" HorizontalAlignment="Center" Click="LogoutButton_Click" Margin="50,550,50,200" VerticalAlignment="Bottom" Foreground="#FF5252"/>
 
         </StackPanel>
         <Border Grid.Column="1" Background="White" CornerRadius="10">
